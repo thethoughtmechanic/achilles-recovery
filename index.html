@@ -24,823 +24,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-cream: #FAF8F5;
-            --color-beige: #F0EDE7;
-            --color-beige-dark: #E0DBD2;
-            --color-blue: #4A6B82;
-            --color-blue-light: #6A8BA2;
-            --color-blue-pale: #E8EEF3;
-            --color-green: #5D9B6D;
-            --color-green-light: #7DB88D;
-            --color-green-pale: #E8F2EB;
-            --color-black: #1A1A1A;
-            --color-gray: #6B6B6B;
-            --color-gray-light: #9A9A9A;
-            --color-white: #FFFFFF;
-            
-            --font-serif: 'Fraunces', Georgia, serif;
-            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            
-            --nav-height: 56px;
-            --bottom-nav-height: 72px;
-            --radius: 12px;
-            --radius-sm: 8px;
-            --transition: 0.2s ease;
-            --shadow: 0 2px 12px rgba(0,0,0,0.06);
-            --shadow-lg: 0 4px 24px rgba(0,0,0,0.1);
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--color-black);
-            background-color: var(--color-cream);
-            min-height: 100vh;
-            min-height: 100dvh;
-            padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
-            overscroll-behavior: none;
-        }
-
-        /* Top Header */
-        .header {
-            position: sticky;
-            top: 0;
-            background: var(--color-white);
-            border-bottom: 1px solid var(--color-beige);
-            padding: var(--spacing-sm) var(--spacing-md);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: var(--nav-height);
-        }
-
-        .header-brand {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--color-black);
-        }
-
-        .header-phase {
-            background: var(--color-blue-pale);
-            color: var(--color-blue);
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        /* Main Content */
-        .main {
-            padding: var(--spacing-md);
-            padding-bottom: var(--spacing-lg);
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.25s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--color-white);
-            border-top: 1px solid var(--color-beige);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: var(--bottom-nav-height);
-            padding-bottom: env(safe-area-inset-bottom, 0px);
-            z-index: 1000;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-            height: 100%;
-            padding: var(--spacing-xs);
-            background: none;
-            border: none;
-            color: var(--color-gray);
-            font-family: var(--font-sans);
-            font-size: 0.7rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color var(--transition);
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .nav-item:active {
-            background: var(--color-beige);
-        }
-
-        .nav-item.active {
-            color: var(--color-blue);
-        }
-
-        .nav-icon {
-            font-size: 1.5rem;
-            margin-bottom: 2px;
-            line-height: 1;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--color-white);
-            border-radius: var(--radius);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-            box-shadow: var(--shadow);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .card-icon {
-            font-size: 1.25rem;
-            line-height: 1;
-        }
-
-        .card-title {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--color-gray);
-        }
-
-        .card-title-blue { color: var(--color-blue); }
-        .card-title-green { color: var(--color-green); }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-light) 100%);
-            color: var(--color-white);
-            border-radius: var(--radius);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: 1.75rem;
-            font-weight: 500;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .hero p {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-md);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-
-        .hero-stat-value {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        .hero-stat-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.8;
-        }
-
-        /* Phase Badge */
-        .phase-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            background: var(--color-blue-pale);
-            color: var(--color-blue);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .phase-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--color-green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Section Title */
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--color-black);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-md);
-        }
-
-        /* Lists */
-        .list {
-            list-style: none;
-        }
-
-        .list-item {
-            position: relative;
-            padding: 0.75rem 0 0.75rem 1.5rem;
-            border-bottom: 1px solid var(--color-beige);
-            font-size: 0.95rem;
-            color: var(--color-black);
-        }
-
-        .list-item:last-child {
-            border-bottom: none;
-        }
-
-        .list-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 1rem;
-            width: 6px;
-            height: 6px;
-            background: var(--color-green);
-            border-radius: 50%;
-        }
-
-        .list-item-warning::before {
-            background: #E8A87C;
-        }
-
-        .list-item ul {
-            margin-top: var(--spacing-xs);
-            margin-left: var(--spacing-sm);
-        }
-
-        .list-item li {
-            padding: 0.4rem 0;
-            font-size: 0.9rem;
-            color: var(--color-gray);
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .list-item li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.7rem;
-            width: 4px;
-            height: 4px;
-            background: var(--color-blue-light);
-            border-radius: 50%;
-        }
-
-        /* Collapsible Sections */
-        .collapsible {
-            border-radius: var(--radius);
-            background: var(--color-white);
-            margin-bottom: var(--spacing-sm);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .collapsible-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: var(--spacing-md);
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            font-family: var(--font-sans);
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .collapsible-header:active {
-            background: var(--color-beige);
-        }
-
-        .collapsible-title {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        .collapsible-title span {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--color-gray);
-        }
-
-        .collapsible-arrow {
-            font-size: 1rem;
-            color: var(--color-gray-light);
-            transition: transform var(--transition);
-        }
-
-        .collapsible.open .collapsible-arrow {
-            transform: rotate(180deg);
-        }
-
-        .collapsible-content {
-            display: none;
-            padding: 0 var(--spacing-md) var(--spacing-md);
-        }
-
-        .collapsible.open .collapsible-content {
-            display: block;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--color-beige-dark);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: var(--spacing-md);
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -2rem;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background: var(--color-beige-dark);
-            border-radius: 50%;
-            border: 3px solid var(--color-cream);
-        }
-
-        .timeline-item.completed .timeline-dot {
-            background: var(--color-green);
-        }
-
-        .timeline-item.current .timeline-dot {
-            background: var(--color-blue);
-            box-shadow: 0 0 0 4px var(--color-blue-pale);
-        }
-
-        .timeline-item.future .timeline-dot {
-            background: var(--color-beige-dark);
-        }
-
-        .timeline-phase {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--color-black);
-            margin-bottom: 2px;
-        }
-
-        .timeline-item.future .timeline-phase {
-            color: var(--color-gray);
-        }
-
-        .timeline-time {
-            font-size: 0.8rem;
-            color: var(--color-gray);
-        }
-
-        .timeline-item.current .timeline-time {
-            color: var(--color-blue);
-            font-weight: 500;
-        }
-
-        /* Milestone Cards */
-        .milestone {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--spacing-sm) 0;
-            border-bottom: 1px solid var(--color-beige);
-        }
-
-        .milestone:last-child {
-            border-bottom: none;
-        }
-
-        .milestone-activity {
-            font-weight: 500;
-            color: var(--color-black);
-        }
-
-        .milestone-time {
-            background: var(--color-blue-pale);
-            color: var(--color-blue);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Sport Table */
-        .sport-row {
-            display: flex;
-            gap: var(--spacing-sm);
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--color-beige);
-        }
-
-        .sport-row:last-child {
-            border-bottom: none;
-        }
-
-        .sport-level {
-            width: 70px;
-            flex-shrink: 0;
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .sport-level.low { color: var(--color-green); }
-        .sport-level.medium { color: var(--color-blue); }
-        .sport-level.high { color: #C47A6E; }
-
-        .sport-list {
-            color: var(--color-gray);
-            font-size: 0.9rem;
-        }
-
-        /* Provider Info */
-        .provider-info {
-            display: grid;
-            gap: var(--spacing-xs);
-        }
-
-        .provider-row {
-            display: flex;
-            gap: var(--spacing-sm);
-        }
-
-        .provider-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: var(--color-gray);
-            width: 80px;
-            flex-shrink: 0;
-        }
-
-        .provider-value {
-            font-size: 0.9rem;
-            color: var(--color-black);
-        }
-
-        /* Note Callout */
-        .note {
-            background: var(--color-green-pale);
-            border-left: 3px solid var(--color-green);
-            padding: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
-            font-size: 0.85rem;
-            color: var(--color-black);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-        }
-
-        /* Disclaimer */
-        .disclaimer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--color-gray);
-            font-style: italic;
-            padding: var(--spacing-md);
-            background: var(--color-beige);
-            border-radius: var(--radius-sm);
-            margin-top: var(--spacing-md);
-        }
-
-        /* Surgery Date Setup */
-        .setup-card {
-            background: var(--color-white);
-            border-radius: var(--radius);
-            padding: var(--spacing-lg);
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .setup-card h2 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .setup-card p {
-            color: var(--color-gray);
-            font-size: 0.9rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .date-input {
-            width: 100%;
-            padding: var(--spacing-sm);
-            font-size: 1rem;
-            font-family: var(--font-sans);
-            border: 2px solid var(--color-beige);
-            border-radius: var(--radius-sm);
-            text-align: center;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .date-input:focus {
-            outline: none;
-            border-color: var(--color-blue);
-        }
-
-        .btn {
-            width: 100%;
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--color-blue);
-            color: var(--color-white);
-            border: none;
-            border-radius: var(--radius-sm);
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background var(--transition);
-        }
-
-        .btn:active {
-            background: var(--color-blue-light);
-        }
-
-        /* What's Next Preview */
-        .next-preview {
-            background: var(--color-beige);
-            border-radius: var(--radius-sm);
-            padding: var(--spacing-sm);
-            margin-top: var(--spacing-sm);
-        }
-
-        .next-preview-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .next-preview-content {
-            font-size: 0.85rem;
-            color: var(--color-black);
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .progress-bar {
-            height: 8px;
-            background: var(--color-beige);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-green) 0%, var(--color-blue) 100%);
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-
-        /* Checkbox Styles */
-        .exercise-item {
-            display: flex;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) 0;
-            border-bottom: 1px solid var(--color-beige);
-        }
-
-        .exercise-item:last-child {
-            border-bottom: none;
-        }
-
-        .checkbox-wrapper {
-            flex-shrink: 0;
-            padding-top: 2px;
-        }
-
-        .checkbox {
-            width: 24px;
-            height: 24px;
-            border: 2px solid var(--color-blue);
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition);
-            background: var(--color-white);
-        }
-
-        .checkbox:active {
-            transform: scale(0.95);
-        }
-
-        .checkbox.checked {
-            background: var(--color-blue);
-            border-color: var(--color-blue);
-        }
-
-        .checkbox.checked::after {
-            content: '✓';
-            color: var(--color-white);
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .exercise-content {
-            flex: 1;
-        }
-
-        .exercise-name {
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 0.25rem;
-        }
-
-        .exercise-details {
-            font-size: 0.85rem;
-            color: var(--color-blue);
-            margin-bottom: 0.25rem;
-        }
-
-        .exercise-instructions {
-            font-size: 0.85rem;
-            color: var(--color-gray);
-            margin-bottom: 0.25rem;
-        }
-
-        .exercise-frequency {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.75rem;
-            color: var(--color-green);
-            background: var(--color-green-pale);
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            margin-top: 0.25rem;
-        }
-
-        .category-header {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--color-gray);
-            margin: var(--spacing-md) 0 var(--spacing-sm) 0;
-            padding-bottom: var(--spacing-xs);
-            border-bottom: 2px solid var(--color-beige-dark);
-        }
-
-        .category-header:first-child {
-            margin-top: 0;
-        }
-
-        /* Recovery Notes */
-        .recovery-notes {
-            background: var(--color-green-pale);
-            border-left: 4px solid var(--color-green);
-            padding: var(--spacing-md);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            margin-top: var(--spacing-md);
-        }
-
-        .recovery-notes-title {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--color-green);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .recovery-note-item {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .recovery-note-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .recovery-note-label {
-            font-weight: 600;
-            color: var(--color-black);
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .recovery-note-text {
-            font-size: 0.85rem;
-            color: var(--color-gray);
-        }
-
-        /* Hide scrollbar but allow scroll */
-        .main {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .main::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
@@ -860,7 +46,9 @@
 
             <div class="card" style="margin-top: var(--spacing-md);">
                 <div class="card-header">
-                    <span class="card-icon">👨‍⚕️</span>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    </span>
                     <span class="card-title">Provider</span>
                 </div>
                 <div class="provider-info">
@@ -891,31 +79,38 @@
         <!-- TODAY TAB -->
         <div class="tab-content" id="today">
             <div class="hero">
-                <h1>Open Achilles Tendon Repair</h1>
-                <p>Rehabilitation Protocol</p>
+                <!-- Top Meta Row -->
+                <div class="hero-meta">
+                    <span id="heroPhase">Phase —</span>
+                    <span>•</span>
+                    <span id="heroWeek">Week —</span>
+                </div>
+
+                <!-- The Main Focus (Dynamic) -->
+                <div class="hero-label">Current Goal</div>
+                <div class="hero-focus" id="heroFocus">
+                    Recovering...
+                </div>
+
+                <!-- Stats Row -->
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <div class="hero-stat-value" id="dayCount">—</div>
                         <div class="hero-stat-label">Day</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value" id="weekCount">—</div>
-                        <div class="hero-stat-label">Week</div>
+                        <div class="hero-stat-value" id="streakCount">0</div>
+                        <div class="hero-stat-label">Streak</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value" id="phaseCount">—</div>
-                        <div class="hero-stat-label">Phase</div>
+                        <div class="hero-stat-value" id="progressPercent">0%</div>
+                        <div class="hero-stat-label">Recovery</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-label">
-                    <span>Recovery Progress</span>
-                    <span id="progressPercent">0%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                
+                <!-- Integrated Progress Bar (Optional, simpler look) -->
+                <div style="background: rgba(255,255,255,0.2); height: 4px; margin-top: 1rem; width: 100%;">
+                    <div id="progressFill" style="background: var(--color-green); height: 100%; width: 0%;"></div>
                 </div>
             </div>
 
@@ -924,157 +119,29 @@
             </div>
         </div>
 
-        <!-- PHASE TAB -->
-        <div class="tab-content" id="phase">
+        <!-- PROTOCOL TAB -->
+        <div class="tab-content" id="protocol">
+            <!-- Compact Horizontal Timeline -->
+            <div class="card" style="margin-bottom: var(--spacing-md); padding: var(--spacing-md);">
+                <div id="currentPhaseBanner" class="current-phase-banner">
+                    <!-- Dynamically populated -->
+                </div>
+                <div class="timeline-horizontal" id="journeyTimeline">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Phase Details -->
             <div id="phaseContent">
                 <!-- Dynamically populated based on current phase -->
             </div>
-        </div>
 
-        <!-- PHYSIO TAB -->
-        <div class="tab-content" id="physio">
+            <!-- Return Criteria at bottom -->
             <div class="card">
-                <div style="text-align: center; margin-bottom: var(--spacing-md);">
-                    <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">🏥 Sonia's Exercises</h2>
-                    <p style="font-size: 0.85rem; color: var(--color-gray);">Prescribed: January 12, 2026</p>
-                    <p id="physioPhaseWeek" style="font-size: 0.85rem; color: var(--color-blue); font-weight: 500;"></p>
-                </div>
-
-                <!-- Hip Strength -->
-                <div class="category-header">Hip Strength</div>
-                
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="0"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Seated Straight Leg Raise</div>
-                        <div class="exercise-details">2 × 10 reps, slow 3-second lift/lower</div>
-                        <div class="exercise-instructions">Sit upright, knee slightly bent, lift the leg without leaning back</div>
-                        <span class="exercise-frequency">📅 2-3x per day</span>
-                    </div>
-                </div>
-
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="1"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Side-Lying Hip Abduction</div>
-                        <div class="exercise-details">2 × 10 reps, slow 3-second lift/lower</div>
-                        <div class="exercise-instructions">Lie on your side, keep hips stacked, lift the top leg straight up</div>
-                        <span class="exercise-frequency">📅 2-3x per day</span>
-                    </div>
-                </div>
-
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="2"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Prone Hip Extension</div>
-                        <div class="exercise-details">2 × 10 reps, slow 3-second lift/lower</div>
-                        <div class="exercise-instructions">Lie on your stomach, knee slightly bent, lift the leg without arching your back</div>
-                        <span class="exercise-frequency">📅 2-3x per day</span>
-                    </div>
-                </div>
-
-                <!-- Toe Control -->
-                <div class="category-header">Toe Control</div>
-
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="3"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Toe Flexion & Extension</div>
-                        <div class="exercise-details">1 × 15 reps, slow and controlled</div>
-                        <div class="exercise-instructions">Curl toes down, then lift them up fully</div>
-                        <span class="exercise-frequency">📅 Multiple times throughout the day</span>
-                    </div>
-                </div>
-
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="4"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Toe Abduction</div>
-                        <div class="exercise-details">1 × 15 reps, slow and controlled</div>
-                        <div class="exercise-instructions">Spread toes apart as best as you can</div>
-                        <span class="exercise-frequency">📅 Multiple times throughout the day</span>
-                    </div>
-                </div>
-
-                <!-- Knee Exercises -->
-                <div class="category-header">Knee Exercises</div>
-
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="5"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Quad Sets</div>
-                        <div class="exercise-details">2 × 10 reps, slow 3-second hold</div>
-                        <div class="exercise-instructions">Tighten the thigh to straighten the knee as tolerated</div>
-                        <span class="exercise-frequency">📅 2-3x per day</span>
-                    </div>
-                </div>
-
-                <div class="exercise-item">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" data-exercise="6"></div>
-                    </div>
-                    <div class="exercise-content">
-                        <div class="exercise-name">Heel Slides (on your back)</div>
-                        <div class="exercise-details">2 × 10 reps</div>
-                        <div class="exercise-instructions">Slowly slide heel toward your body, then back out</div>
-                        <span class="exercise-frequency">📅 2x per day</span>
-                    </div>
-                </div>
-
-                <!-- Recovery Notes -->
-                <div class="recovery-notes">
-                    <div class="recovery-notes-title">
-                        <span>⚠️</span>
-                        <span>Important Recovery Notes</span>
-                    </div>
-                    
-                    <div class="recovery-note-item">
-                        <div class="recovery-note-label">Pain & swelling control:</div>
-                        <div class="recovery-note-text">Ice and elevate for 20 minutes at a time, multiple times per day - especially after being upright or moving around.</div>
-                    </div>
-
-                    <div class="recovery-note-item">
-                        <div class="recovery-note-label">Boot use:</div>
-                        <div class="recovery-note-text">Continue sleeping in the boot as instructed.</div>
-                    </div>
-
-                    <div class="recovery-note-item">
-                        <div class="recovery-note-label">Mobility matters:</div>
-                        <div class="recovery-note-text">Staying consistent with movement and exercises helps prevent stiffness and supports proper healing.</div>
-                    </div>
-
-                    <div class="recovery-note-item">
-                        <div class="recovery-note-label">Questions or concerns?</div>
-                        <div class="recovery-note-text">If you notice anything unusual (increasing pain, swelling that doesn't settle, or new symptoms), please contact Sonia.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- JOURNEY TAB -->
-        <div class="tab-content" id="journey">
-            <h2 class="section-title">Your Recovery Journey</h2>
-            <p class="section-subtitle">9 months to full strength</p>
-
-            <div class="timeline" id="journeyTimeline">
-                <!-- Dynamically populated -->
-            </div>
-
-            <div class="card" style="margin-top: var(--spacing-md);">
                 <div class="card-header">
-                    <span class="card-icon">🎯</span>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </span>
                     <span class="card-title card-title-blue">Return to Sport</span>
                 </div>
                 <div class="note">
@@ -1096,7 +163,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">💼</span>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </span>
                     <span class="card-title card-title-green">Return to Work</span>
                 </div>
                 <div class="note">
@@ -1118,7 +187,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📊</span>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    </span>
                     <span class="card-title">Sport Intensity Levels</span>
                 </div>
                 <div class="sport-row">
@@ -1137,7 +208,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">✅</span>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                    </span>
                     <span class="card-title card-title-blue">Prerequisites for Return</span>
                 </div>
                 <ul class="list">
@@ -1149,7 +222,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">👨‍⚕️</span>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M10 9H8"></path><path d="M16 9h-2"></path><path d="M8 13h2"></path><path d="M16 13h-2"></path><path d="M8 17h2"></path><path d="M16 17h-2"></path></svg>
+                    </span>
                     <span class="card-title">Provider Information</span>
                 </div>
                 <div class="provider-info">
@@ -1180,608 +255,120 @@
                 This protocol provides general guidelines for rehabilitation progression. Individual patient progress may vary, and all advancement should be discussed with and approved by the treating surgeon.
             </div>
         </div>
+
+        <!-- PHYSIO TAB -->
+        <div class="tab-content" id="physio">
+            <div class="card">
+                <!-- Header with contact icon -->
+                <div class="physio-header">
+                    <div class="physio-header-main">
+                        <h2 class="section-title" style="margin-bottom: 0;">Sonia's Exercises</h2>
+                        <button class="contact-icon-btn" id="openContactModal" aria-label="Contact info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                <circle cx="12" cy="8" r="2"></circle>
+                                <path d="M15 13a3 3 0 0 0-6 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Date Navigation -->
+                    <div class="date-nav">
+                        <button class="date-nav-btn" id="prevDayBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <span class="date-nav-current" id="currentDateDisplay">Today</span>
+                        <button class="date-nav-btn" id="nextDayBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+
+                    <p id="physioPhaseWeek" class="physio-phase-week"></p>
+                </div>
+
+                <!-- Prescription date tabs -->
+                <div class="prescription-tabs">
+                    <button class="prescription-tab active" data-prescription="jan12">Jan 12</button>
+                    <!-- Future prescriptions will be added here -->
+                </div>
+
+                <!-- Exercise content (will be swapped based on prescription) -->
+                <div id="prescriptionContent">
+                    <!-- Dynamically populated by app.js -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Modal -->
+        <div class="modal-overlay" id="contactModal">
+            <div class="modal">
+                <button class="modal-close" id="closeContactModal" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="modal-content">
+                    <div class="modal-avatar">SG</div>
+                    <h3 class="modal-name">Sonia Gavrilova</h3>
+                    <p class="modal-role">Physiotherapist</p>
+                    
+                    <div class="modal-divider"></div>
+                    
+                    <div class="modal-clinic">
+                        <p class="modal-clinic-name">Axis Therapy & Performance</p>
+                        <p class="modal-clinic-address">8 Mercer St, Unit 3, Toronto</p>
+                    </div>
+                    
+                    <a href="tel:+14169792000" class="modal-call-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Call (416) 979-2000
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <button class="nav-item" data-tab="today">
-            <span class="nav-icon">📋</span>
+            <span class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+            </span>
             <span>Today</span>
         </button>
-        <button class="nav-item" data-tab="phase">
-            <span class="nav-icon">🦶</span>
-            <span>Phase</span>
-        </button>
         <button class="nav-item" data-tab="physio">
-            <span class="nav-icon">🏥</span>
+            <span class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+            </span>
             <span>Physio</span>
         </button>
-        <button class="nav-item" data-tab="journey">
-            <span class="nav-icon">📈</span>
-            <span>Journey</span>
+        <button class="nav-item" data-tab="protocol">
+            <span class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+            </span>
+            <span>Protocol</span>
         </button>
     </nav>
 
-    <script>
-        // Phase Data (all original content preserved)
-        const phases = [
-            {
-                id: 1,
-                name: "Phase I",
-                timeline: "Surgery to 3 weeks",
-                startWeek: 0,
-                endWeek: 3,
-                goals: [
-                    "Control inflammation and pain",
-                    "Full hip and knee motion",
-                    "Good quad control"
-                ],
-                precautions: {
-                    intro: "General guidelines immediately after surgery:",
-                    items: [
-                        "Non-weight bearing with crutches",
-                        "Short leg cast in plantar flexion"
-                    ]
-                },
-                exercises: [
-                    "Toe curls and toe spreads",
-                    "Hip and knee ROM and strengthening exercises"
-                ],
-                braceStatus: null,
-                progressionCriteria: null,
-                nextPreview: "Phase II: Walking boot, gentle dorsiflexion"
-            },
-            {
-                id: 2,
-                name: "Phase II",
-                timeline: "3 to 6 weeks",
-                startWeek: 3,
-                endWeek: 6,
-                goals: [
-                    "Restore normal gait"
-                ],
-                precautions: null,
-                braceStatus: [
-                    "Walking boot in 30° plantar flexion, may be adjusted each week into dorsiflexion by 10° increments",
-                    "Start with toe-touch and increase to partial weight-bearing",
-                    "Wear boot for sleeping",
-                    "Continue with crutches"
-                ],
-                exercises: [
-                    "Start gentle active dorsiflexion until Achilles' stretch is felt",
-                    "Passive plantar flexion",
-                    "No active plantar flexion or passive dorsiflexion"
-                ],
-                progressionCriteria: [
-                    "Healed wound",
-                    "Active and passive dorsiflexion to -10 degrees rotation"
-                ],
-                nextPreview: "Phase III: Full weight bearing, regular shoes"
-            },
-            {
-                id: 3,
-                name: "Phase III",
-                timeline: "6 to 10 weeks",
-                startWeek: 6,
-                endWeek: 10,
-                goals: [
-                    "Establish normal gait",
-                    "Progress with strength, power, and proprioception",
-                    "Wean into regular shoe as tolerated"
-                ],
-                precautions: null,
-                braceStatus: [
-                    "Progress to full weight bearing",
-                    "May switch to shoes with a heel (cowboy boots, heel lift of ½\")"
-                ],
-                exercises: [
-                    "Slowly progress with passive ROM and stretch on Achilles' tendon",
-                    "Advance active dorsiflexion to neutral",
-                    "Initiate active plantar flexion at 8 weeks",
-                    "Begin stationary bike with heel push only",
-                    "Gait training",
-                    "May progress to pool swimming and jogging at 8 weeks"
-                ],
-                progressionCriteria: [
-                    "Normal gait"
-                ],
-                nextPreview: "Phase IV: Cycling, swimming, resistive exercises"
-            },
-            {
-                id: 4,
-                name: "Phase IV",
-                timeline: "10 to 14 weeks",
-                startWeek: 10,
-                endWeek: 14,
-                goals: [
-                    "Advance with strengthening and proprioception"
-                ],
-                precautions: null,
-                braceStatus: [
-                    "Wean into regular shoe as tolerated",
-                    "Full weightbearing"
-                ],
-                exercises: [
-                    "Progress to cycling in shoe",
-                    "Full active ROM in all planes",
-                    "Gentle full passive ROM in all planes",
-                    "Begin and gradually increase active/resistive exercises of the Achilles (i.e. submaximal isometrics, cautious isotonics, Theraband)",
-                    "Swimming"
-                ],
-                progressionCriteria: [
-                    "Enough strength and proprioception to advance to recreational activities"
-                ],
-                nextPreview: "Phase V: Squats, lunges, calf raises, plyometrics"
-            },
-            {
-                id: 5,
-                name: "Phase V",
-                timeline: "14 weeks to 6 months",
-                startWeek: 14,
-                endWeek: 26,
-                goals: [
-                    "Advance to recreational activities",
-                    "Transition to home PT program"
-                ],
-                precautions: null,
-                braceStatus: null,
-                exercises: [
-                    {
-                        text: "Closed chain exercises: controlled squats, lunges, bilateral calf raise (progress to unilateral), toe raises, controlled slow eccentrics vs. body weight"
-                    },
-                    {
-                        text: "Cycling, VersaClimber, elliptical trainer, rowing machine, Nordic Track (gradually)"
-                    },
-                    {
-                        text: "Plyometrics",
-                        subItems: ["Box Steps (6 and 12 inches)"]
-                    },
-                    {
-                        text: "Proprioception",
-                        subItems: [
-                            "Balance on stable and unstable (BAPS) surface with eyes closed",
-                            "Ball catching and throwing from stable and unstable surface"
-                        ]
-                    }
-                ],
-                progressionCriteria: [
-                    "Full ROM and strength"
-                ],
-                nextPreview: "Phase VI: Running, box jumps, sports-specific drills"
-            },
-            {
-                id: 6,
-                name: "Phase VI",
-                timeline: "6 to 9 months",
-                startWeek: 26,
-                endWeek: 39,
-                goals: [
-                    "Progress to all sports and physical demanding job"
-                ],
-                precautions: null,
-                braceStatus: null,
-                exercises: [
-                    {
-                        text: "Progress to jogging, then running"
-                    },
-                    {
-                        text: "Plyometrics",
-                        subItems: [
-                            "Stair running",
-                            "Box jumps (6 and 12 inches)",
-                            "Progress with eccentric loading"
-                        ]
-                    },
-                    {
-                        text: "Proprioception",
-                        subItems: ["Mini-tramp bouncing"]
-                    },
-                    {
-                        text: "Sports-specific drills (cutting, pivoting, start at 25% of speed and progress as tolerated)"
-                    }
-                ],
-                progressionCriteria: null,
-                nextPreview: null
-            }
-        ];
-
-        // State
-        let surgeryDate = localStorage.getItem('surgeryDate');
-        let currentTab = 'today';
-
-        // DOM Elements
-        const navItems = document.querySelectorAll('.nav-item');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const headerPhase = document.getElementById('headerPhase');
-        const surgeryDateInput = document.getElementById('surgeryDateInput');
-        const saveSurgeryDateBtn = document.getElementById('saveSurgeryDate');
-
-        // Calculate current phase based on surgery date
-        function getCurrentPhase() {
-            if (!surgeryDate) return null;
-            
-            const surgery = new Date(surgeryDate);
-            const today = new Date();
-            const diffTime = today - surgery;
-            const diffWeeks = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 7));
-            
-            for (let i = phases.length - 1; i >= 0; i--) {
-                if (diffWeeks >= phases[i].startWeek) {
-                    return { phase: phases[i], weeksSinceSurgery: diffWeeks };
-                }
-            }
-            return { phase: phases[0], weeksSinceSurgery: 0 };
-        }
-
-        // Get days since surgery
-        function getDaysSinceSurgery() {
-            if (!surgeryDate) return 0;
-            const surgery = new Date(surgeryDate);
-            const today = new Date();
-            return Math.floor((today - surgery) / (1000 * 60 * 60 * 24));
-        }
-
-        // Calculate progress percentage (9 months = ~270 days)
-        function getProgressPercent() {
-            const days = getDaysSinceSurgery();
-            const totalDays = 270; // 9 months
-            return Math.min(Math.round((days / totalDays) * 100), 100);
-        }
-
-        // Render exercise list (handles both string and object formats)
-        function renderExercises(exercises) {
-            return exercises.map(ex => {
-                if (typeof ex === 'string') {
-                    return `<li class="list-item">${ex}</li>`;
-                } else {
-                    let html = `<li class="list-item">${ex.text}`;
-                    if (ex.subItems) {
-                        html += '<ul>';
-                        ex.subItems.forEach(sub => {
-                            html += `<li>${sub}</li>`;
-                        });
-                        html += '</ul>';
-                    }
-                    html += '</li>';
-                    return html;
-                }
-            }).join('');
-        }
-
-        // Render Today tab content
-        function renderTodayContent() {
-            const result = getCurrentPhase();
-            if (!result) return;
-
-            const { phase, weeksSinceSurgery } = result;
-            const days = getDaysSinceSurgery();
-            const progress = getProgressPercent();
-
-            // Update stats
-            document.getElementById('dayCount').textContent = days;
-            document.getElementById('weekCount').textContent = weeksSinceSurgery;
-            document.getElementById('phaseCount').textContent = phase.id;
-            document.getElementById('progressPercent').textContent = `${progress}%`;
-            document.getElementById('progressFill').style.width = `${progress}%`;
-
-            // Update header
-            headerPhase.textContent = `${phase.name} • Week ${weeksSinceSurgery}`;
-
-            let html = `
-                <div class="phase-badge">
-                    <span class="phase-badge-dot"></span>
-                    ${phase.name}: ${phase.timeline}
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-icon">🎯</span>
-                        <span class="card-title card-title-blue">Today's Goals</span>
-                    </div>
-                    <ul class="list">
-                        ${phase.goals.map(g => `<li class="list-item">${g}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-
-            if (phase.precautions) {
-                html += `
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-icon">⚠️</span>
-                            <span class="card-title" style="color: #E8A87C;">Precautions</span>
-                        </div>
-                        <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: var(--spacing-sm);">${phase.precautions.intro}</p>
-                        <ul class="list">
-                            ${phase.precautions.items.map(p => `<li class="list-item list-item-warning">${p}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-
-            if (phase.braceStatus) {
-                html += `
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-icon">🦿</span>
-                            <span class="card-title card-title-green">Brace & Weightbearing</span>
-                        </div>
-                        <ul class="list">
-                            ${phase.braceStatus.map(b => `<li class="list-item">${b}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-
-            html += `
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-icon">💪</span>
-                        <span class="card-title card-title-blue">Exercises</span>
-                    </div>
-                    <ul class="list">
-                        ${renderExercises(phase.exercises)}
-                    </ul>
-                </div>
-            `;
-
-            if (phase.nextPreview) {
-                html += `
-                    <div class="next-preview">
-                        <div class="next-preview-title">What's Next</div>
-                        <div class="next-preview-content">${phase.nextPreview}</div>
-                    </div>
-                `;
-            }
-
-            document.getElementById('todayContent').innerHTML = html;
-        }
-
-        // Render Phase tab content (all phases as collapsibles)
-        function renderPhaseContent() {
-            const result = getCurrentPhase();
-            const currentPhaseId = result ? result.phase.id : 1;
-
-            let html = '<h2 class="section-title">All Phases</h2><p class="section-subtitle">Tap to expand details</p>';
-
-            phases.forEach(phase => {
-                const isCurrent = phase.id === currentPhaseId;
-                const isOpen = isCurrent;
-
-                html += `
-                    <div class="collapsible ${isOpen ? 'open' : ''}" data-phase="${phase.id}">
-                        <button class="collapsible-header">
-                            <div class="collapsible-title">
-                                <span class="card-icon">${isCurrent ? '🔵' : '⚪'}</span>
-                                <span>${phase.name}: ${phase.timeline}</span>
-                            </div>
-                            <span class="collapsible-arrow">▼</span>
-                        </button>
-                        <div class="collapsible-content">
-                            <div style="margin-bottom: var(--spacing-sm);">
-                                <div class="card-title card-title-blue" style="margin-bottom: var(--spacing-xs);">Rehabilitation Goals</div>
-                                <ul class="list">
-                                    ${phase.goals.map(g => `<li class="list-item">${g}</li>`).join('')}
-                                </ul>
-                            </div>
-                `;
-
-                if (phase.precautions) {
-                    html += `
-                        <div style="margin-bottom: var(--spacing-sm);">
-                            <div class="card-title" style="color: #E8A87C; margin-bottom: var(--spacing-xs);">Precautions</div>
-                            <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: var(--spacing-xs);">${phase.precautions.intro}</p>
-                            <ul class="list">
-                                ${phase.precautions.items.map(p => `<li class="list-item list-item-warning">${p}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-                }
-
-                if (phase.braceStatus) {
-                    html += `
-                        <div style="margin-bottom: var(--spacing-sm);">
-                            <div class="card-title card-title-green" style="margin-bottom: var(--spacing-xs);">Brace & Weightbearing Status</div>
-                            <ul class="list">
-                                ${phase.braceStatus.map(b => `<li class="list-item">${b}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-                }
-
-                html += `
-                    <div style="margin-bottom: var(--spacing-sm);">
-                        <div class="card-title card-title-blue" style="margin-bottom: var(--spacing-xs);">Suggested Therapeutic Exercises</div>
-                        <ul class="list">
-                            ${renderExercises(phase.exercises)}
-                        </ul>
-                    </div>
-                `;
-
-                if (phase.progressionCriteria) {
-                    html += `
-                        <div>
-                            <div class="card-title card-title-green" style="margin-bottom: var(--spacing-xs);">Progression Criteria</div>
-                            <ul class="list">
-                                ${phase.progressionCriteria.map(c => `<li class="list-item">${c}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-                }
-
-                html += `
-                        </div>
-                    </div>
-                `;
-            });
-
-            document.getElementById('phaseContent').innerHTML = html;
-
-            // Add collapsible event listeners
-            document.querySelectorAll('.collapsible-header').forEach(header => {
-                header.addEventListener('click', () => {
-                    const collapsible = header.parentElement;
-                    collapsible.classList.toggle('open');
-                });
-            });
-        }
-
-        // Render Journey timeline
-        function renderJourneyTimeline() {
-            const result = getCurrentPhase();
-            const currentPhaseId = result ? result.phase.id : 0;
-
-            let html = '';
-
-            phases.forEach(phase => {
-                let status = 'future';
-                if (phase.id < currentPhaseId) status = 'completed';
-                if (phase.id === currentPhaseId) status = 'current';
-
-                html += `
-                    <div class="timeline-item ${status}">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-phase">${phase.name}</div>
-                        <div class="timeline-time">${phase.timeline}</div>
-                    </div>
-                `;
-            });
-
-            // Add return to sport milestone
-            html += `
-                <div class="timeline-item future">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-phase">Return to Sport</div>
-                    <div class="timeline-time">9+ months</div>
-                </div>
-            `;
-
-            document.getElementById('journeyTimeline').innerHTML = html;
-        }
-
-        // Physio Checkbox Management
-        const TOTAL_EXERCISES = 7;
-
-        function getTodayKey() {
-            return new Date().toISOString().split('T')[0];
-        }
-
-        function loadCheckboxState() {
-            const key = `physio-checkboxes-${getTodayKey()}`;
-            const stored = localStorage.getItem(key);
-            return stored ? JSON.parse(stored) : Array(TOTAL_EXERCISES).fill(false);
-        }
-
-        function saveCheckboxState(state) {
-            const key = `physio-checkboxes-${getTodayKey()}`;
-            localStorage.setItem(key, JSON.stringify(state));
-        }
-
-        // Update Physio tab phase/week display dynamically
-        function updatePhysioPhaseWeek() {
-            const result = getCurrentPhase();
-            if (!result) return;
-            
-            const { phase, weeksSinceSurgery } = result;
-            const phaseWeekEl = document.getElementById('physioPhaseWeek');
-            if (phaseWeekEl) {
-                phaseWeekEl.textContent = `Phase ${phase.id} • Week ${weeksSinceSurgery}`;
-            }
-        }
-
-        function initPhysioCheckboxes() {
-            const checkboxes = document.querySelectorAll('.checkbox');
-            const state = loadCheckboxState();
-
-            checkboxes.forEach((checkbox, index) => {
-                // Set initial state
-                if (state[index]) {
-                    checkbox.classList.add('checked');
-                }
-
-                // Add click handler
-                checkbox.addEventListener('click', () => {
-                    const currentState = loadCheckboxState();
-                    currentState[index] = !currentState[index];
-                    saveCheckboxState(currentState);
-                    checkbox.classList.toggle('checked');
-                });
-            });
-        }
-
-        // Switch tabs
-        function switchTab(tabId) {
-            currentTab = tabId;
-
-            // Update nav items
-            navItems.forEach(item => {
-                item.classList.toggle('active', item.dataset.tab === tabId);
-            });
-
-            // Update tab content
-            tabContents.forEach(content => {
-                content.classList.toggle('active', content.id === tabId);
-            });
-
-            // Render content
-            if (tabId === 'today') renderTodayContent();
-            if (tabId === 'phase') renderPhaseContent();
-            if (tabId === 'journey') renderJourneyTimeline();
-            if (tabId === 'physio') {
-                initPhysioCheckboxes();
-                updatePhysioPhaseWeek();
-            }
-        }
-
-        // Initialize
-        function init() {
-            if (surgeryDate) {
-                // Show Today tab
-                document.getElementById('setup').classList.remove('active');
-                switchTab('today');
-                renderJourneyTimeline();
-                initPhysioCheckboxes();
-            } else {
-                // Show setup
-                document.getElementById('setup').classList.add('active');
-                document.querySelector('.bottom-nav').style.display = 'none';
-            }
-        }
-
-        // Event Listeners
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                switchTab(item.dataset.tab);
-            });
-        });
-
-        saveSurgeryDateBtn.addEventListener('click', () => {
-            const date = surgeryDateInput.value;
-            if (date) {
-                surgeryDate = date;
-                localStorage.setItem('surgeryDate', date);
-                document.getElementById('setup').classList.remove('active');
-                document.querySelector('.bottom-nav').style.display = 'flex';
-                switchTab('today');
-                renderJourneyTimeline();
-            }
-        });
-
-        // Initialize on load
-        init();
-
-        // Register Service Worker for offline support
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then((registration) => {
-                        console.log('✅ Service Worker registered successfully:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('❌ Service Worker registration failed:', error);
-                    });
-            });
-        }
-    </script>
+    <!-- App Logic -->
+    <script src="app.js"></script>
 </body>
 </html>

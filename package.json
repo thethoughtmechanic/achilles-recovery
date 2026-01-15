@@ -1,0 +1,14 @@
+{
+  "name": "achilles-recovery",
+  "version": "1.0.0",
+  "description": "Corey's Achilles Recovery Protocol",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+

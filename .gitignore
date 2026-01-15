@@ -2,6 +2,10 @@
 Axis Receipts/
 *.pdf
 
+# Node
+node_modules/
+dist/
+
 # Original markdown source
 achilles_repair_rehab_protocol.md
 

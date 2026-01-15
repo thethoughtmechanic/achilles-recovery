@@ -1,10 +1,12 @@
 // Service Worker for Corey's Achilles Recovery App
 // Enables offline functionality and fast loading
 
-const CACHE_NAME = 'achilles-recovery-v2';  // Bumped version to force refresh
+const CACHE_NAME = 'achilles-recovery-v5';
 const urlsToCache = [
   './',
   './index.html',
+  './styles.css',
+  './app.js',
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
@@ -12,7 +14,7 @@ const urlsToCache = [
 
 // Install event - cache all assets
 self.addEventListener('install', (event) => {
-  console.log('[Service Worker] Installing v2...');
+  console.log('[Service Worker] Installing...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -21,14 +23,14 @@ self.addEventListener('install', (event) => {
       })
       .then(() => {
         console.log('[Service Worker] Installed successfully');
-        return self.skipWaiting(); // Activate immediately
+        return self.skipWaiting();
       })
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating v2...');
+  console.log('[Service Worker] Activating...');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -41,43 +43,32 @@ self.addEventListener('activate', (event) => {
       );
     }).then(() => {
       console.log('[Service Worker] Activated successfully');
-      return self.clients.claim(); // Take control immediately
+      return self.clients.claim();
     })
   );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - NETWORK FIRST strategy for development-friendly updates
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
       .then((response) => {
-        // Cache hit - return response
-        if (response) {
-          return response;
+        // Got a fresh response, cache it
+        if (response && response.status === 200) {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
         }
-
-        // Clone the request
-        const fetchRequest = event.request.clone();
-
-        return fetch(fetchRequest).then((response) => {
-          // Check if valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
+        return response;
+      })
+      .catch(() => {
+        // Network failed, try cache
+        return caches.match(event.request).then((response) => {
+          if (response) {
             return response;
           }
-
-          // Clone the response
-          const responseToCache = response.clone();
-
-          // Cache the new resource
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-
-          return response;
-        }).catch((error) => {
-          console.log('[Service Worker] Fetch failed:', error);
-          // Return cached index.html for navigation requests
+          // For navigation, return cached index.html
           if (event.request.mode === 'navigate') {
             return caches.match('./index.html');
           }
