@@ -1,87 +1,42 @@
 // Corey's Achilles Protocol - App Logic
 
-// Physio Exercises Data
-const physioData = [
+// Sessions Data (Replaces static physioData)
+const sessions = [
     {
-        category: "Hip Strength",
-        // Abstract: Grid/Structure
-        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7"></rect>
-            <rect x="14" y="3" width="7" height="7"></rect>
-            <rect x="14" y="14" width="7" height="7"></rect>
-            <rect x="3" y="14" width="7" height="7"></rect>
-        </svg>`,
+        id: "jan12",
+        startDate: "2026-01-12",
+        title: "Jan 12 Session",
+        subtitle: "Focus: Hip Strength & Control",
         exercises: [
             {
-                id: 0,
-                name: "Seated Straight Leg Raise",
-                details: "2 × 10 reps, slow 3-second lift/lower",
-                instructions: "Sit upright, knee slightly bent, lift the leg without leaning back",
-                frequency: "2-3x per day"
+                category: "Hip Strength",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>`,
+                exercises: [
+                    { id: 0, name: "Seated Straight Leg Raise", details: "2 × 10 reps, slow 3-second lift/lower", instructions: "Sit upright, knee slightly bent, lift the leg without leaning back", frequency: "2-3x per day" },
+                    { id: 1, name: "Side-Lying Hip Abduction", details: "2 × 10 reps, slow 3-second lift/lower", instructions: "Lie on your side, keep hips stacked, lift the top leg straight up", frequency: "2-3x per day" },
+                    { id: 2, name: "Prone Hip Extension", details: "2 × 10 reps, slow 3-second lift/lower", instructions: "Lie on your stomach, knee slightly bent, lift the leg without arching your back", frequency: "2-3x per day" }
+                ]
             },
             {
-                id: 1,
-                name: "Side-Lying Hip Abduction",
-                details: "2 × 10 reps, slow 3-second lift/lower",
-                instructions: "Lie on your side, keep hips stacked, lift the top leg straight up",
-                frequency: "2-3x per day"
+                category: "Toe Control",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>`,
+                exercises: [
+                    { id: 3, name: "Toe Flexion & Extension", details: "1 × 15 reps, slow and controlled", instructions: "Curl toes down, then lift them up fully", frequency: "Multiple times throughout the day" },
+                    { id: 4, name: "Toe Abduction", details: "1 × 15 reps, slow and controlled", instructions: "Spread toes apart as best as you can", frequency: "Multiple times throughout the day" }
+                ]
             },
             {
-                id: 2,
-                name: "Prone Hip Extension",
-                details: "2 × 10 reps, slow 3-second lift/lower",
-                instructions: "Lie on your stomach, knee slightly bent, lift the leg without arching your back",
-                frequency: "2-3x per day"
-            }
-        ]
-    },
-    {
-        category: "Toe Control",
-        // Abstract: Concentric (Focus)
-        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="4"></circle>
-        </svg>`,
-        exercises: [
-            {
-                id: 3,
-                name: "Toe Flexion & Extension",
-                details: "1 × 15 reps, slow and controlled",
-                instructions: "Curl toes down, then lift them up fully",
-                frequency: "Multiple times throughout the day"
-            },
-            {
-                id: 4,
-                name: "Toe Abduction",
-                details: "1 × 15 reps, slow and controlled",
-                instructions: "Spread toes apart as best as you can",
-                frequency: "Multiple times throughout the day"
-            }
-        ]
-    },
-    {
-        category: "Knee Exercises",
-        // Abstract: Wave (Flow/Motion)
-        icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.2 0 1.8.5 2.5 1"></path>
-        </svg>`,
-        exercises: [
-            {
-                id: 5,
-                name: "Quad Sets",
-                details: "2 × 10 reps, slow 3-second hold",
-                instructions: "Tighten the thigh to straighten the knee as tolerated",
-                frequency: "2-3x per day"
-            },
-            {
-                id: 6,
-                name: "Heel Slides (on your back)",
-                details: "2 × 10 reps",
-                instructions: "Slowly slide heel toward your body, then back out",
-                frequency: "2x per day"
+                category: "Knee Exercises",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.2 0 1.8.5 2.5 1"></path></svg>`,
+                exercises: [
+                    { id: 5, name: "Quad Sets", details: "2 × 10 reps, slow 3-second hold", instructions: "Tighten the thigh to straighten the knee as tolerated", frequency: "2-3x per day" },
+                    { id: 6, name: "Heel Slides (on your back)", details: "2 × 10 reps", instructions: "Slowly slide heel toward your body, then back out", frequency: "2x per day" }
+                ]
             }
         ]
     }
+    // Add future sessions here, e.g.:
+    // { id: "jan16", startDate: "2026-01-16", title: "Jan 16 Session", ... }
 ];
 
 // Phase Data (all original content preserved)
@@ -269,6 +224,8 @@ const phases = [
 // State
 let surgeryDate = localStorage.getItem('surgeryDate');
 let currentTab = 'today';
+// We'll track currentPhysioDate as "the date being viewed"
+let currentPhysioDate = new Date();
 
 // DOM Elements
 const navItems = document.querySelectorAll('.nav-item');
@@ -276,6 +233,32 @@ const tabContents = document.querySelectorAll('.tab-content');
 const headerPhase = document.getElementById('headerPhase');
 const surgeryDateInput = document.getElementById('surgeryDateInput');
 const saveSurgeryDateBtn = document.getElementById('saveSurgeryDate');
+
+// Helper: Parse date string "YYYY-MM-DD" as local time
+function parseDateLocal(dateStr) {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    return new Date(y, m - 1, d); // Month is 0-indexed
+}
+
+// Helper: Get the session active for a specific date
+function getSessionForDate(dateObj) {
+    // Format date as YYYY-MM-DD for comparison
+    const dateStr = dateObj.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    
+    // Sort sessions by date (newest first)
+    const sorted = [...sessions].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+    
+    // Find the first session that started on or before the target date
+    const match = sorted.find(s => s.startDate <= dateStr);
+    
+    // Default to the first session (oldest) if date is before tracking started
+    return match || sorted[sorted.length - 1];
+}
+
+// Helper: Get session by ID
+function getSessionById(id) {
+    return sessions.find(s => s.id === id);
+}
 
 // Calculate current phase based on surgery date
 function getCurrentPhase() {
@@ -344,8 +327,8 @@ function calculateStreak() {
         
         if (stored) {
             const data = JSON.parse(stored);
-            // If any exercise was done that day, it counts
-            if (data.some(Boolean)) {
+            // If any exercise was done that day, it counts (regardless of how many exercises there were)
+            if (data && data.some(Boolean)) {
                 streak++;
             } else if (i === 0) {
                 // If today has no exercises yet, don't break streak from yesterday
@@ -381,17 +364,25 @@ function renderTodayContent() {
     document.getElementById('progressFill').style.width = `${progress}%`;
     
     // Inject Focus Goal directly into Hero
-    // Takes the first goal as the primary headline
     document.getElementById('heroFocus').textContent = phase.goals[0]; 
 
-    // 1. Action Section (Physio Link) - MOVED TO TOP
-    // Get completed count
-    const state = loadCheckboxState();
+    // 1. Action Section (Physio Link)
+    // Get stats for TODAY (using current actual date, not nav date)
+    const today = new Date();
+    const activeSession = getSessionForDate(today);
+    
+    // Calculate total exercises for the active session
+    let sessionTotal = 0;
+    activeSession.exercises.forEach(group => {
+        sessionTotal += group.exercises.length;
+    });
+
+    // Load state for today
+    const state = loadCheckboxState(today, sessionTotal);
     const completedCount = state.filter(Boolean).length;
-    const totalCount = state.length;
+    const totalCount = sessionTotal;
     const isComplete = completedCount === totalCount && totalCount > 0;
     
-    // Simple checkmark in circle icon for completion
     const completeIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; color: var(--color-green);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
 
     let actionHtml = `
@@ -411,23 +402,13 @@ function renderTodayContent() {
                 </div>
             </div>
             <div class="progress-track">
-                <div class="progress-fill-bar" style="width: ${(completedCount/totalCount)*100}%;"></div>
+                <div class="progress-fill-bar" style="width: ${totalCount > 0 ? (completedCount/totalCount)*100 : 0}%;"></div>
             </div>
         </div>
     `;
 
-    // 2. Current Focus Section - SIMPLIFIED DESIGN (Removed, now in hero)
-    /*
-    let focusHtml = `
-        <div class="focus-section">
-            <div class="section-label">Current Focus</div>
-            <div class="focus-content">
-                ${phase.goals.map(g => `<div class="focus-item">${g}</div>`).join('')}
-            </div>
-        </div>
-    `;
-    */
-    let focusHtml = ''; // Cleared as it's now in hero
+    // 2. Current Focus Section (Removed)
+    let focusHtml = ''; 
 
     // 3. Safety & Constraints Section
     let constraintsHtml = '';
@@ -475,7 +456,7 @@ function renderTodayContent() {
         nextHtml += `</div>`;
     }
 
-    // Combine all sections: Action -> Focus -> Safety -> Next
+    // Combine all sections
     document.getElementById('todayContent').innerHTML = actionHtml + focusHtml + constraintsHtml + nextHtml;
 }
 
@@ -597,12 +578,10 @@ function renderJourneyTimeline() {
     ];
 
     // Calculate progress percentage for the line
-    // Progress goes from first dot center to current dot center
     const totalSegments = allNodes.length - 1;
     const completedSegments = Math.max(0, currentPhaseId - 1);
     const progressPercent = (completedSegments / totalSegments) * 100;
 
-    // Build HTML with track, progress, and nodes in a wrapper
     let html = `
         <div class="timeline-track"></div>
         <div class="timeline-progress" style="width: ${progressPercent}%;"></div>
@@ -614,7 +593,6 @@ function renderJourneyTimeline() {
         if (node.id < currentPhaseId) status = 'completed';
         if (node.id === currentPhaseId) status = 'current';
 
-        // Show full name for current phase, just number for others
         const displayLabel = status === 'current' ? node.name : node.label;
 
         html += `
@@ -631,9 +609,6 @@ function renderJourneyTimeline() {
 }
 
 // Physio Checkbox Management
-const TOTAL_EXERCISES = 7;
-let currentPhysioDate = new Date();
-
 function getTodayKey(date = currentPhysioDate) {
     // Returns YYYY-MM-DD in Toronto time (America/Toronto)
     return date.toLocaleDateString('en-CA', {
@@ -644,10 +619,12 @@ function getTodayKey(date = currentPhysioDate) {
     });
 }
 
-function loadCheckboxState() {
-    const key = `physio-checkboxes-${getTodayKey()}`;
+function loadCheckboxState(date = currentPhysioDate, defaultCount = 0) {
+    const key = `physio-checkboxes-${getTodayKey(date)}`;
     const stored = localStorage.getItem(key);
-    return stored ? JSON.parse(stored) : Array(TOTAL_EXERCISES).fill(false);
+    // If we have stored data, use it (length comes from data)
+    // If not, use defaultCount which is calculated from the active session
+    return stored ? JSON.parse(stored) : Array(defaultCount).fill(false);
 }
 
 function saveCheckboxState(state) {
@@ -671,19 +648,71 @@ function updateDateDisplay() {
     display.textContent = isToday ? 'Today' : dateStr;
 }
 
-// Update Physio tab phase/week display dynamically
-function updatePhysioPhaseWeek() {
-    // Use currentPhysioDate for phase calculation? 
-    // Ideally yes, to see what phase you WERE in.
-    // But for now, let's keep it simple and just show current recovery status.
-    const result = getCurrentPhase(); 
-    if (!result) return;
-    
-    const { phase, weeksSinceSurgery } = result;
+// Update Physio tab phase/week display dynamically to show Session Info
+function updatePhysioPhaseWeek(activeSession) {
     const phaseWeekEl = document.getElementById('physioPhaseWeek');
-    if (phaseWeekEl) {
-        phaseWeekEl.textContent = `Phase ${phase.id} • Week ${weeksSinceSurgery}`;
+    if (phaseWeekEl && activeSession) {
+        // Simplified: Just show the session title, day info is now on the tabs
+        phaseWeekEl.innerHTML = `
+            <span style="color: var(--color-gray);">Active prescription from Sonia</span>
+        `;
     }
+}
+
+// Render dynamic session tabs
+function renderSessionTabs(activeSession) {
+    const container = document.getElementById('sessionTabs');
+    if (!container) return;
+
+    let html = '';
+    
+    // Sort chronologically for tabs (oldest -> newest)
+    const sorted = [...sessions].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+    
+    // Get current viewing date normalized to midnight
+    const currentNorm = new Date(currentPhysioDate);
+    currentNorm.setHours(0, 0, 0, 0);
+    
+    sorted.forEach(session => {
+        // Simple label based on startDate, e.g. "Jan 12"
+        const sessionStart = parseDateLocal(session.startDate);
+        sessionStart.setHours(0, 0, 0, 0);
+        const label = sessionStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        
+        // Calculate day number relative to this session
+        const diffTime = currentNorm - sessionStart;
+        const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const dayNum = dayDiff + 1;
+        
+        // Only show day number if we're on or after this session's start
+        const dayLabel = dayNum > 0 ? `Day ${dayNum}` : '';
+        
+        const isActive = activeSession && activeSession.id === session.id;
+        
+        html += `
+            <button class="prescription-tab ${isActive ? 'active' : ''}" data-session-id="${session.id}">
+                <span class="tab-day">${dayLabel}</span>
+                <span class="tab-date">${label}</span>
+            </button>
+        `;
+    });
+    
+    container.innerHTML = html;
+    
+    // Attach listeners
+    container.querySelectorAll('.prescription-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sessionId = btn.dataset.sessionId;
+            const session = getSessionById(sessionId);
+            if (session) {
+                // When clicking a tab, jump to that session's start date
+                const targetDate = parseDateLocal(session.startDate);
+                // Set currentPhysioDate to this date (local time)
+                currentPhysioDate = targetDate;
+                renderPhysioContent();
+            }
+        });
+    });
 }
 
 // Render Physio Content (Exercises + Groups)
@@ -693,28 +722,41 @@ function renderPhysioContent() {
     const container = document.getElementById('prescriptionContent');
     if (!container) return;
 
+    // 1. Get the correct session for the selected date
+    const activeSession = getSessionForDate(currentPhysioDate);
+    const sessionExercises = activeSession.exercises;
+
+    // Update Header
+    updatePhysioPhaseWeek(activeSession);
+    
+    // Render Tabs
+    renderSessionTabs(activeSession);
+
+    // Calculate total exercises for THIS session to init state correctly
+    let totalSessionExercises = 0;
+    sessionExercises.forEach(g => totalSessionExercises += g.exercises.length);
+
     // Capture currently open groups before re-rendering
     const openGroups = new Set();
     container.querySelectorAll('.exercise-group.open').forEach(el => {
         openGroups.add(el.id);
     });
 
-    const state = loadCheckboxState();
+    const state = loadCheckboxState(currentPhysioDate, totalSessionExercises);
     let html = '';
 
-    physioData.forEach((group, groupIndex) => {
+    sessionExercises.forEach((group, groupIndex) => {
         // Calculate progress
         const groupIds = group.exercises.map(e => e.id);
         const completedCount = groupIds.filter(id => state[id]).length;
         const totalCount = groupIds.length;
         const isComplete = completedCount === totalCount;
         
-        // Progress badge style
         const progressClass = isComplete ? 'complete' : '';
         const progressText = isComplete ? '✓' : `${completedCount}/${totalCount}`;
         
         const groupId = `group-${groupIndex}`;
-        const isOpen = openGroups.has(groupId); // Preserve state
+        const isOpen = openGroups.has(groupId);
 
         html += `
             <div class="exercise-group ${isOpen ? 'open' : ''}" id="${groupId}">
@@ -752,7 +794,7 @@ function renderPhysioContent() {
         `;
     });
 
-    // Add Recovery Notes
+    // Add Recovery Notes (Static for now, could move to Session if needed)
     html += `
         <div class="recovery-notes">
             <div class="recovery-notes-title">
@@ -792,9 +834,21 @@ function attachPhysioListeners() {
         checkbox.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent bubbling
             const id = parseInt(checkbox.dataset.exercise);
-            const state = loadCheckboxState();
-            state[id] = !state[id];
-            saveCheckboxState(state); // This re-renders
+            
+            const activeSession = getSessionForDate(currentPhysioDate);
+            let totalSessionExercises = 0;
+            activeSession.exercises.forEach(g => totalSessionExercises += g.exercises.length);
+            
+            const state = loadCheckboxState(currentPhysioDate, totalSessionExercises);
+            
+            // Safety check for index bounds
+            if (id >= 0) {
+                 // Ensure array is long enough if something went wrong
+                 while (state.length <= id) state.push(false);
+                 
+                 state[id] = !state[id];
+                 saveCheckboxState(state); // This re-renders
+            }
         });
     });
 }
@@ -828,7 +882,6 @@ function switchTab(tabId) {
     }
     if (tabId === 'physio') {
         initPhysioCheckboxes();
-        updatePhysioPhaseWeek();
     }
 }
 
@@ -890,6 +943,43 @@ if (contactModal) {
     });
 }
 
+// Copy email to clipboard
+const copyEmailBtn = document.getElementById('copyEmailBtn');
+if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', async () => {
+        const email = copyEmailBtn.dataset.email;
+        const emailText = copyEmailBtn.querySelector('.email-text');
+        const originalText = emailText.textContent;
+        
+        try {
+            await navigator.clipboard.writeText(email);
+            emailText.textContent = 'Copied!';
+            copyEmailBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                emailText.textContent = originalText;
+                copyEmailBtn.classList.remove('copied');
+            }, 1500);
+        } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            emailText.textContent = 'Copied!';
+            copyEmailBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                emailText.textContent = originalText;
+                copyEmailBtn.classList.remove('copied');
+            }, 1500);
+        }
+    });
+}
+
 // Date Navigation Listeners
 document.getElementById('prevDayBtn').addEventListener('click', () => {
     currentPhysioDate.setDate(currentPhysioDate.getDate() - 1);
@@ -916,4 +1006,3 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
-

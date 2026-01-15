@@ -1193,7 +1193,7 @@ body {
 /* Prescription Tabs */
 .prescription-tabs {
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
     border-bottom: 1px solid var(--color-beige);
@@ -1203,21 +1203,42 @@ body {
 
 .prescription-tab {
     flex-shrink: 0;
-    padding: 0.4rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0.5rem 1rem;
     background: var(--color-beige);
     border: none;
-    border-radius: 16px;
+    border-radius: 12px;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--color-gray);
     cursor: pointer;
     transition: all var(--transition);
+    position: relative;
+}
+
+.prescription-tab .tab-day {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.7;
+}
+
+.prescription-tab .tab-date {
+    font-size: 0.9rem;
 }
 
 .prescription-tab.active {
     background: var(--color-blue);
     color: var(--color-white);
+}
+
+.prescription-tab.active .tab-day {
+    opacity: 1;
 }
 
 .prescription-tab:active {
@@ -1356,4 +1377,41 @@ body {
 
 .modal-call-btn:active {
     background: var(--color-green-light);
+}
+
+.modal-email-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-xs);
+    background: var(--color-blue-pale);
+    color: var(--color-blue);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.modal-email-btn:active {
+    background: var(--color-beige);
+}
+
+.modal-email-btn.copied {
+    background: var(--color-green-pale);
+    color: var(--color-green);
+}
+
+.modal-email-btn .email-icon {
+    font-size: 1rem;
+}
+
+.modal-email-btn .email-text {
+    transition: opacity 0.15s ease;
 }

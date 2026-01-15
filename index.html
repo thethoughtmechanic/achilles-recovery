@@ -288,9 +288,8 @@
                 </div>
 
                 <!-- Prescription date tabs -->
-                <div class="prescription-tabs">
-                    <button class="prescription-tab active" data-prescription="jan12">Jan 12</button>
-                    <!-- Future prescriptions will be added here -->
+                <div class="prescription-tabs" id="sessionTabs">
+                    <!-- Dynamically populated -->
                 </div>
 
                 <!-- Exercise content (will be swapped based on prescription) -->
@@ -327,6 +326,11 @@
                         </svg>
                         Call (416) 979-2000
                     </a>
+                    
+                    <button class="modal-email-btn" id="copyEmailBtn" data-email="sonia.the.physiotherapist@gmail.com">
+                        <span class="email-icon">✉️</span>
+                        <span class="email-text">Copy Sonia's Email</span>
+                    </button>
                 </div>
             </div>
         </div>
