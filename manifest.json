@@ -2,8 +2,8 @@
   "name": "Corey's Achilles Recovery",
   "short_name": "Achilles",
   "description": "Personal Achilles tendon repair rehabilitation tracker with physiotherapy exercises",
-  "start_url": "/achilles-recovery/",
-  "scope": "/achilles-recovery/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FAF8F5",
@@ -23,4 +23,3 @@
     }
   ]
 }
-

@@ -1,19 +1,18 @@
 // Service Worker for Corey's Achilles Recovery App
 // Enables offline functionality and fast loading
 
-const CACHE_NAME = 'achilles-recovery-v1';
+const CACHE_NAME = 'achilles-recovery-v2';  // Bumped version to force refresh
 const urlsToCache = [
-  '/achilles-recovery/',
-  '/achilles-recovery/index.html',
-  '/achilles-recovery/manifest.json',
-  '/achilles-recovery/icon-192.png',
-  '/achilles-recovery/icon-512.png',
-  'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap'
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 // Install event - cache all assets
 self.addEventListener('install', (event) => {
-  console.log('[Service Worker] Installing...');
+  console.log('[Service Worker] Installing v2...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -29,7 +28,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating...');
+  console.log('[Service Worker] Activating v2...');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -54,7 +53,6 @@ self.addEventListener('fetch', (event) => {
       .then((response) => {
         // Cache hit - return response
         if (response) {
-          console.log('[Service Worker] Serving from cache:', event.request.url);
           return response;
         }
 
@@ -78,13 +76,13 @@ self.addEventListener('fetch', (event) => {
 
           return response;
         }).catch((error) => {
-          console.log('[Service Worker] Fetch failed, serving offline page:', error);
-          // You could return a custom offline page here if desired
-          return new Response('Offline - but your data is safe in localStorage!', {
-            headers: { 'Content-Type': 'text/plain' }
-          });
+          console.log('[Service Worker] Fetch failed:', error);
+          // Return cached index.html for navigation requests
+          if (event.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+          return new Response('Offline', { headers: { 'Content-Type': 'text/plain' } });
         });
       })
   );
 });
-
