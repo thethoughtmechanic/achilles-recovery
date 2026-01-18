@@ -259,7 +259,7 @@ const phases = [
 ];
 
 // State
-let surgeryDate = localStorage.getItem('surgeryDate');
+let surgeryDate = "2025-12-23"; // Hardcoded surgery date
 let currentTab = 'today';
 // We'll track currentPhysioDate as "the date being viewed"
 let currentPhysioDate = new Date();
@@ -725,7 +725,7 @@ function renderSessionTabs(activeSession) {
     // Sort chronologically for tabs (oldest -> newest)
     const sorted = [...sessions].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
     
-    // Get today's date to determine the truly active session
+    // Get today's date (actual current date) to determine the truly active session
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayActiveSession = getSessionForDate(today);
@@ -740,15 +740,22 @@ function renderSessionTabs(activeSession) {
         sessionStart.setHours(0, 0, 0, 0);
         const label = sessionStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         
+        console.log('Processing session:', session.id, 'todayActiveSession:', todayActiveSession?.id, 'Match:', todayActiveSession?.id === session.id);
+        
         // Only show day number if this is the truly active session (based on today's date)
         let dayLabel = '';
         if (todayActiveSession && todayActiveSession.id === session.id) {
-            // Calculate day number relative to session start (inclusive)
-            const diffTime = today - sessionStart;
+            // Calculate day number: session start date = Day 1
+            const diffTime = today.getTime() - sessionStart.getTime();
             const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            const dayNum = dayDiff + 1; // Day 1 = session start date
+            const dayNum = dayDiff + 1;
+            
+            console.log('→ ACTIVE SESSION - DayDiff:', dayDiff, 'DayNum:', dayNum);
+            
             dayLabel = dayNum >= 1 ? `Day ${dayNum}` : '';
         }
+        
+        console.log('→ dayLabel:', dayLabel);
         
         const isActive = activeSession && activeSession.id === session.id;
         
@@ -937,6 +944,17 @@ function switchTab(tabId) {
         content.classList.toggle('active', content.id === tabId);
     });
 
+    // Update header based on tab
+    const result = getCurrentPhase();
+    if (result && headerPhase) {
+        const { phase, weeksSinceSurgery } = result;
+        if (tabId === 'physio') {
+            headerPhase.textContent = 'Physio Exercises';
+        } else {
+            headerPhase.textContent = `${phase.name} · Week ${weeksSinceSurgery}`;
+        }
+    }
+
     // Render content
     if (tabId === 'today') renderTodayContent();
     if (tabId === 'protocol') {
@@ -950,16 +968,10 @@ function switchTab(tabId) {
 
 // Initialize
 function init() {
-    if (surgeryDate) {
-        // Show Today tab
-        document.getElementById('setup').classList.remove('active');
-        switchTab('today');
-        initPhysioCheckboxes();
-    } else {
-        // Show setup
-        document.getElementById('setup').classList.add('active');
-        document.querySelector('.bottom-nav').style.display = 'none';
-    }
+    // Always show the app (surgery date is hardcoded)
+    document.getElementById('setup').classList.remove('active');
+    switchTab('today');
+    initPhysioCheckboxes();
 }
 
 // Event Listeners
@@ -969,15 +981,12 @@ navItems.forEach(item => {
     });
 });
 
+// Surgery date save button (kept for backwards compatibility, but not needed)
 saveSurgeryDateBtn.addEventListener('click', () => {
-    const date = surgeryDateInput.value;
-    if (date) {
-        surgeryDate = date;
-        localStorage.setItem('surgeryDate', date);
-        document.getElementById('setup').classList.remove('active');
-        document.querySelector('.bottom-nav').style.display = 'flex';
-        switchTab('today');
-    }
+    // Surgery date is now hardcoded, this button shouldn't be visible
+    document.getElementById('setup').classList.remove('active');
+    document.querySelector('.bottom-nav').style.display = 'flex';
+    switchTab('today');
 });
 
 // Contact Modal
