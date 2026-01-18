@@ -725,14 +725,12 @@ function renderSessionTabs(activeSession) {
     // Sort chronologically for tabs (oldest -> newest)
     const sorted = [...sessions].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
     
-    // Get today's date (actual current date) to determine the truly active session
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayActiveSession = getSessionForDate(today);
+    // Use the VIEWING date (not today's actual date) to determine active session and day count
+    const viewingDate = new Date(currentPhysioDate);
+    viewingDate.setHours(0, 0, 0, 0);
+    const viewingActiveSession = getSessionForDate(viewingDate);
     
-    // Get current viewing date normalized to midnight
-    const currentNorm = new Date(currentPhysioDate);
-    currentNorm.setHours(0, 0, 0, 0);
+    console.log('Viewing Date:', viewingDate, 'Active Session for that date:', viewingActiveSession?.id);
     
     sorted.forEach(session => {
         // Simple label based on startDate, e.g. "Jan 12"
@@ -740,13 +738,13 @@ function renderSessionTabs(activeSession) {
         sessionStart.setHours(0, 0, 0, 0);
         const label = sessionStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         
-        console.log('Processing session:', session.id, 'todayActiveSession:', todayActiveSession?.id, 'Match:', todayActiveSession?.id === session.id);
+        console.log('Processing session:', session.id, 'viewingActiveSession:', viewingActiveSession?.id, 'Match:', viewingActiveSession?.id === session.id);
         
-        // Only show day number if this is the truly active session (based on today's date)
+        // Only show day number if this is the active session for the VIEWING date
         let dayLabel = '';
-        if (todayActiveSession && todayActiveSession.id === session.id) {
-            // Calculate day number: session start date = Day 1
-            const diffTime = today.getTime() - sessionStart.getTime();
+        if (viewingActiveSession && viewingActiveSession.id === session.id) {
+            // Calculate day number relative to the viewing date: session start date = Day 1
+            const diffTime = viewingDate.getTime() - sessionStart.getTime();
             const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             const dayNum = dayDiff + 1;
             
