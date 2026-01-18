@@ -44,3 +44,4 @@ All data is stored locally in your browser's localStorage:
 
 Personal use only.
 
+

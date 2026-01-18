@@ -34,9 +34,46 @@ const sessions = [
                 ]
             }
         ]
+    },
+    {
+        id: "jan16",
+        startDate: "2026-01-16",
+        title: "Jan 16 Session",
+        subtitle: "Focus: Calf Strength & Proprioception",
+        exercises: [
+            {
+                category: "Calf & Leg Strength (Right)",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4-6 8-6 8s-6-4-6-8a6 6 0 1 1 12 0"></path></svg>`,
+                exercises: [
+                    { id: 0, name: "Heel Raises - Right Leg", details: "3 × 15 reps, slow 3-second movement", instructions: "Stand and rise up onto the ball of your right foot. Lower back down slowly with control.", frequency: "Once per day" },
+                    { id: 1, name: "Single-Leg Bridges - Right Leg", details: "3 × 15 reps, slow 3-second movement", instructions: "Lie on your back with right knee bent, left leg relaxed. Lift hips using only right leg, then lower slowly.", frequency: "Once per day" },
+                    { id: 2, name: "Heel Raises in Bridge - Right Leg", details: "3 × 15 reps, slow 3-second movement", instructions: "In bridge position with weight on right leg, lift heel to come onto toes. Lower heel while keeping hips lifted.", frequency: "Once per day" }
+                ]
+            },
+            {
+                category: "Foot Proprioception (Left)",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>`,
+                exercises: [
+                    { id: 3, name: "Soccer Ball Roll", details: "A few minutes", instructions: "Gently roll the bottom of the left foot over a soccer ball.", frequency: "Daily as tolerated" },
+                    { id: 4, name: "Texture Exposure", details: "As tolerated", instructions: "Expose the foot to different textures (towel, carpet, soft mat) to improve sensation and control.", frequency: "Daily as tolerated" }
+                ]
+            },
+            {
+                category: "Ankle ROM (Left)",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.2 0 1.8.5 2.5 1"></path></svg>`,
+                exercises: [
+                    { id: 5, name: "Ankle Circles & Movements", details: "2 × 10 reps each direction, slow 3-second movement", instructions: "Move ankle through all directions: up, down, in, and out. Keep movements slow and pain-free.", frequency: "Daily as tolerated" }
+                ]
+            },
+            {
+                category: "Weight Bearing Practice",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`,
+                exercises: [
+                    { id: 6, name: "Partial Weight Bearing", details: "20-30% body weight", instructions: "Hold onto wall or counter, place 20-30% weight on boot. Roll foot forward and back while weight-bearing.", frequency: "As tolerated on low-activity days" }
+                ]
+            }
+        ]
     }
-    // Add future sessions here, e.g.:
-    // { id: "jan16", startDate: "2026-01-16", title: "Jan 16 Session", ... }
 ];
 
 // Phase Data (all original content preserved)

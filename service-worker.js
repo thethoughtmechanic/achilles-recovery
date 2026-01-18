@@ -1,7 +1,7 @@
 // Service Worker for Corey's Achilles Recovery App
 // Enables offline functionality and fast loading
 
-const CACHE_NAME = 'achilles-recovery-v5';
+const CACHE_NAME = 'achilles-recovery-v6';
 const urlsToCache = [
   './',
   './index.html',
