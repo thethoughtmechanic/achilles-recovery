@@ -358,14 +358,33 @@ function calculateStreak() {
     for (let i = 0; i < 365; i++) {
         const d = new Date(today);
         d.setDate(d.getDate() - i);
+        
+        // Get the active session for this date
+        const activeSession = getSessionForDate(d);
+        if (!activeSession) {
+            // No session existed on this date
+            if (i > 0) break;
+            continue;
+        }
+        
+        // Get the exercise IDs from the active session
+        const activeExerciseIds = new Set();
+        activeSession.exercises.forEach(group => {
+            group.exercises.forEach(ex => activeExerciseIds.add(ex.id));
+        });
+        
         // Use the Toronto-aware key generator
         const key = `physio-checkboxes-${getTodayKey(d)}`;
         const stored = localStorage.getItem(key);
         
         if (stored) {
             const data = JSON.parse(stored);
-            // If any exercise was done that day, it counts (regardless of how many exercises there were)
-            if (data && data.some(Boolean)) {
+            // Check if ANY exercise from the ACTIVE session was completed
+            const hasActiveExercise = data.some((checked, idx) => 
+                checked && activeExerciseIds.has(idx)
+            );
+            
+            if (hasActiveExercise) {
                 streak++;
             } else if (i === 0) {
                 // If today has no exercises yet, don't break streak from yesterday
@@ -706,6 +725,11 @@ function renderSessionTabs(activeSession) {
     // Sort chronologically for tabs (oldest -> newest)
     const sorted = [...sessions].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
     
+    // Get today's date to determine the truly active session
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayActiveSession = getSessionForDate(today);
+    
     // Get current viewing date normalized to midnight
     const currentNorm = new Date(currentPhysioDate);
     currentNorm.setHours(0, 0, 0, 0);
@@ -716,13 +740,15 @@ function renderSessionTabs(activeSession) {
         sessionStart.setHours(0, 0, 0, 0);
         const label = sessionStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         
-        // Calculate day number relative to this session
-        const diffTime = currentNorm - sessionStart;
-        const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        const dayNum = dayDiff + 1;
-        
-        // Only show day number if we're on or after this session's start
-        const dayLabel = dayNum > 0 ? `Day ${dayNum}` : '';
+        // Only show day number if this is the truly active session (based on today's date)
+        let dayLabel = '';
+        if (todayActiveSession && todayActiveSession.id === session.id) {
+            // Calculate day number relative to today
+            const diffTime = today - sessionStart;
+            const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const dayNum = dayDiff + 1;
+            dayLabel = dayNum > 0 ? `Day ${dayNum}` : '';
+        }
         
         const isActive = activeSession && activeSession.id === session.id;
         
