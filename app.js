@@ -288,8 +288,8 @@ function getSessionForDate(dateObj) {
     // Find the first session that started on or before the target date
     const match = sorted.find(s => s.startDate <= dateStr);
     
-    // Default to the first session (oldest) if date is before tracking started
-    return match || sorted[sorted.length - 1];
+    // Return null if no session has started yet (date is before all sessions)
+    return match || null;
 }
 
 // Helper: Get session by ID
@@ -429,14 +429,19 @@ function renderTodayContent() {
     
     // Calculate total exercises for the active session
     let sessionTotal = 0;
-    activeSession.exercises.forEach(group => {
-        sessionTotal += group.exercises.length;
-    });
-
-    // Load state for today
-    const state = loadCheckboxState(today, sessionTotal);
-    const completedCount = state.filter(Boolean).length;
-    const totalCount = sessionTotal;
+    let completedCount = 0;
+    let totalCount = 0;
+    
+    if (activeSession) {
+        activeSession.exercises.forEach(group => {
+            sessionTotal += group.exercises.length;
+        });
+        
+        // Load state for today
+        const state = loadCheckboxState(today, sessionTotal);
+        completedCount = state.filter(Boolean).length;
+        totalCount = sessionTotal;
+    }
     const isComplete = completedCount === totalCount && totalCount > 0;
     
     const completeIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; color: var(--color-green);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
@@ -792,6 +797,18 @@ function renderPhysioContent() {
 
     // 1. Get the correct session for the selected date
     const activeSession = getSessionForDate(currentPhysioDate);
+    
+    // If no session exists yet for this date, show a message
+    if (!activeSession) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: var(--color-gray);">
+                <p>No physio sessions scheduled yet for this date.</p>
+            </div>
+        `;
+        renderSessionTabs(null);
+        return;
+    }
+    
     const sessionExercises = activeSession.exercises;
 
     // Update Header
@@ -904,6 +921,8 @@ function attachPhysioListeners() {
             const id = parseInt(checkbox.dataset.exercise);
             
             const activeSession = getSessionForDate(currentPhysioDate);
+            if (!activeSession) return; // No session on this date
+            
             let totalSessionExercises = 0;
             activeSession.exercises.forEach(g => totalSessionExercises += g.exercises.length);
             
