@@ -743,11 +743,11 @@ function renderSessionTabs(activeSession) {
         // Only show day number if this is the truly active session (based on today's date)
         let dayLabel = '';
         if (todayActiveSession && todayActiveSession.id === session.id) {
-            // Calculate day number relative to today
+            // Calculate day number relative to session start (inclusive)
             const diffTime = today - sessionStart;
             const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            const dayNum = dayDiff + 1;
-            dayLabel = dayNum > 0 ? `Day ${dayNum}` : '';
+            const dayNum = dayDiff + 1; // Day 1 = session start date
+            dayLabel = dayNum >= 1 ? `Day ${dayNum}` : '';
         }
         
         const isActive = activeSession && activeSession.id === session.id;
