@@ -73,6 +73,67 @@ const sessions = [
                 ]
             }
         ]
+    },
+    {
+        id: "jan19",
+        startDate: "2026-01-19",
+        title: "Jan 19 Session",
+        subtitle: "Focus: Weight Bearing & Ankle Mobility",
+        exercises: [
+            {
+                category: "Weight-Bearing Practice",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`,
+                exercises: [
+                    { 
+                        id: 0, 
+                        name: "Weight Shift to Left Leg", 
+                        details: "2 × 10 reps, hold 3 seconds each", 
+                        instructions: "Stand at a counter or near a wall for support. Gently shift some of your weight onto your left leg, aiming for up to about 50% of your body weight. Hold for 3 seconds, then shift back.", 
+                        frequency: "2x per day (more on low-activity days)" 
+                    }
+                ]
+            },
+            {
+                category: "Passive Ankle Mobility",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.2 0 1.8.5 2.5 1"></path></svg>`,
+                exercises: [
+                    { 
+                        id: 1, 
+                        name: "Passive Ankle Mobility (All Directions)", 
+                        details: "2 × 12 reps, hold max 3 seconds each position", 
+                        instructions: "Use your hands to gently move your ankle in all directions: up, down, in, and out. For dorsiflexion (foot toward you), use a yoga strap or belt while seated. Move slowly until you feel a comfortable stretch, not pain. Focus is on joint mobility, not prolonged stretching.", 
+                        frequency: "2x per day" 
+                    }
+                ]
+            },
+            {
+                category: "Ankle Isometric Strengthening",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4-6 8-6 8s-6-4-6-8a6 6 0 1 1 12 0"></path></svg>`,
+                exercises: [
+                    { 
+                        id: 2, 
+                        name: "Isometric Eversion (Outward)", 
+                        details: "2 × 6 reps, hold 10 seconds each", 
+                        instructions: "Without moving the ankle, gently push the foot outward against light resistance (wall, hand, or chair leg). Hold at low to moderate tension.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 3, 
+                        name: "Isometric Inversion (Inward)", 
+                        details: "2 × 6 reps, hold 10 seconds each", 
+                        instructions: "Without moving the ankle, gently push the foot inward against light resistance (wall, hand, or chair leg). Hold at low to moderate tension.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 4, 
+                        name: "Isometric Dorsiflexion (Upward)", 
+                        details: "2 × 6 reps, hold 10 seconds each", 
+                        instructions: "Without moving the ankle, gently push the foot upward against light resistance (wall, hand, or chair leg). Hold at low to moderate tension.", 
+                        frequency: "Once per day" 
+                    }
+                ]
+            }
+        ]
     }
 ];
 
