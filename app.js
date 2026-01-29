@@ -1165,7 +1165,7 @@ function renderPhysioContent() {
         // Add optional exercises directly (no wrapper)
         optionalExercises.forEach((group, groupIndex) => {
             const groupId = `optional-group-${groupIndex}`;
-            const isOpen = openGroups.has(groupId) || true;  // Start expanded by default
+            const isOpen = false;  // Start collapsed (not open)
             const sourceClass = `from-${group.sourceSession}`;
             
             html += `
