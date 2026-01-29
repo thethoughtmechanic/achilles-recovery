@@ -1368,8 +1368,8 @@ body {
     opacity: 0.5;
 }
 
-/* Optional Exercises Section */
-.optional-section {
+/* Optional Header Section (no wrapper, just header) */
+.optional-header-section {
     margin: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md);
     padding-top: var(--spacing-md);
     border-top: 2px dashed var(--color-beige-dark);
@@ -1382,6 +1382,10 @@ body {
     margin-bottom: var(--spacing-sm);
     cursor: pointer;
     padding: var(--spacing-xs) 0;
+}
+
+.optional-header-section.open .optional-toggle {
+    transform: rotate(180deg);
 }
 
 .optional-title {
@@ -1400,22 +1404,19 @@ body {
     transition: transform var(--transition-fast);
 }
 
-.optional-section.open .optional-toggle {
-    transform: rotate(180deg);
-}
-
-.optional-content {
-    display: none;
-}
-
-.optional-section.open .optional-content {
-    display: block;
-}
-
 /* Optional exercise groups with session color indicators */
 .exercise-group.optional {
     border-left: 4px solid var(--color-beige-dark);
     opacity: 0.9;
+    display: none;
+}
+
+.exercise-group.optional.open {
+    display: block;
+}
+
+.optional-header-section.open ~ .exercise-group.optional {
+    display: block;
 }
 
 .exercise-group.optional.from-jan12 {

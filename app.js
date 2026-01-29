@@ -1147,20 +1147,22 @@ function renderPhysioContent() {
     if (viewingDate >= jan28Start) {
         const optionalExercises = getOptionalExercises();
         
+        // Add optional header/toggle
         html += `
-            <div class="optional-section ${optionalWasOpen ? 'open' : ''}" id="optionalSection">
+            <div class="optional-header-section">
                 <div class="optional-header">
                     <div class="optional-title">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                         Optional Additional Exercises
                     </div>
-                    <span class="optional-toggle">
+                    <span class="optional-toggle" id="optionalToggle">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </span>
                 </div>
-                <div class="optional-content">
+            </div>
         `;
         
+        // Add optional exercises directly (no wrapper)
         optionalExercises.forEach((group, groupIndex) => {
             const groupId = `optional-group-${groupIndex}`;
             const isOpen = openGroups.has(groupId);
@@ -1197,11 +1199,6 @@ function renderPhysioContent() {
                 </div>
             `;
         });
-        
-        html += `
-                </div>
-            </div>
-        `;
     }
 
     // Add Recovery Notes (Static for now, could move to Session if needed)
@@ -1240,13 +1237,16 @@ function attachPhysioListeners() {
     });
 
     // Optional section toggle
-    const optionalHeader = document.querySelector('.optional-header');
-    if (optionalHeader) {
-        optionalHeader.addEventListener('click', () => {
-            const section = document.getElementById('optionalSection');
-            if (section) {
-                section.classList.toggle('open');
-            }
+    const optionalToggle = document.getElementById('optionalToggle');
+    if (optionalToggle) {
+        optionalToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Toggle open state on all optional exercise groups
+            document.querySelectorAll('.exercise-group.optional').forEach(group => {
+                group.classList.toggle('open');
+            });
+            // Rotate the toggle icon
+            optionalToggle.parentElement.classList.toggle('open');
         });
     }
 
