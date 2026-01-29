@@ -258,46 +258,44 @@
 
         <!-- PHYSIO TAB -->
         <div class="tab-content" id="physio">
-            <div class="card">
-                <!-- Header with contact icon -->
-                <div class="physio-header">
-                    <div class="physio-header-main">
-                        <h2 class="section-title" style="margin-bottom: 0;">Sonia's Exercises</h2>
-                        <button class="contact-icon-btn" id="openContactModal" aria-label="Contact info">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                <circle cx="12" cy="8" r="2"></circle>
-                                <path d="M15 13a3 3 0 0 0-6 0"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <!-- Date Navigation -->
-                    <div class="date-nav">
-                        <button class="date-nav-btn" id="prevDayBtn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        <span class="date-nav-current" id="currentDateDisplay">Today</span>
-                        <button class="date-nav-btn" id="nextDayBtn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
-                    </div>
-
-                    <p id="physioPhaseWeek" class="physio-phase-week"></p>
+            <!-- Header with contact icon -->
+            <div class="physio-header">
+                <div class="physio-header-main">
+                    <h2 class="section-title" style="margin-bottom: 0;">Sonia's Exercises</h2>
+                    <button class="contact-icon-btn" id="openContactModal" aria-label="Contact info">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            <circle cx="12" cy="8" r="2"></circle>
+                            <path d="M15 13a3 3 0 0 0-6 0"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Date Navigation -->
+                <div class="date-nav">
+                    <button class="date-nav-btn" id="prevDayBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="date-nav-current" id="currentDateDisplay">Today</span>
+                    <button class="date-nav-btn" id="nextDayBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
                 </div>
 
-                <!-- Date Carousel (Poker Chips) -->
-                <div class="date-carousel-container">
-                    <div class="date-carousel" id="dateCarousel">
-                        <!-- Dynamically populated -->
-                    </div>
-                </div>
+                <p id="physioPhaseWeek" class="physio-phase-week"></p>
+            </div>
 
-                <!-- Exercise content (will be swapped based on prescription) -->
-                <div id="prescriptionContent">
-                    <!-- Dynamically populated by app.js -->
+            <!-- Date Carousel (Poker Chips) -->
+            <div class="date-carousel-container">
+                <div class="date-carousel" id="dateCarousel">
+                    <!-- Dynamically populated -->
                 </div>
+            </div>
+
+            <!-- Exercise content (will be swapped based on prescription) -->
+            <div id="prescriptionContent">
+                <!-- Dynamically populated by app.js -->
             </div>
         </div>
 
