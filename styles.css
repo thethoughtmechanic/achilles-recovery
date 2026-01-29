@@ -1408,15 +1408,6 @@ body {
 .exercise-group.optional {
     border-left: 4px solid var(--color-beige-dark);
     opacity: 0.9;
-    display: none;
-}
-
-.exercise-group.optional.open {
-    display: block;
-}
-
-.optional-header-section.open ~ .exercise-group.optional {
-    display: block;
 }
 
 .exercise-group.optional.from-jan12 {
@@ -1429,6 +1420,16 @@ body {
 
 .exercise-group.optional .exercise-group-header {
     background: var(--color-cream);
+}
+
+/* Hide all optional exercise groups by default */
+.optional-header-section ~ .exercise-group.optional {
+    display: none;
+}
+
+/* Show all optional exercise groups when header is open */
+.optional-header-section.open ~ .exercise-group.optional {
+    display: block;
 }
 
 .optional-source-badge {

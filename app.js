@@ -1232,21 +1232,23 @@ function attachPhysioListeners() {
     document.querySelectorAll('.exercise-group-header').forEach(header => {
         header.addEventListener('click', (e) => {
             const group = header.parentElement;
-            group.classList.toggle('open');
+            // Only toggle if it's not an optional group
+            if (!group.classList.contains('optional')) {
+                group.classList.toggle('open');
+            }
         });
     });
 
-    // Optional section toggle
+    // Optional section toggle - collapse/expand ALL optional exercises at once
     const optionalToggle = document.getElementById('optionalToggle');
     if (optionalToggle) {
         optionalToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            // Toggle open state on all optional exercise groups
-            document.querySelectorAll('.exercise-group.optional').forEach(group => {
-                group.classList.toggle('open');
-            });
-            // Rotate the toggle icon
-            optionalToggle.parentElement.classList.toggle('open');
+            // Toggle the header section's open state
+            const headerSection = document.querySelector('.optional-header-section');
+            if (headerSection) {
+                headerSection.classList.toggle('open');
+            }
         });
     }
 
