@@ -134,6 +134,84 @@ const sessions = [
                 ]
             }
         ]
+    },
+    {
+        id: "jan28",
+        startDate: "2026-01-28",
+        title: "Jan 28 Session",
+        subtitle: "Focus: Increased Weight Bearing & Sustained Stretch",
+        exercises: [
+            {
+                category: "Weight-Bearing Practice",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`,
+                exercises: [
+                    { 
+                        id: 0, 
+                        name: "Weight Shift to Left Leg", 
+                        details: "2 × 10 reps, hold 3 seconds each", 
+                        instructions: "Stand at a counter or near a wall for support. Gently shift your weight onto your left leg, aiming for 70-80% of your body weight. Hold for 3 seconds, then shift back. Also practice while walking with crutches.", 
+                        frequency: "2x per day (more on low-activity days)" 
+                    }
+                ]
+            },
+            {
+                category: "Passive Ankle Mobility",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.2 0 1.8.5 2.5 1"></path></svg>`,
+                exercises: [
+                    { 
+                        id: 1, 
+                        name: "Passive Ankle Mobility (All Directions)", 
+                        details: "2 × 12 reps, hold max 3 seconds each position", 
+                        instructions: "Use your hands to gently move your ankle in all directions: up, down, in, and out. For dorsiflexion (foot toward you), use a yoga strap or belt while seated. Move slowly until you feel a comfortable stretch, not pain. Focus is on joint mobility, not prolonged stretching.", 
+                        frequency: "2x per day" 
+                    },
+                    { 
+                        id: 2, 
+                        name: "Sustained Dorsiflexion Stretch", 
+                        details: "1 × 6 reps, hold 10 seconds each", 
+                        instructions: "Use your hands or a yoga strap to gently pull your foot toward you (dorsiflexion). Hold until you feel a gentle stretch in the calf, but not too intense. This is a more sustained stretch than the previous mobility work.", 
+                        frequency: "Once per day" 
+                    }
+                ]
+            },
+            {
+                category: "Ankle Isometric Strengthening",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4-6 8-6 8s-6-4-6-8a6 6 0 1 1 12 0"></path></svg>`,
+                exercises: [
+                    { 
+                        id: 3, 
+                        name: "Isometric Eversion (Outward)", 
+                        details: "2 × 6 reps, hold 10 seconds each", 
+                        instructions: "Without moving the ankle, gently push the foot outward against light resistance (wall, hand, or chair leg). Hold at low to moderate tension.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 4, 
+                        name: "Isometric Inversion (Inward)", 
+                        details: "2 × 6 reps, hold 10 seconds each", 
+                        instructions: "Without moving the ankle, gently push the foot inward against light resistance (wall, hand, or chair leg). Hold at low to moderate tension.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 5, 
+                        name: "Isometric Dorsiflexion (Upward)", 
+                        details: "2 × 6 reps, hold 10 seconds each", 
+                        instructions: "Without moving the ankle, gently push the foot upward against light resistance (wall, hand, or chair leg). Hold at low to moderate tension.", 
+                        frequency: "Once per day" 
+                    }
+                ]
+            }
+        ],
+        // Exploration items - not required, no checkbox, doesn't affect streak
+        tryThis: [
+            {
+                name: "Gentle Stationary Cycling",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M6 11L12 17L15 14L18 16"></path></svg>`,
+                details: "~10 minutes, no resistance",
+                instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
+                note: "Give it a try when you feel ready - not required daily"
+            }
+        ]
     }
 ];
 
@@ -774,59 +852,104 @@ function updateDateDisplay() {
 function updatePhysioPhaseWeek(activeSession) {
     const phaseWeekEl = document.getElementById('physioPhaseWeek');
     if (phaseWeekEl && activeSession) {
-        // Simplified: Just show the session title, day info is now on the tabs
+        // Show session info with color indicator
+        const sessionStart = parseDateLocal(activeSession.startDate);
+        const label = sessionStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const colorVar = `--${getSessionColorClass(activeSession.id)}`;
+        
+        // Calculate day number within this session
+        const viewingDate = new Date(currentPhysioDate);
+        viewingDate.setHours(0, 0, 0, 0);
+        sessionStart.setHours(0, 0, 0, 0);
+        const diffTime = viewingDate.getTime() - sessionStart.getTime();
+        const dayNum = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        
         phaseWeekEl.innerHTML = `
-            <span style="color: var(--color-gray);">Active prescription from Sonia</span>
+            <span style="color: var(${colorVar});">${label} Prescription</span>
+            <span style="color: var(--color-gray);"> · Day ${dayNum}</span>
         `;
     }
 }
 
-// Render dynamic session tabs
-function renderSessionTabs(activeSession) {
-    const container = document.getElementById('sessionTabs');
+// Get session color class based on session ID
+function getSessionColorClass(sessionId) {
+    if (sessionId === 'jan12') return 'session-jan12';
+    if (sessionId === 'jan16') return 'session-jan16';
+    if (sessionId === 'jan19') return 'session-jan19';
+    if (sessionId === 'jan28') return 'session-jan28';
+    return 'session-jan28'; // Default for future sessions
+}
+
+// Get the date range to show in carousel (Jan 12 to today + 7 days)
+function getCarouselDateRange() {
+    const startDate = parseDateLocal('2026-01-12'); // First session
+    const today = new Date();
+    const endDate = new Date(today);
+    endDate.setDate(endDate.getDate() + 7); // Show a week ahead
+    
+    const dates = [];
+    const current = new Date(startDate);
+    
+    while (current <= endDate) {
+        dates.push(new Date(current));
+        current.setDate(current.getDate() + 1);
+    }
+    
+    return dates;
+}
+
+// Treatment dates - days you visited Sonia (includes session starts + follow-ups)
+const treatmentDates = [
+    '2026-01-12',
+    '2026-01-16',
+    '2026-01-19',
+    '2026-01-23', // Follow-up, no prescription change
+    '2026-01-28'
+];
+
+// Check if a date is a treatment date (visited Sonia)
+function isTreatmentDate(date) {
+    const dateStr = date.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    return treatmentDates.includes(dateStr);
+}
+
+// Render date carousel (poker chips)
+function renderDateCarousel() {
+    const container = document.getElementById('dateCarousel');
     if (!container) return;
 
+    const dates = getCarouselDateRange();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const viewingDateStr = currentPhysioDate.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    
     let html = '';
     
-    // Sort chronologically for tabs (oldest -> newest)
-    const sorted = [...sessions].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
-    
-    // Use the VIEWING date (not today's actual date) to determine active session and day count
-    const viewingDate = new Date(currentPhysioDate);
-    viewingDate.setHours(0, 0, 0, 0);
-    const viewingActiveSession = getSessionForDate(viewingDate);
-    
-    console.log('Viewing Date:', viewingDate, 'Active Session for that date:', viewingActiveSession?.id);
-    
-    sorted.forEach(session => {
-        // Simple label based on startDate, e.g. "Jan 12"
-        const sessionStart = parseDateLocal(session.startDate);
-        sessionStart.setHours(0, 0, 0, 0);
-        const label = sessionStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    dates.forEach(date => {
+        const dateStr = date.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+        const session = getSessionForDate(date);
+        const sessionClass = session ? getSessionColorClass(session.id) : '';
+        const isTreatment = isTreatmentDate(date); // Visited Sonia on this day
+        const isActive = dateStr === viewingDateStr;
+        const isFuture = date > today;
         
-        console.log('Processing session:', session.id, 'viewingActiveSession:', viewingActiveSession?.id, 'Match:', viewingActiveSession?.id === session.id);
+        // Day of week abbreviation
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'short' }).charAt(0);
+        const dayNum = date.getDate();
         
-        // Only show day number if this is the active session for the VIEWING date
-        let dayLabel = '';
-        if (viewingActiveSession && viewingActiveSession.id === session.id) {
-            // Calculate day number relative to the viewing date: session start date = Day 1
-            const diffTime = viewingDate.getTime() - sessionStart.getTime();
-            const dayDiff = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            const dayNum = dayDiff + 1;
-            
-            console.log('→ ACTIVE SESSION - DayDiff:', dayDiff, 'DayNum:', dayNum);
-            
-            dayLabel = dayNum >= 1 ? `Day ${dayNum}` : '';
-        }
-        
-        console.log('→ dayLabel:', dayLabel);
-        
-        const isActive = activeSession && activeSession.id === session.id;
+        const classes = [
+            'date-chip',
+            sessionClass,
+            isTreatment ? 'session-start' : '', // Big circle for treatment dates
+            isActive ? 'active' : '',
+            isFuture ? 'future' : ''
+        ].filter(Boolean).join(' ');
         
         html += `
-            <button class="prescription-tab ${isActive ? 'active' : ''}" data-session-id="${session.id}">
-                <span class="tab-day">${dayLabel}</span>
-                <span class="tab-date">${label}</span>
+            <button class="${classes}" data-date="${dateStr}">
+                <span class="chip-day">${dayName}</span>
+                <span class="chip-date">${dayNum}</span>
             </button>
         `;
     });
@@ -834,19 +957,62 @@ function renderSessionTabs(activeSession) {
     container.innerHTML = html;
     
     // Attach listeners
-    container.querySelectorAll('.prescription-tab').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const sessionId = btn.dataset.sessionId;
-            const session = getSessionById(sessionId);
-            if (session) {
-                // When clicking a tab, jump to that session's start date
-                const targetDate = parseDateLocal(session.startDate);
-                // Set currentPhysioDate to this date (local time)
-                currentPhysioDate = targetDate;
-                renderPhysioContent();
-            }
+    container.querySelectorAll('.date-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const dateStr = chip.dataset.date;
+            currentPhysioDate = parseDateLocal(dateStr);
+            renderPhysioContent();
+            
+            // Scroll the active chip into view
+            setTimeout(() => {
+                chip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }, 50);
         });
     });
+    
+    // Auto-scroll to active chip
+    setTimeout(() => {
+        const activeChip = container.querySelector('.date-chip.active');
+        if (activeChip) {
+            activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+    }, 100);
+}
+
+// Get optional exercises from Jan 12 and Jan 16 sessions (excluding weight-bearing)
+// Returns Jan 16 first (most recent), then Jan 12
+function getOptionalExercises() {
+    const jan12 = getSessionById('jan12');
+    const jan16 = getSessionById('jan16');
+    
+    const optional = [];
+    
+    // Jan 16 first (more recent/relevant)
+    if (jan16) {
+        jan16.exercises.forEach(group => {
+            // Exclude weight-bearing since it's already in current prescription
+            if (!group.category.toLowerCase().includes('weight bearing')) {
+                optional.push({
+                    ...group,
+                    sourceSession: 'jan16',
+                    sourceLabel: 'Jan 16'
+                });
+            }
+        });
+    }
+    
+    // Then Jan 12
+    if (jan12) {
+        jan12.exercises.forEach(group => {
+            optional.push({
+                ...group,
+                sourceSession: 'jan12',
+                sourceLabel: 'Jan 12'
+            });
+        });
+    }
+    
+    return optional;
 }
 
 // Render Physio Content (Exercises + Groups)
@@ -866,7 +1032,7 @@ function renderPhysioContent() {
                 <p>No physio sessions scheduled yet for this date.</p>
             </div>
         `;
-        renderSessionTabs(null);
+        renderDateCarousel();
         return;
     }
     
@@ -875,8 +1041,8 @@ function renderPhysioContent() {
     // Update Header
     updatePhysioPhaseWeek(activeSession);
     
-    // Render Tabs
-    renderSessionTabs(activeSession);
+    // Render Date Carousel
+    renderDateCarousel();
 
     // Calculate total exercises for THIS session to init state correctly
     let totalSessionExercises = 0;
@@ -887,6 +1053,12 @@ function renderPhysioContent() {
     container.querySelectorAll('.exercise-group.open').forEach(el => {
         openGroups.add(el.id);
     });
+    
+    // Check if optional section exists and its state
+    const optionalSection = container.querySelector('.optional-section');
+    // If section doesn't exist yet (first render), default to open (true)
+    // If it exists, check if it has the 'open' class
+    const optionalWasOpen = optionalSection ? optionalSection.classList.contains('open') : true;
 
     const state = loadCheckboxState(currentPhysioDate, totalSessionExercises);
     let html = '';
@@ -940,6 +1112,98 @@ function renderPhysioContent() {
         `;
     });
 
+    // Add "Try This" section for Jan 28+ dates (exploration items like cycling)
+    const jan28Start = parseDateLocal('2026-01-28');
+    const viewingDate = new Date(currentPhysioDate);
+    viewingDate.setHours(0, 0, 0, 0);
+    jan28Start.setHours(0, 0, 0, 0);
+    
+    if (viewingDate >= jan28Start && activeSession.tryThis && activeSession.tryThis.length > 0) {
+        html += `
+            <div class="try-this-section">
+                <div class="try-this-header">
+                    <span class="try-this-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        Try This
+                    </span>
+                    <span class="try-this-title">Exploration</span>
+                </div>
+                ${activeSession.tryThis.map(item => `
+                    <div class="try-this-item">
+                        <div class="try-this-icon">${item.icon}</div>
+                        <div class="try-this-content">
+                            <div class="try-this-name">${item.name}</div>
+                            <div class="try-this-details">${item.details}</div>
+                            <div class="try-this-instructions">${item.instructions}</div>
+                            <div class="try-this-note">${item.note}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    // Add Optional Exercises section for Jan 28+ dates
+    if (viewingDate >= jan28Start) {
+        const optionalExercises = getOptionalExercises();
+        
+        html += `
+            <div class="optional-section ${optionalWasOpen ? 'open' : ''}" id="optionalSection">
+                <div class="optional-header">
+                    <div class="optional-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        Optional Additional Exercises
+                    </div>
+                    <span class="optional-toggle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                </div>
+                <div class="optional-content">
+        `;
+        
+        optionalExercises.forEach((group, groupIndex) => {
+            const groupId = `optional-group-${groupIndex}`;
+            const isOpen = openGroups.has(groupId);
+            const sourceClass = `from-${group.sourceSession}`;
+            
+            html += `
+                <div class="exercise-group optional ${sourceClass} ${isOpen ? 'open' : ''}" id="${groupId}">
+                    <button class="exercise-group-header" data-group="optional-${groupIndex}">
+                        <div class="exercise-group-title-wrapper">
+                            <span class="exercise-group-icon">${group.icon}</span>
+                            <span class="exercise-group-title">${group.category}</span>
+                            <span class="optional-source-badge ${sourceClass}">${group.sourceLabel}</span>
+                        </div>
+                        <div class="exercise-group-meta">
+                            <span class="exercise-group-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+                    </button>
+                    <div class="exercise-list">
+                        ${group.exercises.map(ex => {
+                            return `
+                                <div class="exercise-item">
+                                    <div class="exercise-content" style="margin-left: 0;">
+                                        <div class="exercise-name">${ex.name}</div>
+                                        <div class="exercise-details">${ex.details}</div>
+                                        <div class="exercise-instructions">${ex.instructions}</div>
+                                        <span class="exercise-frequency">📅 ${ex.frequency}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += `
+                </div>
+            </div>
+        `;
+    }
+
     // Add Recovery Notes (Static for now, could move to Session if needed)
     html += `
         <div class="recovery-notes">
@@ -967,13 +1231,24 @@ function renderPhysioContent() {
 }
 
 function attachPhysioListeners() {
-    // Accordion toggles
+    // Accordion toggles for exercise groups
     document.querySelectorAll('.exercise-group-header').forEach(header => {
         header.addEventListener('click', (e) => {
             const group = header.parentElement;
             group.classList.toggle('open');
         });
     });
+
+    // Optional section toggle
+    const optionalHeader = document.querySelector('.optional-header');
+    if (optionalHeader) {
+        optionalHeader.addEventListener('click', () => {
+            const section = document.getElementById('optionalSection');
+            if (section) {
+                section.classList.toggle('open');
+            }
+        });
+    }
 
     // Checkboxes
     document.querySelectorAll('.checkbox').forEach(checkbox => {
