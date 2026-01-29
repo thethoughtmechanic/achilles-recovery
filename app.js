@@ -1232,10 +1232,7 @@ function attachPhysioListeners() {
     document.querySelectorAll('.exercise-group-header').forEach(header => {
         header.addEventListener('click', (e) => {
             const group = header.parentElement;
-            // Only toggle if it's not an optional group
-            if (!group.classList.contains('optional')) {
-                group.classList.toggle('open');
-            }
+            group.classList.toggle('open');
         });
     });
 
