@@ -1149,7 +1149,7 @@ function renderPhysioContent() {
         
         // Add optional header/toggle
         html += `
-            <div class="optional-header-section">
+            <div class="optional-header-section open">
                 <div class="optional-header">
                     <div class="optional-title">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
@@ -1165,7 +1165,7 @@ function renderPhysioContent() {
         // Add optional exercises directly (no wrapper)
         optionalExercises.forEach((group, groupIndex) => {
             const groupId = `optional-group-${groupIndex}`;
-            const isOpen = openGroups.has(groupId);
+            const isOpen = openGroups.has(groupId) || true;  // Start expanded by default
             const sourceClass = `from-${group.sourceSession}`;
             
             html += `
