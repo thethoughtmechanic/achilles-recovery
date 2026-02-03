@@ -1262,17 +1262,23 @@ function renderPhysioContent() {
                 const groupId = `group-${globalGroupIndex}`;
                 const isOpen = openGroups.has(groupId);
                 
-                // Add source date badge if available
-                const sourceDateBadge = group.sourceDate ? 
-                    `<span class="source-date-badge">${group.sourceDate}</span>` : '';
+                // Add source date subtitle if available
+                let sourceDateSubtitle = '';
+                if (group.sourceDate) {
+                    // Convert "Jan 16" to "jan16" for class name
+                    const sourceClass = group.sourceDate.toLowerCase().replace(' ', '');
+                    sourceDateSubtitle = `<span class="source-date-subtitle from-${sourceClass}">from ${group.sourceDate}</span>`;
+                }
 
                 html += `
                     <div class="exercise-group ${isOpen ? 'open' : ''}" id="${groupId}">
                         <button class="exercise-group-header" data-group="${globalGroupIndex}">
                             <div class="exercise-group-title-wrapper">
                                 <span class="exercise-group-icon">${group.icon}</span>
-                                <span class="exercise-group-title">${group.category}</span>
-                                ${sourceDateBadge}
+                                <div class="exercise-group-title-block">
+                                    <span class="exercise-group-title">${group.category}</span>
+                                    ${sourceDateSubtitle}
+                                </div>
                             </div>
                             <div class="exercise-group-meta">
                                 <span class="exercise-progress ${progressClass}">${progressText}</span>
@@ -1503,7 +1509,8 @@ function attachPhysioListeners() {
             if (!activeSession) return; // No session on this date
             
             let totalSessionExercises = 0;
-            activeSession.exercises.forEach(g => totalSessionExercises += g.exercises.length);
+            const exerciseGroups = getExerciseGroupsFromSession(activeSession);
+            exerciseGroups.forEach(g => totalSessionExercises += g.exercises.length);
             
             const state = loadCheckboxState(currentPhysioDate, totalSessionExercises);
             

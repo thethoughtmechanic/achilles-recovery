@@ -962,15 +962,31 @@ body {
     color: var(--color-gray);
 }
 
-/* Source Date Badge (for carried-over exercises) */
-.source-date-badge {
+/* Source Date Subtitle (below exercise title) */
+.exercise-group-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.source-date-subtitle {
     font-size: 0.65rem;
-    padding: 2px 6px;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    margin-left: var(--spacing-xs);
-    background: var(--color-beige);
-    color: var(--color-gray);
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.source-date-subtitle.from-jan12 {
+    color: var(--session-jan12);
+}
+
+.source-date-subtitle.from-jan16 {
+    color: var(--session-jan16);
+}
+
+.source-date-subtitle.from-jan28 {
+    color: var(--session-jan28);
 }
 
 /* Exercise Group Cards (Collapsible) */
@@ -1010,6 +1026,7 @@ body {
     color: var(--color-blue);
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .exercise-group-title {
