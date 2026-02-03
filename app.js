@@ -212,6 +212,139 @@ const sessions = [
                 note: "Give it a try when you feel ready - not required daily"
             }
         ]
+    },
+    {
+        id: "feb02",
+        startDate: "2026-02-02",
+        title: "Feb 2 Session",
+        subtitle: "Focus: Theraband Resistance & Increased Weight-Bearing",
+        exerciseSections: [
+            {
+                sectionTitle: "At Your Desk",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="18" x2="6" y2="22"></line><line x1="18" y1="18" x2="18" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
+                exercises: [
+            {
+                category: "Ankle Strengthening with Theraband (Yellow)",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4-6 8-6 8s-6-4-6-8a6 6 0 1 1 12 0"></path></svg>`,
+                exercises: [
+                    { 
+                        id: 0, 
+                        name: "Theraband Dorsiflexion", 
+                        details: "2 × 10 reps, 3 sec tempo", 
+                        instructions: "Loop yellow theraband around foot. Pull foot toward you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 1, 
+                        name: "Theraband Plantar Flexion", 
+                        details: "2 × 10 reps, 3 sec tempo", 
+                        instructions: "Loop yellow theraband around foot. Point foot away from you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 2, 
+                        name: "Theraband Eversion", 
+                        details: "2 × 10 reps, 3 sec tempo", 
+                        instructions: "Secure theraband to stable object. Turn foot outward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", 
+                        frequency: "Once per day" 
+                    },
+                    { 
+                        id: 3, 
+                        name: "Theraband Inversion", 
+                        details: "2 × 10 reps, 3 sec tempo", 
+                        instructions: "Secure theraband to stable object. Turn foot inward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", 
+                        frequency: "Once per day" 
+                    }
+                ]
+            },
+            {
+                category: "Foot Proprioception (Left)",
+                sourceDate: "Jan 16",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>`,
+                exercises: [
+                    { id: 4, name: "Soccer Ball Roll", details: "A few minutes", instructions: "Gently roll the bottom of the left foot over a soccer ball.", frequency: "Daily as tolerated" },
+                    { id: 5, name: "Texture Exposure", details: "As tolerated", instructions: "Expose the foot to different textures (towel, carpet, soft mat) to improve sensation and control.", frequency: "Daily as tolerated" }
+                ]
+            },
+            {
+                category: "Passive Ankle Mobility",
+                sourceDate: "Jan 28",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.2 0 1.8.5 2.5 1"></path></svg>`,
+                exercises: [
+                    { 
+                        id: 6, 
+                        name: "Passive Ankle Mobility (All Directions)", 
+                        details: "2 × 12 reps, hold max 3 seconds each position", 
+                        instructions: "Use your hands to gently move your ankle in all directions: up, down, in, and out. For dorsiflexion (foot toward you), use a yoga strap or belt while seated. Move slowly until you feel a comfortable stretch, not pain. Focus is on joint mobility, not prolonged stretching.", 
+                        frequency: "2x per day" 
+                    },
+                    { 
+                        id: 7, 
+                        name: "Sustained Dorsiflexion Stretch", 
+                        details: "1 × 6 reps, hold 10 seconds each", 
+                        instructions: "Use your hands or a yoga strap to gently pull your foot toward you (dorsiflexion). Hold until you feel a gentle stretch in the calf, but not too intense. This is a more sustained stretch than the previous mobility work.", 
+                        frequency: "Once per day" 
+                    }
+                ]
+            }
+                ]
+            },
+            {
+                sectionTitle: "On the Couch",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v3"></path><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path><line x1="6" y1="18" x2="6" y2="21"></line><line x1="18" y1="18" x2="18" y2="21"></line></svg>`,
+                exercises: [
+            {
+                category: "Hip Strength",
+                sourceDate: "Jan 12",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>`,
+                exercises: [
+                    { id: 8, name: "Seated Straight Leg Raise", details: "2 × 10 reps, slow 3-second lift/lower", instructions: "Sit upright, knee slightly bent, lift the leg without leaning back", frequency: "2-3x per day" },
+                    { id: 9, name: "Side-Lying Hip Abduction", details: "2 × 10 reps, slow 3-second lift/lower", instructions: "Lie on your side, keep hips stacked, lift the top leg straight up", frequency: "2-3x per day" },
+                    { id: 10, name: "Prone Hip Extension", details: "2 × 10 reps, slow 3-second lift/lower", instructions: "Lie on your stomach, knee slightly bent, lift the leg without arching your back", frequency: "2-3x per day" }
+                ]
+            },
+            {
+                category: "Calf & Leg Strength (Right)",
+                sourceDate: "Jan 16",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4-6 8-6 8s-6-4-6-8a6 6 0 1 1 12 0"></path></svg>`,
+                exercises: [
+                    { id: 11, name: "Heel Raises - Right Leg", details: "3 × 15 reps, slow 3-second movement", instructions: "Stand and rise up onto the ball of your right foot. Lower back down slowly with control.", frequency: "Once per day" },
+                    { id: 12, name: "Single-Leg Bridges - Right Leg", details: "3 × 15 reps, slow 3-second movement", instructions: "Lie on your back with right knee bent, left leg relaxed. Lift hips using only right leg, then lower slowly.", frequency: "Once per day" },
+                    { id: 13, name: "Heel Raises in Bridge - Right Leg", details: "3 × 15 reps, slow 3-second movement", instructions: "In bridge position with weight on right leg, lift heel to come onto toes. Lower heel while keeping hips lifted.", frequency: "Once per day" }
+                ]
+            }
+                ]
+            },
+            {
+                sectionTitle: "Throughout the Day",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+                exercises: [
+            {
+                category: "Weight-Bearing Progression",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`,
+                exercises: [
+                    { 
+                        id: 14, 
+                        name: "Increased Weight-Bearing in Boot", 
+                        details: "Throughout the day, especially indoors", 
+                        instructions: "Focus on bearing more weight through the boot during daily activities, particularly when indoors. Practice without crutches indoors. Progress as tolerated.", 
+                        frequency: "Throughout the day" 
+                    }
+                ]
+            }
+                ]
+            }
+        ],
+        // Keep the cycling exploration from Jan 28
+        tryThis: [
+            {
+                name: "Gentle Stationary Cycling",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M6 11L12 17L15 14L18 16"></path></svg>`,
+                details: "~10 minutes, no resistance",
+                instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
+                note: "Give it a try when you feel ready - not required daily"
+            }
+        ]
     }
 ];
 
@@ -436,6 +569,15 @@ function getSessionById(id) {
     return sessions.find(s => s.id === id);
 }
 
+// Helper: Get flat exercises array from session (handles both old and new structure)
+function getExerciseGroupsFromSession(session) {
+    if (!session) return [];
+    if (session.exerciseSections) {
+        return session.exerciseSections.flatMap(section => section.exercises);
+    }
+    return session.exercises || [];
+}
+
 // Calculate current phase based on surgery date
 function getCurrentPhase() {
     if (!surgeryDate) return null;
@@ -508,7 +650,8 @@ function calculateStreak() {
         
         // Get the exercise IDs from the active session
         const activeExerciseIds = new Set();
-        activeSession.exercises.forEach(group => {
+        const exerciseGroups = getExerciseGroupsFromSession(activeSession);
+        exerciseGroups.forEach(group => {
             group.exercises.forEach(ex => activeExerciseIds.add(ex.id));
         });
         
@@ -572,7 +715,8 @@ function renderTodayContent() {
     let totalCount = 0;
     
     if (activeSession) {
-        activeSession.exercises.forEach(group => {
+        const exerciseGroups = getExerciseGroupsFromSession(activeSession);
+        exerciseGroups.forEach(group => {
             sessionTotal += group.exercises.length;
         });
         
@@ -877,7 +1021,8 @@ function getSessionColorClass(sessionId) {
     if (sessionId === 'jan16') return 'session-jan16';
     if (sessionId === 'jan19') return 'session-jan19';
     if (sessionId === 'jan28') return 'session-jan28';
-    return 'session-jan28'; // Default for future sessions
+    if (sessionId === 'feb02') return 'session-feb02';
+    return 'session-feb02'; // Default for future sessions
 }
 
 // Get the date range to show in carousel (Jan 12 to today + 7 days)
@@ -904,7 +1049,9 @@ const treatmentDates = [
     '2026-01-16',
     '2026-01-19',
     '2026-01-23', // Follow-up, no prescription change
-    '2026-01-28'
+    '2026-01-28',
+    '2026-01-30', // Follow-up, no prescription change
+    '2026-02-02'
 ];
 
 // Check if a date is a treatment date (visited Sonia)
@@ -979,19 +1126,38 @@ function renderDateCarousel() {
     }, 100);
 }
 
-// Get optional exercises from Jan 12 and Jan 16 sessions (excluding weight-bearing)
-// Returns Jan 16 first (most recent), then Jan 12
+// Get optional exercises from Jan 12, Jan 16, and Jan 28 sessions
+// Returns Jan 28 first (most recent), then Jan 16, then Jan 12
 function getOptionalExercises() {
     const jan12 = getSessionById('jan12');
     const jan16 = getSessionById('jan16');
+    const jan28 = getSessionById('jan28');
     
     const optional = [];
     
-    // Jan 16 first (more recent/relevant)
+    // Jan 28 (excluding isometric exercises and weight-bearing practice)
+    if (jan28) {
+        getExerciseGroupsFromSession(jan28).forEach(group => {
+            // Exclude isometric exercises (replaced by theraband) and weight-bearing (now in main prescription)
+            if (!group.category.toLowerCase().includes('isometric') && 
+                !group.category.toLowerCase().includes('weight')) {
+                optional.push({
+                    ...group,
+                    sourceSession: 'jan28',
+                    sourceLabel: 'Jan 28'
+                });
+            }
+        });
+    }
+    
+    // Jan 16 - exclude exercises now in main prescription (calf/leg strength, foot proprioception, weight-bearing)
     if (jan16) {
-        jan16.exercises.forEach(group => {
-            // Exclude weight-bearing since it's already in current prescription
-            if (!group.category.toLowerCase().includes('weight bearing')) {
+        getExerciseGroupsFromSession(jan16).forEach(group => {
+            const cat = group.category.toLowerCase();
+            // Exclude if it's now in the main Feb 2 prescription
+            if (!cat.includes('calf') && 
+                !cat.includes('proprioception') && 
+                !cat.includes('weight')) {
                 optional.push({
                     ...group,
                     sourceSession: 'jan16',
@@ -1001,14 +1167,18 @@ function getOptionalExercises() {
         });
     }
     
-    // Then Jan 12
+    // Jan 12 - exclude exercises now in main prescription (hip strength)
     if (jan12) {
-        jan12.exercises.forEach(group => {
-            optional.push({
-                ...group,
-                sourceSession: 'jan12',
-                sourceLabel: 'Jan 12'
-            });
+        getExerciseGroupsFromSession(jan12).forEach(group => {
+            const cat = group.category.toLowerCase();
+            // Exclude hip strength since it's now in main prescription
+            if (!cat.includes('hip')) {
+                optional.push({
+                    ...group,
+                    sourceSession: 'jan12',
+                    sourceLabel: 'Jan 12'
+                });
+            }
         });
     }
     
@@ -1036,7 +1206,11 @@ function renderPhysioContent() {
         return;
     }
     
-    const sessionExercises = activeSession.exercises;
+    // Support both old structure (exercises) and new structure (exerciseSections)
+    const hasExerciseSections = activeSession.exerciseSections !== undefined;
+    const sessionExercises = hasExerciseSections ? 
+        activeSession.exerciseSections.flatMap(section => section.exercises) : 
+        activeSession.exercises;
 
     // Update Header
     updatePhysioPhaseWeek(activeSession);
@@ -1063,54 +1237,123 @@ function renderPhysioContent() {
     const state = loadCheckboxState(currentPhysioDate, totalSessionExercises);
     let html = '';
 
-    sessionExercises.forEach((group, groupIndex) => {
-        // Calculate progress
-        const groupIds = group.exercises.map(e => e.id);
-        const completedCount = groupIds.filter(id => state[id]).length;
-        const totalCount = groupIds.length;
-        const isComplete = completedCount === totalCount;
-        
-        const progressClass = isComplete ? 'complete' : '';
-        const progressText = isComplete ? '✓' : `${completedCount}/${totalCount}`;
-        
-        const groupId = `group-${groupIndex}`;
-        const isOpen = openGroups.has(groupId);
-
-        html += `
-            <div class="exercise-group ${isOpen ? 'open' : ''}" id="${groupId}">
-                <button class="exercise-group-header" data-group="${groupIndex}">
-                    <div class="exercise-group-title-wrapper">
-                        <span class="exercise-group-icon">${group.icon}</span>
-                        <span class="exercise-group-title">${group.category}</span>
-                    </div>
-                    <div class="exercise-group-meta">
-                        <span class="exercise-progress ${progressClass}">${progressText}</span>
-                        <span class="exercise-group-arrow">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </span>
-                    </div>
-                </button>
-                <div class="exercise-list">
-                    ${group.exercises.map(ex => {
-                        const isChecked = state[ex.id];
-                        return `
-                            <div class="exercise-item">
-                                <div class="checkbox-wrapper">
-                                    <div class="checkbox ${isChecked ? 'checked' : ''}" data-exercise="${ex.id}"></div>
-                                </div>
-                                <div class="exercise-content">
-                                    <div class="exercise-name">${ex.name}</div>
-                                    <div class="exercise-details">${ex.details}</div>
-                                    <div class="exercise-instructions">${ex.instructions}</div>
-                                    <span class="exercise-frequency">📅 ${ex.frequency}</span>
-                                </div>
-                            </div>
-                        `;
-                    }).join('')}
+    // Render with sections if available, otherwise render flat
+    if (hasExerciseSections) {
+        let globalGroupIndex = 0;
+        activeSession.exerciseSections.forEach((section, sectionIndex) => {
+            // Render section header (more compact)
+            html += `
+                <div class="exercise-section-header">
+                    <span class="section-header-icon">${section.sectionIcon}</span>
+                    <span class="section-header-title">${section.sectionTitle}</span>
                 </div>
-            </div>
-        `;
-    });
+            `;
+            
+            // Render groups within this section
+            section.exercises.forEach((group, localGroupIndex) => {
+                const groupIds = group.exercises.map(e => e.id);
+                const completedCount = groupIds.filter(id => state[id]).length;
+                const totalCount = groupIds.length;
+                const isComplete = completedCount === totalCount;
+                
+                const progressClass = isComplete ? 'complete' : '';
+                const progressText = isComplete ? '✓' : `${completedCount}/${totalCount}`;
+                
+                const groupId = `group-${globalGroupIndex}`;
+                const isOpen = openGroups.has(groupId);
+                
+                // Add source date badge if available
+                const sourceDateBadge = group.sourceDate ? 
+                    `<span class="source-date-badge">${group.sourceDate}</span>` : '';
+
+                html += `
+                    <div class="exercise-group ${isOpen ? 'open' : ''}" id="${groupId}">
+                        <button class="exercise-group-header" data-group="${globalGroupIndex}">
+                            <div class="exercise-group-title-wrapper">
+                                <span class="exercise-group-icon">${group.icon}</span>
+                                <span class="exercise-group-title">${group.category}</span>
+                                ${sourceDateBadge}
+                            </div>
+                            <div class="exercise-group-meta">
+                                <span class="exercise-progress ${progressClass}">${progressText}</span>
+                                <span class="exercise-group-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </span>
+                            </div>
+                        </button>
+                        <div class="exercise-list">
+                            ${group.exercises.map(ex => {
+                                const isChecked = state[ex.id];
+                                return `
+                                    <div class="exercise-item">
+                                        <div class="checkbox-wrapper">
+                                            <div class="checkbox ${isChecked ? 'checked' : ''}" data-exercise="${ex.id}"></div>
+                                        </div>
+                                        <div class="exercise-content">
+                                            <div class="exercise-name">${ex.name}</div>
+                                            <div class="exercise-details">${ex.details}</div>
+                                            <div class="exercise-instructions">${ex.instructions}</div>
+                                            <span class="exercise-frequency">📅 ${ex.frequency}</span>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+                globalGroupIndex++;
+            });
+        });
+    } else {
+        // Old flat structure (for backward compatibility)
+        sessionExercises.forEach((group, groupIndex) => {
+            const groupIds = group.exercises.map(e => e.id);
+            const completedCount = groupIds.filter(id => state[id]).length;
+            const totalCount = groupIds.length;
+            const isComplete = completedCount === totalCount;
+            
+            const progressClass = isComplete ? 'complete' : '';
+            const progressText = isComplete ? '✓' : `${completedCount}/${totalCount}`;
+            
+            const groupId = `group-${groupIndex}`;
+            const isOpen = openGroups.has(groupId);
+
+            html += `
+                <div class="exercise-group ${isOpen ? 'open' : ''}" id="${groupId}">
+                    <button class="exercise-group-header" data-group="${groupIndex}">
+                        <div class="exercise-group-title-wrapper">
+                            <span class="exercise-group-icon">${group.icon}</span>
+                            <span class="exercise-group-title">${group.category}</span>
+                        </div>
+                        <div class="exercise-group-meta">
+                            <span class="exercise-progress ${progressClass}">${progressText}</span>
+                            <span class="exercise-group-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+                    </button>
+                    <div class="exercise-list">
+                        ${group.exercises.map(ex => {
+                            const isChecked = state[ex.id];
+                            return `
+                                <div class="exercise-item">
+                                    <div class="checkbox-wrapper">
+                                        <div class="checkbox ${isChecked ? 'checked' : ''}" data-exercise="${ex.id}"></div>
+                                    </div>
+                                    <div class="exercise-content">
+                                        <div class="exercise-name">${ex.name}</div>
+                                        <div class="exercise-details">${ex.details}</div>
+                                        <div class="exercise-instructions">${ex.instructions}</div>
+                                        <span class="exercise-frequency">📅 ${ex.frequency}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+        });
+    }
 
     // Add "Try This" section for Jan 28+ dates (exploration items like cycling)
     const jan28Start = parseDateLocal('2026-01-28');
@@ -1143,8 +1386,9 @@ function renderPhysioContent() {
         `;
     }
     
-    // Add Optional Exercises section for Jan 28+ dates
-    if (viewingDate >= jan28Start) {
+    // Add Optional Exercises section for Jan 28+ dates (Feb 2+ for the new session)
+    const feb02Start = parseDateLocal('2026-02-02');
+    if (viewingDate >= feb02Start) {
         const optionalExercises = getOptionalExercises();
         
         // Add optional header/toggle

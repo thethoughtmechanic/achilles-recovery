@@ -34,6 +34,8 @@
     --session-jan19-pale: #EFEDF4;
     --session-jan28: #B8806E;      /* Terracotta - warmth, strength */
     --session-jan28-pale: #F5EDEA;
+    --session-feb02: #7A8F9A;      /* Steel Blue - progression, resilience */
+    --session-feb02-pale: #EDF1F3;
     
     /* ========== TYPOGRAPHY ========== */
     --font-serif: 'Fraunces', Georgia, serif;
@@ -925,6 +927,52 @@ body {
     transition: width 0.5s ease;
 }
 
+/* Exercise Section Headers - Compact */
+.exercise-section-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--spacing-xs) 0;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.exercise-section-header:first-child {
+    margin-top: 0;
+}
+
+.section-header-icon {
+    display: flex;
+    align-items: center;
+    color: var(--color-gray-light);
+}
+
+.section-header-icon svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.section-header-title {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray);
+}
+
+/* Source Date Badge (for carried-over exercises) */
+.source-date-badge {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    margin-left: var(--spacing-xs);
+    background: var(--color-beige);
+    color: var(--color-gray);
+}
+
 /* Exercise Group Cards (Collapsible) */
 .exercise-group {
     background: var(--color-white);
@@ -1312,6 +1360,12 @@ body {
 }
 .date-chip.session-jan28 .chip-date { color: var(--session-jan28); }
 
+.date-chip.session-feb02 {
+    background: var(--session-feb02-pale);
+    border-color: var(--session-feb02-pale);
+}
+.date-chip.session-feb02 .chip-date { color: var(--session-feb02); }
+
 /* First day of session - special treatment */
 .date-chip.session-start {
     width: 52px;
@@ -1324,6 +1378,7 @@ body {
 .date-chip.session-start.session-jan16 { border-color: var(--session-jan16); }
 .date-chip.session-start.session-jan19 { border-color: var(--session-jan19); }
 .date-chip.session-start.session-jan28 { border-color: var(--session-jan28); }
+.date-chip.session-start.session-feb02 { border-color: var(--session-feb02); }
 
 /* Active/selected chip */
 .date-chip.active {
@@ -1358,6 +1413,13 @@ body {
 }
 .date-chip.active.session-jan28 .chip-day,
 .date-chip.active.session-jan28 .chip-date { color: var(--color-white); }
+
+.date-chip.active.session-feb02 {
+    background: var(--session-feb02);
+    border-color: var(--session-feb02);
+}
+.date-chip.active.session-feb02 .chip-day,
+.date-chip.active.session-feb02 .chip-date { color: var(--color-white); }
 
 .date-chip:active {
     transform: scale(0.95);
@@ -1418,6 +1480,10 @@ body {
     border-left-color: var(--session-jan16);
 }
 
+.exercise-group.optional.from-jan28 {
+    border-left-color: var(--session-jan28);
+}
+
 .exercise-group.optional .exercise-group-header {
     background: var(--color-cream);
 }
@@ -1448,6 +1514,11 @@ body {
 .optional-source-badge.from-jan16 {
     background: var(--session-jan16-pale);
     color: var(--session-jan16);
+}
+
+.optional-source-badge.from-jan28 {
+    background: var(--session-jan28-pale);
+    color: var(--session-jan28);
 }
 
 /* Try This / Exploration Section */
