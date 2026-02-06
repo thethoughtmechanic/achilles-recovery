@@ -974,8 +974,8 @@ function loadCheckboxState(date = currentPhysioDate, defaultCount = 0) {
 function saveCheckboxState(state) {
     const key = `physio-checkboxes-${getTodayKey()}`;
     localStorage.setItem(key, JSON.stringify(state));
-    // Trigger update to refresh UI
-    renderPhysioContent();
+    // Trigger update to refresh UI (skip auto-scroll since user is interacting)
+    renderPhysioContent(true);
 }
 
 function updateDateDisplay() {
@@ -1051,7 +1051,8 @@ const treatmentDates = [
     '2026-01-23', // Follow-up, no prescription change
     '2026-01-28',
     '2026-01-30', // Follow-up, no prescription change
-    '2026-02-02'
+    '2026-02-02',
+    '2026-02-04'  // Follow-up, no prescription change
 ];
 
 // Check if a date is a treatment date (visited Sonia)
@@ -1061,7 +1062,7 @@ function isTreatmentDate(date) {
 }
 
 // Render date carousel (poker chips)
-function renderDateCarousel() {
+function renderDateCarousel(skipAutoScroll = false) {
     const container = document.getElementById('dateCarousel');
     if (!container) return;
 
@@ -1117,13 +1118,15 @@ function renderDateCarousel() {
         });
     });
     
-    // Auto-scroll to active chip
-    setTimeout(() => {
-        const activeChip = container.querySelector('.date-chip.active');
-        if (activeChip) {
-            activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        }
-    }, 100);
+    // Auto-scroll to active chip (only on initial load/date changes, not when checking boxes)
+    if (!skipAutoScroll) {
+        setTimeout(() => {
+            const activeChip = container.querySelector('.date-chip.active');
+            if (activeChip) {
+                activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }, 100);
+    }
 }
 
 // Get optional exercises from Jan 12, Jan 16, and Jan 28 sessions
@@ -1186,7 +1189,8 @@ function getOptionalExercises() {
 }
 
 // Render Physio Content (Exercises + Groups)
-function renderPhysioContent() {
+// skipAutoScroll: true when user is interacting (checking boxes), false for initial load/date changes
+function renderPhysioContent(skipAutoScroll = false) {
     updateDateDisplay();
     
     const container = document.getElementById('prescriptionContent');
@@ -1202,7 +1206,7 @@ function renderPhysioContent() {
                 <p>No physio sessions scheduled yet for this date.</p>
             </div>
         `;
-        renderDateCarousel();
+        renderDateCarousel(skipAutoScroll);
         return;
     }
     
@@ -1216,7 +1220,7 @@ function renderPhysioContent() {
     updatePhysioPhaseWeek(activeSession);
     
     // Render Date Carousel
-    renderDateCarousel();
+    renderDateCarousel(skipAutoScroll);
 
     // Calculate total exercises for THIS session to init state correctly
     let totalSessionExercises = 0;
