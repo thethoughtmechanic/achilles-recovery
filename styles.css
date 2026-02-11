@@ -36,6 +36,8 @@
     --session-jan28-pale: #F5EDEA;
     --session-feb02: #7A8F9A;      /* Steel Blue - progression, resilience */
     --session-feb02-pale: #EDF1F3;
+    --session-feb09: #6B9A7A;      /* Sage Green - growth, new phase */
+    --session-feb09-pale: #E8F1EB;
     
     /* ========== TYPOGRAPHY ========== */
     --font-serif: 'Fraunces', Georgia, serif;
@@ -989,6 +991,154 @@ body {
     color: var(--session-jan28);
 }
 
+.source-date-subtitle.from-feb02 {
+    color: var(--session-feb02);
+}
+
+/* Flat Exercise List (for exerciseSections - Feb 9+) */
+.flat-exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.flat-exercise-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: 12px var(--spacing-md);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-beige);
+    position: relative;
+}
+
+.flat-exercise-item:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.flat-exercise-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.flat-exercise-item:only-child {
+    border-radius: var(--radius-md);
+}
+
+.flat-exercise-item.checked-off .flat-exercise-name {
+    color: var(--color-gray-light);
+    text-decoration: line-through;
+    text-decoration-color: var(--color-beige-dark);
+}
+
+.flat-exercise-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.flat-exercise-top-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.flat-exercise-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-black);
+    line-height: 1.3;
+}
+
+.flat-exercise-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.flat-exercise-tag.tag-ankle {
+    background: #E8EEF1;
+    color: #5B7A8A;
+}
+
+.flat-exercise-tag.tag-calf {
+    background: #F5EDEA;
+    color: #B8806E;
+}
+
+.flat-exercise-tag.tag-quad {
+    background: #EFEDF4;
+    color: #8878A0;
+}
+
+.flat-exercise-tag.tag-glute {
+    background: #F5EDEA;
+    color: #B8806E;
+}
+
+.flat-exercise-tag.tag-core {
+    background: #E8F1EB;
+    color: #6B9A7A;
+}
+
+.flat-exercise-tag.tag-foot {
+    background: #FFF3E0;
+    color: #C68A4E;
+}
+
+.flat-exercise-details-row {
+    font-size: 0.78rem;
+    color: var(--color-gray);
+    line-height: 1.4;
+}
+
+.flat-exercise-expand {
+    display: none;
+    padding-top: 6px;
+}
+
+.flat-exercise-item.expanded .flat-exercise-expand {
+    display: block;
+}
+
+.flat-exercise-instructions {
+    font-size: 0.8rem;
+    color: var(--color-gray);
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.flat-exercise-frequency {
+    font-size: 0.7rem;
+    color: var(--color-gray-light);
+}
+
+.flat-exercise-info-toggle {
+    cursor: pointer;
+}
+
+/* Section progress counter */
+.section-header-progress {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-gray);
+    background: var(--color-beige);
+    padding: 1px 8px;
+    border-radius: var(--radius-pill);
+    margin-left: auto;
+}
+
+.section-header-progress.complete {
+    background: var(--color-green-pale);
+    color: var(--color-green);
+}
+
 /* Exercise Group Cards (Collapsible) */
 .exercise-group {
     background: var(--color-white);
@@ -1383,6 +1533,12 @@ body {
 }
 .date-chip.session-feb02 .chip-date { color: var(--session-feb02); }
 
+.date-chip.session-feb09 {
+    background: var(--session-feb09-pale);
+    border-color: var(--session-feb09-pale);
+}
+.date-chip.session-feb09 .chip-date { color: var(--session-feb09); }
+
 /* First day of session - special treatment */
 .date-chip.session-start {
     width: 52px;
@@ -1396,6 +1552,7 @@ body {
 .date-chip.session-start.session-jan19 { border-color: var(--session-jan19); }
 .date-chip.session-start.session-jan28 { border-color: var(--session-jan28); }
 .date-chip.session-start.session-feb02 { border-color: var(--session-feb02); }
+.date-chip.session-start.session-feb09 { border-color: var(--session-feb09); }
 
 /* Active/selected chip */
 .date-chip.active {
@@ -1437,6 +1594,13 @@ body {
 }
 .date-chip.active.session-feb02 .chip-day,
 .date-chip.active.session-feb02 .chip-date { color: var(--color-white); }
+
+.date-chip.active.session-feb09 {
+    background: var(--session-feb09);
+    border-color: var(--session-feb09);
+}
+.date-chip.active.session-feb09 .chip-day,
+.date-chip.active.session-feb09 .chip-date { color: var(--color-white); }
 
 .date-chip:active {
     transform: scale(0.95);

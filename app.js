@@ -345,6 +345,57 @@ const sessions = [
                 note: "Give it a try when you feel ready - not required daily"
             }
         ]
+    },
+    {
+        id: "feb09",
+        startDate: "2026-02-09",
+        title: "Feb 9 Session",
+        subtitle: "Focus: Core & Calf Strengthening",
+        flatList: true,
+        exerciseSections: [
+            {
+                sectionTitle: "While Working",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="18" x2="6" y2="22"></line><line x1="18" y1="18" x2="18" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
+                flatExercises: [
+                    { id: 0, name: "Soccer Ball Roll", tag: "foot", details: "A few minutes", instructions: "Gently roll the bottom of the left foot over a soccer ball.", frequency: "Daily as tolerated" },
+                    { id: 1, name: "Texture Exposure", tag: "foot", details: "As tolerated", instructions: "Expose the foot to different textures (towel, carpet, soft mat) to improve sensation and control.", frequency: "Daily as tolerated" },
+                    { id: 2, name: "Passive Ankle Mobility (All Directions)", tag: "ankle", details: "2 × 12 reps, hold 3s each", instructions: "Use your hands to gently move your ankle in all directions: up, down, in, and out. For dorsiflexion (foot toward you), use a yoga strap or belt while seated. Move slowly until you feel a comfortable stretch, not pain.", frequency: "2x per day" },
+                    { id: 3, name: "Seated Calf Raises", tag: "calf", details: "2 × 12 reps, 3s tempo", instructions: "Sit with feet flat on the floor. Raise both heels off the ground, pressing through the balls of your feet. Lower slowly with control.", frequency: "Once per day" }
+                ]
+            },
+            {
+                sectionTitle: "Quick Session",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+                flatExercises: [
+                    { id: 4, name: "Theraband Dorsiflexion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Loop yellow theraband around foot. Pull foot toward you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 5, name: "Theraband Plantar Flexion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Loop yellow theraband around foot. Point foot away from you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 6, name: "Theraband Eversion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Secure theraband to stable object. Turn foot outward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 7, name: "Theraband Inversion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Secure theraband to stable object. Turn foot inward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 8, name: "Seated Straight Leg Raise", tag: "quad", details: "2 × 10 reps, 3s lift/lower", instructions: "Sit upright, knee slightly bent, lift the leg without leaning back", frequency: "2-3x per day" }
+                ]
+            },
+            {
+                sectionTitle: "Floor Session",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"></rect><line x1="1" y1="12" x2="23" y2="12"></line></svg>`,
+                flatExercises: [
+                    { id: 9, name: "Side-Lying Hip Abduction", tag: "glute", details: "2 × 10 reps, 3s lift/lower", instructions: "Lie on your side, keep hips stacked, lift the top leg straight up", frequency: "2-3x per day" },
+                    { id: 10, name: "Prone Hip Extension", tag: "glute", details: "2 × 10 reps, 3s lift/lower", instructions: "Lie on your stomach, knee slightly bent, lift the leg without arching your back", frequency: "2-3x per day" },
+                    { id: 11, name: "Single-Leg Bridges - Right Leg", tag: "glute", details: "3 × 15 reps, 3s movement", instructions: "Lie on your back with right knee bent, left leg relaxed. Lift hips using only right leg, then lower slowly.", frequency: "Once per day" },
+                    { id: 12, name: "Heel Raises in Bridge - Right Leg", tag: "glute", details: "3 × 15 reps, 3s movement", instructions: "In bridge position with weight on right leg, lift heel to come onto toes. Lower heel while keeping hips lifted.", frequency: "Once per day" },
+                    { id: 13, name: "Heel Raises - Right Leg", tag: "calf", details: "3 × 15 reps, 3s movement", instructions: "Stand and rise up onto the ball of your right foot. Lower back down slowly with control.", frequency: "Once per day" },
+                    { id: 14, name: "Dead Bug with Heel Taps", tag: "core", details: "2 × 12 reps, 3s tempo", instructions: "Lie on your back with arms extended toward the ceiling and knees bent at 90°. Press your lower back into the floor (hollow body position). Slowly extend one leg to tap your heel to the ground, then return. Alternate legs. Keep your core engaged and lower back pressed down throughout.", frequency: "Once per day" }
+                ]
+            }
+        ],
+        tryThis: [
+            {
+                name: "Gentle Stationary Cycling",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M6 11L12 17L15 14L18 16"></path></svg>`,
+                details: "~10 minutes, no resistance",
+                instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
+                note: "Give it a try when you feel ready - not required daily"
+            }
+        ]
     }
 ];
 
@@ -573,9 +624,30 @@ function getSessionById(id) {
 function getExerciseGroupsFromSession(session) {
     if (!session) return [];
     if (session.exerciseSections) {
+        // Flat list sessions have flatExercises directly on sections
+        if (session.flatList) {
+            // Wrap all flat exercises into a single virtual group per section for compatibility
+            return session.exerciseSections
+                .filter(section => section.flatExercises)
+                .map(section => ({
+                    category: section.sectionTitle,
+                    exercises: section.flatExercises
+                }));
+        }
         return session.exerciseSections.flatMap(section => section.exercises);
     }
     return session.exercises || [];
+}
+
+// Get total exercise count for a session (works with all formats)
+function getTotalExerciseCount(session) {
+    if (!session) return 0;
+    if (session.flatList && session.exerciseSections) {
+        return session.exerciseSections.reduce((total, section) => 
+            total + (section.flatExercises ? section.flatExercises.length : 0), 0);
+    }
+    const groups = getExerciseGroupsFromSession(session);
+    return groups.reduce((total, g) => total + g.exercises.length, 0);
 }
 
 // Calculate current phase based on surgery date
@@ -1022,7 +1094,8 @@ function getSessionColorClass(sessionId) {
     if (sessionId === 'jan19') return 'session-jan19';
     if (sessionId === 'jan28') return 'session-jan28';
     if (sessionId === 'feb02') return 'session-feb02';
-    return 'session-feb02'; // Default for future sessions
+    if (sessionId === 'feb09') return 'session-feb09';
+    return 'session-feb09'; // Default for future sessions
 }
 
 // Get the date range to show in carousel (Jan 12 to today + 7 days)
@@ -1052,7 +1125,8 @@ const treatmentDates = [
     '2026-01-28',
     '2026-01-30', // Follow-up, no prescription change
     '2026-02-02',
-    '2026-02-04'  // Follow-up, no prescription change
+    '2026-02-04', // Follow-up, no prescription change
+    '2026-02-09'
 ];
 
 // Check if a date is a treatment date (visited Sonia)
@@ -1213,7 +1287,7 @@ function renderPhysioContent(skipAutoScroll = false) {
     // Support both old structure (exercises) and new structure (exerciseSections)
     const hasExerciseSections = activeSession.exerciseSections !== undefined;
     const sessionExercises = hasExerciseSections ? 
-        activeSession.exerciseSections.flatMap(section => section.exercises) : 
+        (activeSession.flatList ? [] : activeSession.exerciseSections.flatMap(section => section.exercises)) : 
         activeSession.exercises;
 
     // Update Header
@@ -1223,8 +1297,7 @@ function renderPhysioContent(skipAutoScroll = false) {
     renderDateCarousel(skipAutoScroll);
 
     // Calculate total exercises for THIS session to init state correctly
-    let totalSessionExercises = 0;
-    sessionExercises.forEach(g => totalSessionExercises += g.exercises.length);
+    const totalSessionExercises = getTotalExerciseCount(activeSession);
 
     // Capture currently open groups before re-rendering
     const openGroups = new Set();
@@ -1242,7 +1315,57 @@ function renderPhysioContent(skipAutoScroll = false) {
     let html = '';
 
     // Render with sections if available, otherwise render flat
-    if (hasExerciseSections) {
+    if (hasExerciseSections && activeSession.flatList) {
+        // NEW: Flat checklist layout (Feb 9+)
+        activeSession.exerciseSections.forEach((section) => {
+            if (!section.flatExercises) return;
+            
+            // Calculate section progress
+            const sectionIds = section.flatExercises.map(e => e.id);
+            const sectionCompleted = sectionIds.filter(id => state[id]).length;
+            const sectionTotal = sectionIds.length;
+            const sectionComplete = sectionCompleted === sectionTotal;
+            const sectionProgressClass = sectionComplete ? 'complete' : '';
+            const sectionProgressText = sectionComplete ? '✓' : `${sectionCompleted}/${sectionTotal}`;
+            
+            // Section header with progress
+            html += `
+                <div class="exercise-section-header">
+                    <span class="section-header-icon">${section.sectionIcon}</span>
+                    <span class="section-header-title">${section.sectionTitle}</span>
+                    <span class="section-header-progress ${sectionProgressClass}">${sectionProgressText}</span>
+                </div>
+            `;
+            
+            // Flat exercise list
+            html += `<div class="flat-exercise-list">`;
+            section.flatExercises.forEach(ex => {
+                const isChecked = state[ex.id];
+                const tagHtml = ex.tag ? `<span class="flat-exercise-tag tag-${ex.tag}">${ex.tag}</span>` : '';
+                
+                html += `
+                    <div class="flat-exercise-item ${isChecked ? 'checked-off' : ''}" data-exercise-id="${ex.id}">
+                        <div class="checkbox-wrapper">
+                            <div class="checkbox ${isChecked ? 'checked' : ''}" data-exercise="${ex.id}"></div>
+                        </div>
+                        <div class="flat-exercise-info flat-exercise-info-toggle">
+                            <div class="flat-exercise-top-row">
+                                <span class="flat-exercise-name">${ex.name}</span>
+                                ${tagHtml}
+                            </div>
+                            <div class="flat-exercise-details-row">${ex.details}</div>
+                            <div class="flat-exercise-expand">
+                                <div class="flat-exercise-instructions">${ex.instructions}</div>
+                                <div class="flat-exercise-frequency">📅 ${ex.frequency}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        });
+    } else if (hasExerciseSections) {
+        // Grouped accordion layout (Feb 2)
         let globalGroupIndex = 0;
         activeSession.exerciseSections.forEach((section, sectionIndex) => {
             // Render section header (more compact)
@@ -1490,6 +1613,16 @@ function attachPhysioListeners() {
         });
     });
 
+    // Flat exercise info toggle (tap to expand/collapse instructions)
+    document.querySelectorAll('.flat-exercise-info-toggle').forEach(info => {
+        info.addEventListener('click', (e) => {
+            const item = info.closest('.flat-exercise-item');
+            if (item) {
+                item.classList.toggle('expanded');
+            }
+        });
+    });
+
     // Optional section toggle - collapse/expand ALL optional exercises at once
     const optionalToggle = document.getElementById('optionalToggle');
     if (optionalToggle) {
@@ -1512,9 +1645,7 @@ function attachPhysioListeners() {
             const activeSession = getSessionForDate(currentPhysioDate);
             if (!activeSession) return; // No session on this date
             
-            let totalSessionExercises = 0;
-            const exerciseGroups = getExerciseGroupsFromSession(activeSession);
-            exerciseGroups.forEach(g => totalSessionExercises += g.exercises.length);
+            const totalSessionExercises = getTotalExerciseCount(activeSession);
             
             const state = loadCheckboxState(currentPhysioDate, totalSessionExercises);
             
