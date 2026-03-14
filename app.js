@@ -1126,7 +1126,11 @@ const treatmentDates = [
     '2026-01-30', // Follow-up, no prescription change
     '2026-02-02',
     '2026-02-04', // Follow-up, no prescription change
-    '2026-02-09'
+    '2026-02-09',
+    '2026-02-13', // Follow-up, no prescription change
+    '2026-02-20', // Follow-up, no prescription change
+    '2026-02-27', // Follow-up, no prescription change
+    '2026-03-09'  // Follow-up, no prescription change
 ];
 
 // Check if a date is a treatment date (visited Sonia)
