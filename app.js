@@ -396,6 +396,77 @@ const sessions = [
                 note: "Give it a try when you feel ready - not required daily"
             }
         ]
+    },
+    {
+        id: "mar09",
+        startDate: "2026-03-09",
+        title: "Mar 9 Session",
+        subtitle: "Focus: Standing Calf Raises & Negatives",
+        flatList: true,
+        exerciseSections: [
+            {
+                sectionTitle: "Main Focus",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`,
+                flatExercises: [
+                    { id: 0, name: "Standing Calf Raises", tag: "calf", details: "2 × 10 reps, 3s tempo", instructions: "Stand with feet hip-width apart. Rise up onto the balls of both feet slowly, then lower back down with control. Hold a wall or chair for balance if needed.", frequency: "Once per day" },
+                    { id: 1, name: "Left Leg Calf Negatives", tag: "calf", details: "2 × 10 reps, 3s tempo", instructions: "Rise up on both feet, then shift weight to the left foot and lower slowly over 3 seconds. Use a wall or chair for balance.", frequency: "Once per day" }
+                ]
+            },
+            {
+                sectionTitle: "While Working",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="18" x2="6" y2="22"></line><line x1="18" y1="18" x2="18" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
+                flatExercises: [
+                    { id: 2, name: "Passive Ankle Mobility (All Directions)", tag: "ankle", details: "2 × 12 reps, hold 3s each", instructions: "Use your hands to gently move your ankle in all directions: up, down, in, and out. For dorsiflexion (foot toward you), use a yoga strap or belt while seated. Move slowly until you feel a comfortable stretch, not pain.", frequency: "2x per day" }
+                ]
+            },
+            {
+                sectionTitle: "Quick Session",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+                flatExercises: [
+                    { id: 3, name: "Theraband Dorsiflexion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Loop yellow theraband around foot. Pull foot toward you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 4, name: "Theraband Plantar Flexion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Loop yellow theraband around foot. Point foot away from you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 5, name: "Theraband Eversion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Secure theraband to stable object. Turn foot outward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 6, name: "Theraband Inversion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Secure theraband to stable object. Turn foot inward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 7, name: "Seated Straight Leg Raise", tag: "quad", details: "2 × 10 reps, 3s lift/lower", instructions: "Sit upright, knee slightly bent, lift the leg without leaning back", frequency: "2-3x per day" }
+                ]
+            },
+            {
+                sectionTitle: "Floor Session",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"></rect><line x1="1" y1="12" x2="23" y2="12"></line></svg>`,
+                flatExercises: [
+                    { id: 8, name: "Sustained Dorsiflexion Stretch", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Use your hands or a yoga strap to gently pull your foot toward you (dorsiflexion). Hold until you feel a gentle stretch in the calf, but not too intense. This is a more sustained stretch than the passive mobility work.", frequency: "Once per day" },
+                    { id: 9, name: "Theraband Dorsiflexion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Loop yellow theraband around foot. Pull foot toward you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 10, name: "Theraband Plantar Flexion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Loop yellow theraband around foot. Point foot away from you against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 11, name: "Theraband Eversion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Secure theraband to stable object. Turn foot outward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 12, name: "Theraband Inversion", tag: "ankle", details: "2 × 10 reps, 3s tempo", instructions: "Secure theraband to stable object. Turn foot inward against gentle resistance. Movement should feel gentle, not like you're using the muscle too much.", frequency: "Once per day" },
+                    { id: 13, name: "Seated Straight Leg Raise", tag: "quad", details: "2 × 10 reps, 3s lift/lower", instructions: "Sit upright, knee slightly bent, lift the leg without leaning back", frequency: "2-3x per day" },
+                    { id: 14, name: "Side-Lying Hip Abduction", tag: "glute", details: "2 × 10 reps, 3s lift/lower", instructions: "Lie on your side, keep hips stacked, lift the top leg straight up", frequency: "2-3x per day" },
+                    { id: 15, name: "Prone Hip Extension", tag: "glute", details: "2 × 10 reps, 3s lift/lower", instructions: "Lie on your stomach, knee slightly bent, lift the leg without arching your back", frequency: "2-3x per day" },
+                    { id: 16, name: "Single-Leg Bridges - Right Leg", tag: "glute", details: "3 × 15 reps, 3s movement", instructions: "Lie on your back with right knee bent, left leg relaxed. Lift hips using only right leg, then lower slowly.", frequency: "Once per day" },
+                    { id: 17, name: "Heel Raises in Bridge - Right Leg", tag: "glute", details: "3 × 15 reps, 3s movement", instructions: "In bridge position with weight on right leg, lift heel to come onto toes. Lower heel while keeping hips lifted.", frequency: "Once per day" },
+                    { id: 18, name: "Heel Raises - Right Leg", tag: "calf", details: "3 × 15 reps, 3s movement", instructions: "Stand and rise up onto the ball of your right foot. Lower back down slowly with control.", frequency: "Once per day" },
+                    { id: 19, name: "Dead Bug with Heel Taps", tag: "core", details: "2 × 12 reps, 3s tempo", instructions: "Lie on your back with arms extended toward the ceiling and knees bent at 90°. Press your lower back into the floor (hollow body position). Slowly extend one leg to tap your heel to the ground, then return. Alternate legs. Keep your core engaged and lower back pressed down throughout.", frequency: "Once per day" }
+                ]
+            },
+            {
+                sectionTitle: "Optional",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+                flatExercises: [
+                    { id: 20, name: "Soccer Ball Roll", tag: "foot", details: "A few minutes", instructions: "Gently roll the bottom of the left foot over a soccer ball.", frequency: "Daily as tolerated" },
+                    { id: 21, name: "Texture Exposure", tag: "foot", details: "As tolerated", instructions: "Expose the foot to different textures (towel, carpet, soft mat) to improve sensation and control.", frequency: "Daily as tolerated" },
+                    { id: 22, name: "Seated Calf Raises", tag: "calf", details: "2 × 12 reps, 3s tempo", instructions: "Sit with feet flat on the floor. Raise both heels off the ground, pressing through the balls of your feet. Lower slowly with control.", frequency: "Once per day" }
+                ]
+            }
+        ],
+        tryThis: [
+            {
+                name: "Gentle Stationary Cycling",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M6 11L12 17L15 14L18 16"></path></svg>`,
+                details: "~10 minutes, no resistance",
+                instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
+                note: "Give it a try when you feel ready - not required daily"
+            }
+        ]
     }
 ];
 
@@ -1095,6 +1166,7 @@ function getSessionColorClass(sessionId) {
     if (sessionId === 'jan28') return 'session-jan28';
     if (sessionId === 'feb02') return 'session-feb02';
     if (sessionId === 'feb09') return 'session-feb09';
+    if (sessionId === 'mar09') return 'session-feb09';
     return 'session-feb09'; // Default for future sessions
 }
 
@@ -1126,7 +1198,11 @@ const treatmentDates = [
     '2026-01-30', // Follow-up, no prescription change
     '2026-02-02',
     '2026-02-04', // Follow-up, no prescription change
-    '2026-02-09'
+    '2026-02-09',
+    '2026-02-13', // Follow-up, no prescription change
+    '2026-02-20', // Follow-up, no prescription change
+    '2026-02-27', // Follow-up, no prescription change
+    '2026-03-09'  // Follow-up, no prescription change
 ];
 
 // Check if a date is a treatment date (visited Sonia)
