@@ -449,15 +449,6 @@ const sessions = [
                     { id: 14, name: "Dead Bug with Heel Taps", tag: "core", details: "2 × 12 reps, 3s tempo", instructions: "Lie on your back with arms extended toward the ceiling and knees bent at 90°. Press your lower back into the floor (hollow body position). Slowly extend one leg to tap your heel to the ground, then return. Alternate legs. Keep your core engaged and lower back pressed down throughout.", frequency: "Once per day" }
                 ]
             },
-            {
-                sectionTitle: "Optional",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
-                flatExercises: [
-                    { id: 15, name: "Soccer Ball Roll", tag: "foot", details: "A few minutes", instructions: "Gently roll the bottom of the left foot over a soccer ball.", frequency: "Daily as tolerated" },
-                    { id: 16, name: "Texture Exposure", tag: "foot", details: "As tolerated", instructions: "Expose the foot to different textures (towel, carpet, soft mat) to improve sensation and control.", frequency: "Daily as tolerated" },
-                    { id: 17, name: "Seated Calf Raises", tag: "calf", details: "2 × 12 reps, 3s tempo", instructions: "Sit with feet flat on the floor. Raise both heels off the ground, pressing through the balls of your feet. Lower slowly with control.", frequency: "Once per day" }
-                ]
-            }
         ],
         tryThis: [
             {
@@ -466,6 +457,19 @@ const sessions = [
                 details: "~10 minutes, no resistance",
                 instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
                 note: "Give it a try when you feel ready - not required daily"
+            }
+        ],
+        optionalExtras: [
+            {
+                category: "Foot Mobility",
+                icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path></svg>`,
+                sourceLabel: "Mar 9",
+                sourceSession: "mar09",
+                exercises: [
+                    { name: "Soccer Ball Roll", details: "A few minutes", instructions: "Gently roll the bottom of the left foot over a soccer ball.", frequency: "Daily as tolerated" },
+                    { name: "Texture Exposure", details: "As tolerated", instructions: "Expose the foot to different textures (towel, carpet, soft mat) to improve sensation and control.", frequency: "Daily as tolerated" },
+                    { name: "Seated Calf Raises", details: "2 × 12 reps, 3s tempo", instructions: "Sit with feet flat on the floor. Raise both heels off the ground, pressing through the balls of your feet. Lower slowly with control.", frequency: "Once per day" }
+                ]
             }
         ]
     }
@@ -1280,14 +1284,19 @@ function renderDateCarousel(skipAutoScroll = false) {
     }
 }
 
-// Get optional exercises from Jan 12, Jan 16, and Jan 28 sessions
-// Returns Jan 28 first (most recent), then Jan 16, then Jan 12
+// Get optional exercises from historical sessions plus current session's optionalExtras
 function getOptionalExercises() {
     const jan12 = getSessionById('jan12');
     const jan16 = getSessionById('jan16');
     const jan28 = getSessionById('jan28');
-    
+
     const optional = [];
+
+    // Current session optionalExtras (e.g. Mar 9 soccer ball, texture exposure, seated calf raises)
+    const activeSession = getSessionForDate(currentPhysioDate);
+    if (activeSession && activeSession.optionalExtras) {
+        activeSession.optionalExtras.forEach(group => optional.push(group));
+    }
     
     // Jan 28 (excluding isometric exercises and weight-bearing practice)
     if (jan28) {
