@@ -38,6 +38,8 @@
     --session-feb02-pale: #EDF1F3;
     --session-feb09: #6B9A7A;      /* Sage Green - growth, new phase */
     --session-feb09-pale: #E8F1EB;
+    --session-may20: #B8935A;      /* Warm Amber - strength, progress */
+    --session-may20-pale: #F5EDE0;
     
     /* ========== TYPOGRAPHY ========== */
     --font-serif: 'Fraunces', Georgia, serif;
@@ -1601,6 +1603,21 @@ body {
 }
 .date-chip.active.session-feb09 .chip-day,
 .date-chip.active.session-feb09 .chip-date { color: var(--color-white); }
+
+.date-chip.session-may20 {
+    background: var(--session-may20-pale);
+    border-color: var(--session-may20-pale);
+}
+.date-chip.session-may20 .chip-date { color: var(--session-may20); }
+
+.date-chip.session-start.session-may20 { border-color: var(--session-may20); }
+
+.date-chip.active.session-may20 {
+    background: var(--session-may20);
+    border-color: var(--session-may20);
+}
+.date-chip.active.session-may20 .chip-day,
+.date-chip.active.session-may20 .chip-date { color: var(--color-white); }
 
 .date-chip:active {
     transform: scale(0.95);
