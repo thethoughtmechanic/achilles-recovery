@@ -475,6 +475,73 @@ const sessions = [
     },
     {
         id: "may20",
+        startDate: "2026-05-27",
+        title: "May 27 Session",
+        subtitle: "Focus: Heavy Calf Loading, Tendon Stiffness & Full Body Strength",
+        flatList: true,
+        exerciseSections: [
+            {
+                sectionTitle: "Hip Strength",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"></rect><line x1="1" y1="12" x2="23" y2="12"></line></svg>`,
+                flatExercises: [
+                    { id: 0, name: "Seated Straight Leg Raise", tag: "quad", details: "2 × 10 reps, 3s tempo", instructions: "Sit upright with a slight bend in the knee. Lift the leg slowly without leaning back, hold briefly at the top, then lower with control.", frequency: "2-3x per day" },
+                    { id: 1, name: "Side-Lying Hip Abduction", tag: "glute", details: "2 × 10 reps, 3s tempo", instructions: "Lie on your side with hips stacked. Lift the top leg straight up slowly, hold briefly, then lower with control.", frequency: "2-3x per day" },
+                    { id: 2, name: "Prone Hip Extension", tag: "glute", details: "2 × 10 reps, 3s tempo", instructions: "Lie on your stomach with a slight bend in the knee. Lift the leg without arching your back, hold briefly, then lower with control.", frequency: "2-3x per day" },
+                    { id: 3, name: "Glute Bridge", tag: "glute", details: "2 × 10 reps, 3s tempo", instructions: "Lie on your back with knees bent and feet flat. Drive hips up by squeezing glutes, hold briefly at the top, then lower slowly. Prescribed for lower back pain relief.", frequency: "3-4x per week" }
+                ]
+            },
+            {
+                sectionTitle: "Ankle Mobility",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.3-5 7-5 7 5 7 5-2.3 5-7 5-7-5-7-5z"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
+                flatExercises: [
+                    { id: 4, name: "Dorsiflexion Stretch with Belt", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Loop a belt or yoga strap around your foot. Pull foot toward you (dorsiflexion) and sustain the stretch until you feel it in the gastroc (calf). Hold for a full 10 seconds — this is a longer, more sustained stretch.", frequency: "Once per day" }
+                ]
+            },
+            {
+                sectionTitle: "Calf Strength",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 12 8 7 18"></polyline></svg>`,
+                flatExercises: [
+                    { id: 5, name: "Standing Heel Raise with Eccentric on Step", tag: "calf", details: "3 × 10 reps, 3s eccentric", instructions: "Rise up on both feet, then shift weight to the affected (left) foot and lower slowly over 3 seconds using a step for range. The eccentric lowering is the key part.", frequency: "4-5x per week" },
+                    { id: 6, name: "Single Leg Heel Raise", tag: "calf", details: "3 × 10 reps", instructions: "Stand on the affected leg and rise up onto the ball of your foot. Lower back down with control. Use a wall for balance if needed.", frequency: "Once per day" }
+                ]
+            },
+            {
+                sectionTitle: "Heavy Strength — Gym",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="5" x2="6" y2="19"></line><line x1="18" y1="5" x2="18" y2="19"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
+                flatExercises: [
+                    { id: 7, name: "Heavy Double Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Use squat rack, leg press, or Smith machine. When no machine is available, use heavy free weights in condo gym and add a plate for the eccentric component. Weight should feel challenging — fatiguing by end of each set. Aim for 2 reps left in the tank.", frequency: "3x per week" },
+                    { id: 8, name: "Loaded Single Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Hold dumbbells for resistance. Add a plate under foot for eccentric component. Aim for 2 reps left in the tank — weight should be challenging enough that you are fatiguing by the end of the set. Goal is to challenge the tendon.", frequency: "3x per week" }
+                ]
+            },
+            {
+                sectionTitle: "Full Body Strength",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`,
+                flatExercises: [
+                    { id: 9, name: "Goblet Squats", tag: "quad", details: "3 × 10 reps, 25–30 lbs", instructions: "Hold a dumbbell or kettlebell at chest height. Feet shoulder-width apart, squat down keeping chest up and knees tracking over toes. Drive through heels to stand.", frequency: "3x per week" },
+                    { id: 10, name: "Lunges", tag: "quad", details: "3 × 10 reps, 10 lbs each hand", instructions: "Hold a dumbbell in each hand. Step forward into a lunge, lowering back knee toward the floor. Push back to standing. Alternate legs or do all reps on one side.", frequency: "3x per week" },
+                    { id: 11, name: "Hamstring Curl on Roller", tag: "glute", details: "3 × 15 reps", instructions: "Lie on your back with heels on a foam roller. Lift hips off the ground and curl the roller toward you by bending your knees. Lower with control.", frequency: "3x per week" }
+                ]
+            },
+            {
+                sectionTitle: "Tendon Stiffness",
+                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>`,
+                flatExercises: [
+                    { id: 12, name: "Heel Raise Hold with Band in Eversion", tag: "calf", details: "3 × 30 sec holds", instructions: "Rise up onto your toes and hold the raised position. A band pulls your foot into eversion (outward) while you maintain the hold. Focus on keeping the heel raised and controlling the rotational force from the band.", frequency: "4-5x per week" }
+                ]
+            }
+        ],
+        tryThis: [
+            {
+                name: "Gentle Stationary Cycling",
+                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M6 11L12 17L15 14L18 16"></path></svg>`,
+                details: "~10 minutes, no resistance",
+                instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
+                note: "Give it a try when you feel ready - not required daily"
+            }
+        ],
+        optionalExtras: []
+    },
+    {
         startDate: "2026-05-20",
         title: "May 20 Session",
         subtitle: "Focus: Heavy Calf Loading & Full Body Strength",
