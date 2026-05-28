@@ -36,10 +36,14 @@
     --session-jan28-pale: #F5EDEA;
     --session-feb02: #7A8F9A;      /* Steel Blue - progression, resilience */
     --session-feb02-pale: #EDF1F3;
-    --session-feb09: #6B9A7A;      /* Sage Green - growth, new phase */
-    --session-feb09-pale: #E8F1EB;
+    --session-feb09: #A07888;      /* Dusty Rose - new phase */
+    --session-feb09-pale: #F2EDEE;
+    --session-mar09: #7A8A5F;      /* Moss Green - building strength */
+    --session-mar09-pale: #ECEEE5;
     --session-may20: #B8935A;      /* Warm Amber - strength, progress */
     --session-may20-pale: #F5EDE0;
+    --session-may27: #5A8A80;      /* Teal - forward momentum */
+    --session-may27-pale: #E0EEEC;
     
     /* ========== TYPOGRAPHY ========== */
     --font-serif: 'Fraunces', Georgia, serif;
@@ -1618,6 +1622,36 @@ body {
 }
 .date-chip.active.session-may20 .chip-day,
 .date-chip.active.session-may20 .chip-date { color: var(--color-white); }
+
+.date-chip.session-mar09 {
+    background: var(--session-mar09-pale);
+    border-color: var(--session-mar09-pale);
+}
+.date-chip.session-mar09 .chip-date { color: var(--session-mar09); }
+
+.date-chip.session-start.session-mar09 { border-color: var(--session-mar09); }
+
+.date-chip.active.session-mar09 {
+    background: var(--session-mar09);
+    border-color: var(--session-mar09);
+}
+.date-chip.active.session-mar09 .chip-day,
+.date-chip.active.session-mar09 .chip-date { color: var(--color-white); }
+
+.date-chip.session-may27 {
+    background: var(--session-may27-pale);
+    border-color: var(--session-may27-pale);
+}
+.date-chip.session-may27 .chip-date { color: var(--session-may27); }
+
+.date-chip.session-start.session-may27 { border-color: var(--session-may27); }
+
+.date-chip.active.session-may27 {
+    background: var(--session-may27);
+    border-color: var(--session-may27);
+}
+.date-chip.active.session-may27 .chip-day,
+.date-chip.active.session-may27 .chip-date { color: var(--color-white); }
 
 .date-chip:active {
     transform: scale(0.95);

@@ -475,6 +475,7 @@ const sessions = [
     },
     {
         id: "may20",
+        id: "may27",
         startDate: "2026-05-27",
         title: "May 27 Session",
         subtitle: "Focus: Heavy Calf Loading, Tendon Stiffness & Full Body Strength",
@@ -1334,9 +1335,10 @@ function getSessionColorClass(sessionId) {
     if (sessionId === 'jan28') return 'session-jan28';
     if (sessionId === 'feb02') return 'session-feb02';
     if (sessionId === 'feb09') return 'session-feb09';
-    if (sessionId === 'mar09') return 'session-feb09';
+    if (sessionId === 'mar09') return 'session-mar09';
     if (sessionId === 'may20') return 'session-may20';
-    return 'session-may20'; // Default for future sessions
+    if (sessionId === 'may27') return 'session-may27';
+    return 'session-may27'; // Default for future sessions
 }
 
 // Get the date range to show in carousel (Jan 12 to today + 7 days)
