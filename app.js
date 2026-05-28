@@ -474,7 +474,6 @@ const sessions = [
         ]
     },
     {
-        id: "may20",
         id: "may27",
         startDate: "2026-05-27",
         title: "May 27 Session",
@@ -543,6 +542,7 @@ const sessions = [
         optionalExtras: []
     },
     {
+        id: "may20",
         startDate: "2026-05-20",
         title: "May 20 Session",
         subtitle: "Focus: Heavy Calf Loading & Full Body Strength",
