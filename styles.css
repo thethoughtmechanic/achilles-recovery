@@ -44,6 +44,8 @@
     --session-may20-pale: #F5EDE0;
     --session-may27: #5A8A80;      /* Teal - forward momentum */
     --session-may27-pale: #E0EEEC;
+    --session-jun17: #6B6B9A;      /* Indigo - plyometric power */
+    --session-jun17-pale: #EDEDF2;
     
     /* ========== TYPOGRAPHY ========== */
     --font-serif: 'Fraunces', Georgia, serif;
@@ -1652,6 +1654,21 @@ body {
 }
 .date-chip.active.session-may27 .chip-day,
 .date-chip.active.session-may27 .chip-date { color: var(--color-white); }
+
+.date-chip.session-jun17 {
+    background: var(--session-jun17-pale);
+    border-color: var(--session-jun17-pale);
+}
+.date-chip.session-jun17 .chip-date { color: var(--session-jun17); }
+
+.date-chip.session-start.session-jun17 { border-color: var(--session-jun17); }
+
+.date-chip.active.session-jun17 {
+    background: var(--session-jun17);
+    border-color: var(--session-jun17);
+}
+.date-chip.active.session-jun17 .chip-day,
+.date-chip.active.session-jun17 .chip-date { color: var(--color-white); }
 
 .date-chip:active {
     transform: scale(0.95);
