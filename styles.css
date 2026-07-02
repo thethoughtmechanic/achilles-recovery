@@ -1679,6 +1679,158 @@ body {
     opacity: 0.5;
 }
 
+/* ========== DAY-TYPE TOGGLE ========== */
+.day-type-toggle {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    background: var(--color-beige);
+    border-radius: var(--radius-lg);
+    padding: 3px;
+}
+
+.day-type-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--spacing-sm) var(--spacing-xs);
+    border: none;
+    border-radius: calc(var(--radius-lg) - 3px);
+    background: transparent;
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.day-type-btn-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-gray);
+    transition: color var(--transition-fast);
+}
+
+.day-type-btn-sub {
+    font-size: 0.65rem;
+    color: var(--color-gray-light);
+    transition: color var(--transition-fast);
+}
+
+.day-type-btn.active {
+    background: var(--color-white);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.day-type-toggle.session-jun17 .day-type-btn.active .day-type-btn-label {
+    color: var(--session-jun17);
+}
+.day-type-toggle.session-jun17 .day-type-btn.active .day-type-btn-sub {
+    color: var(--session-jun17);
+    opacity: 0.7;
+}
+
+/* ========== INFO CARDS (schedule & reminders) ========== */
+.info-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-beige);
+    margin-bottom: var(--spacing-sm);
+    overflow: hidden;
+}
+
+.info-card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.info-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-gray);
+}
+
+.info-card-chevron {
+    color: var(--color-gray-light);
+    transition: transform var(--transition-fast);
+    display: flex;
+}
+
+.info-card.open .info-card-chevron {
+    transform: rotate(180deg);
+}
+
+.info-card-body {
+    display: none;
+    padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.info-card.open .info-card-body {
+    display: block;
+}
+
+/* Weekly cadence rows */
+.schedule-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--color-beige);
+    font-size: 0.8rem;
+}
+.schedule-row:last-child { border-bottom: none; }
+
+.schedule-days {
+    font-weight: 600;
+    min-width: 110px;
+    flex-shrink: 0;
+    color: var(--color-black);
+}
+
+.schedule-row-heavy .schedule-days { color: var(--session-jun17); }
+.schedule-row-recovery .schedule-days { color: var(--color-green); }
+.schedule-row-rest .schedule-days { color: var(--color-gray-light); }
+
+.schedule-label {
+    color: var(--color-gray);
+}
+
+/* Key reminders list */
+.reminders-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.reminders-list li {
+    font-size: 0.82rem;
+    color: var(--color-gray);
+    line-height: 1.4;
+}
+
+/* Section note (e.g. optional plyo caveat) */
+.section-note {
+    font-size: 0.75rem;
+    color: var(--color-gray-light);
+    font-style: italic;
+    margin: -6px 0 var(--spacing-xs);
+    padding: 0 2px;
+}
+
 /* Optional Header Section (no wrapper, just header) */
 .optional-header-section {
     margin-top: var(--spacing-md);

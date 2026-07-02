@@ -477,67 +477,93 @@ const sessions = [
         id: "jun17",
         startDate: "2026-06-17",
         title: "Jun 17 Session",
-        subtitle: "Focus: Plyometrics, Heavy Tendon Loading & Explosive Power",
-        flatList: true,
-        exerciseSections: [
-            {
-                sectionTitle: "Ankle Mobility",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.3-5 7-5 7 5 7 5-2.3 5-7 5-7-5-7-5z"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
-                flatExercises: [
-                    { id: 0, name: "Dorsiflexion Stretch with Belt", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Loop a belt or yoga strap around your foot. Pull foot toward you (dorsiflexion) and sustain the stretch until you feel it in the gastroc (calf). Hold for a full 10 seconds — this is a longer, more sustained stretch.", frequency: "Once per day" }
+        subtitle: "Heavy Tendon Loading + Plyometrics",
+        hasDayTypes: true,
+        weeklySchedule: [
+            { days: "Mon / Wed / Fri", label: "Heavy Strength + Plyometrics", type: "heavy" },
+            { days: "Tue / Thu", label: "Recovery / Mobility", type: "recovery" },
+            { days: "Saturday", label: "Active Recovery (Optional)", type: "recovery" },
+            { days: "Sunday", label: "Rest", type: "rest" }
+        ],
+        keyReminders: [
+            "Heavy Achilles loading 3×/week only — tendons need recovery time between sessions.",
+            "Weights should feel challenging: aim for 2 reps left in reserve (2 RIR) at end of each set.",
+            "Progress load by 5–10% per week — prioritise increasing weight, not adding reps.",
+            "Mild muscle soreness is normal. Significant Achilles pain or swelling → contact Sonia.",
+            "Recovery day plyos are optional — skip entirely if your tendon feels irritated or sore."
+        ],
+        dayTypes: {
+            heavy: {
+                label: "Heavy Day",
+                schedule: "Mon / Wed / Fri",
+                exerciseSections: [
+                    {
+                        sectionTitle: "Warm-Up",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.3-5 7-5 7 5 7 5-2.3 5-7 5-7-5-7-5z"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
+                        flatExercises: [
+                            { id: 0, name: "Dorsiflexion Stretch with Belt", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Loop a belt or yoga strap around your foot. Pull foot toward you (dorsiflexion) and sustain the stretch until you feel it in the gastroc (calf). Hold for a full 10 seconds — sustained stretch.", frequency: "Once per day" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Heavy Achilles Strength",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="5" x2="6" y2="19"></line><line x1="18" y1="5" x2="18" y2="19"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
+                        flatExercises: [
+                            { id: 1, name: "Heavy Double Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Use squat rack, leg press, or Smith machine. When no machine is available, use heavy free weights and add a plate for the eccentric component. Weight should feel challenging — fatiguing by end of each set. Aim for 2 reps left in the tank.", frequency: "3x per week" },
+                            { id: 2, name: "Heavy Single Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Use machine, Smith machine, or heavy free weights. Add a weight plate for eccentric component if appropriate. Aim for 2 reps left in the tank — should be fatiguing by end of the set.", frequency: "3x per week" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Lower Body Strength",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`,
+                        flatExercises: [
+                            { id: 3, name: "Goblet Squats", tag: "quad", details: "3 × 10 reps, 25–30 lbs", instructions: "Hold a dumbbell or kettlebell at chest height. Feet shoulder-width apart, squat down keeping chest up and knees tracking over toes. Drive through heels to stand.", frequency: "3x per week" },
+                            { id: 4, name: "Lunges", tag: "quad", details: "3 × 10 reps, 10 lbs each hand", instructions: "Hold a dumbbell in each hand. Step forward into a lunge, lowering back knee toward the floor. Push back to standing. Alternate legs or do all reps on one side.", frequency: "3x per week" },
+                            { id: 5, name: "Hamstring Curl on Roller", tag: "glute", details: "3 × 15 reps", instructions: "Lie on your back with heels on a foam roller. Lift hips off the ground and curl the roller toward you by bending your knees. Lower with control.", frequency: "3x per week" },
+                            { id: 6, name: "Standing Hinge", tag: "glute", details: "2 × 10 reps", instructions: "Stand with feet hip-width apart. Hinge at the hips, pushing them back while keeping a flat back. Lower torso until you feel a stretch in your hamstrings, then drive hips forward to stand.", frequency: "3x per week" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Accessory",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 12 8 7 18"></polyline></svg>`,
+                        flatExercises: [
+                            { id: 7, name: "Soleus Heel Raises", tag: "calf", details: "2 × 12 reps, 3s tempo", instructions: "Stand with knees deeply bent (as if sitting back in a chair). In this bent-knee position, rise up onto the ball of your foot to target the soleus (lower calf). Lower slowly over 3 seconds. The deep knee bend is what isolates the soleus.", frequency: "Heavy days" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Plyometrics",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
+                        flatExercises: [
+                            { id: 8, name: "Single-Leg POGOs", tag: "plyo", details: "20s on / 10s off × 3 rounds", instructions: "Small, light hops on one leg — quick and bouncy, not high. Stay on the ball of your foot. 20 seconds of hopping, 10 seconds rest, 3 rounds total.", frequency: "3x per week" },
+                            { id: 9, name: "Box Drop & Stick Landing", tag: "plyo", details: "3 × 8", instructions: "Step off a low box and absorb the landing by bending your knees and ankles softly. 'Stick' the landing — land quiet and controlled, hold the position for 1–2 seconds before resetting. Focus on landing mechanics.", frequency: "3x per week" }
+                        ]
+                    }
                 ]
             },
-            {
-                sectionTitle: "Calf Strength",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 12 8 7 18"></polyline></svg>`,
-                flatExercises: [
-                    { id: 1, name: "Explosive Heel Raise off Step", tag: "calf", details: "3 × 8 reps", instructions: "Stand on a step with heels hanging off. Explode upward as fast as you can onto your toes, then lower back down with control. Focus on the explosive upward drive.", frequency: "3x per week" },
-                    { id: 2, name: "Standing Heel Raise with Eccentric on Step", tag: "calf", details: "3 × 10 reps, 3s eccentric", instructions: "Rise up on both feet, then shift weight to the affected (left) foot and lower slowly over 3 seconds using a step for range. The eccentric lowering is the key part.", frequency: "4-5x per week" }
-                ]
-            },
-            {
-                sectionTitle: "Heavy Strength — Gym",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="5" x2="6" y2="19"></line><line x1="18" y1="5" x2="18" y2="19"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
-                flatExercises: [
-                    { id: 3, name: "Heavy Double Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Use squat rack, leg press, or Smith machine. When no machine is available, use heavy free weights in condo gym and add a plate for the eccentric component. Weight should feel challenging — fatiguing by end of each set. Aim for 2 reps left in the tank.", frequency: "3x per week" },
-                    { id: 4, name: "Loaded Single Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Hold dumbbells for resistance. Add a plate under foot for eccentric component. Aim for 2 reps left in the tank — weight should be challenging enough that you are fatiguing by the end of the set. Goal is to challenge the tendon and push it to failure.", frequency: "3x per week" }
-                ]
-            },
-            {
-                sectionTitle: "Tendon Stiffness",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>`,
-                flatExercises: [
-                    { id: 5, name: "Heel Raise Hold with Band in Eversion", tag: "calf", details: "3 × 30 sec holds", instructions: "Rise up onto your toes and hold the raised position. A band pulls your foot into eversion (outward) while you maintain the hold. Focus on keeping the heel raised and controlling the rotational force from the band.", frequency: "4-5x per week" }
-                ]
-            },
-            {
-                sectionTitle: "Plyometrics",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
-                flatExercises: [
-                    { id: 6, name: "Single Leg POGOs", tag: "plyo", details: "20s on / 10s off × 3 rounds", instructions: "Small, light jumps on one leg — think quick, bouncy hops rather than big jumps. Stay on the ball of your foot. Keep jumps really light. 20 seconds of hopping, 10 seconds rest, repeat 3 times.", frequency: "3x per week" },
-                    { id: 7, name: "Explosive Step-Up", tag: "plyo", details: "3 × 8 reps each side", instructions: "Use a step about 6 inches high. Place your left foot on the step, drive through it and explode upward. Focus on driving through the left foot with power. Do both sides.", frequency: "3x per week" }
-                ]
-            },
-            {
-                sectionTitle: "Full Body Strength",
-                sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`,
-                flatExercises: [
-                    { id: 8, name: "Goblet Squats", tag: "quad", details: "3 × 10 reps, 25–30 lbs", instructions: "Hold a dumbbell or kettlebell at chest height. Feet shoulder-width apart, squat down keeping chest up and knees tracking over toes. Drive through heels to stand.", frequency: "3x per week" },
-                    { id: 9, name: "Lunges", tag: "quad", details: "3 × 10 reps, 10 lbs each hand", instructions: "Hold a dumbbell in each hand. Step forward into a lunge, lowering back knee toward the floor. Push back to standing. Alternate legs or do all reps on one side.", frequency: "3x per week" },
-                    { id: 10, name: "Hamstring Curl on Roller", tag: "glute", details: "3 × 15 reps", instructions: "Lie on your back with heels on a foam roller. Lift hips off the ground and curl the roller toward you by bending your knees. Lower with control.", frequency: "3x per week" },
-                    { id: 11, name: "Standing Hinge", tag: "glute", details: "2 × 10 reps", instructions: "Stand with feet hip-width apart. Hinge at the hips, pushing them back while keeping a flat back. Lower your torso until you feel a stretch in your hamstrings, then drive hips forward to stand tall.", frequency: "3x per week" }
+            recovery: {
+                label: "Recovery Day",
+                schedule: "Tue / Thu / Sat / Sun",
+                exerciseSections: [
+                    {
+                        sectionTitle: "Mobility",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.3-5 7-5 7 5 7 5-2.3 5-7 5-7-5-7-5z"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
+                        flatExercises: [
+                            { id: 20, name: "Dorsiflexion Stretch with Belt", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Loop a belt or yoga strap around your foot. Pull foot toward you and sustain the stretch until you feel it in the gastroc. Hold for a full 10 seconds.", frequency: "Once per day" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Optional Light Plyometrics",
+                        sectionNote: "Only if Achilles feels good — keep easy and springy. Skip entirely if sore.",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
+                        flatExercises: [
+                            { id: 21, name: "Double-Leg POGOs", tag: "plyo", details: "Light, springy", instructions: "Small bouncy hops on both feet. Keep it easy — think coordination, not cardio. Stop if tendon feels irritated.", frequency: "Optional" },
+                            { id: 22, name: "Skipping", tag: "plyo", details: "Light", instructions: "Light skipping at an easy pace. Focus on rhythm and light contact with the ground, not speed or height.", frequency: "Optional" },
+                            { id: 23, name: "Light Bouncing Drills", tag: "plyo", details: "Light", instructions: "Any gentle bouncing or hopping that feels easy and springy. Should not leave your tendon fatigued.", frequency: "Optional" }
+                        ]
+                    }
                 ]
             }
-        ],
-        tryThis: [
-            {
-                name: "Gentle Stationary Cycling",
-                icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M6 11L12 17L15 14L18 16"></path></svg>`,
-                details: "~10 minutes, no resistance",
-                instructions: "Cycle gently and slowly on a stationary bike while wearing a shoe. Use NO resistance and maintain a moderate cadence. Focus on smooth, controlled movement.",
-                note: "Give it a try when you feel ready - not required daily"
-            }
-        ],
+        },
+        tryThis: [],
         optionalExtras: []
     },
     {
@@ -891,6 +917,7 @@ const phases = [
 // State
 let surgeryDate = "2025-12-23"; // Hardcoded surgery date
 let currentTab = 'today';
+let currentDayType = localStorage.getItem('preferred-day-type') || 'heavy';
 // We'll track currentPhysioDate as "the date being viewed"
 let currentPhysioDate = new Date();
 
@@ -930,10 +957,20 @@ function getSessionById(id) {
 // Helper: Get flat exercises array from session (handles both old and new structure)
 function getExerciseGroupsFromSession(session) {
     if (!session) return [];
+    if (session.hasDayTypes) {
+        // Return all exercises across all day types for streak/state compatibility
+        const groups = [];
+        Object.values(session.dayTypes).forEach(dt => {
+            dt.exerciseSections.forEach(section => {
+                if (section.flatExercises) {
+                    groups.push({ category: section.sectionTitle, exercises: section.flatExercises });
+                }
+            });
+        });
+        return groups;
+    }
     if (session.exerciseSections) {
-        // Flat list sessions have flatExercises directly on sections
         if (session.flatList) {
-            // Wrap all flat exercises into a single virtual group per section for compatibility
             return session.exerciseSections
                 .filter(section => section.flatExercises)
                 .map(section => ({
@@ -949,8 +986,18 @@ function getExerciseGroupsFromSession(session) {
 // Get total exercise count for a session (works with all formats)
 function getTotalExerciseCount(session) {
     if (!session) return 0;
+    if (session.hasDayTypes) {
+        // Size the state array to hold the max exercise ID across all day types
+        let maxId = 0;
+        Object.values(session.dayTypes).forEach(dt => {
+            dt.exerciseSections.forEach(section => {
+                (section.flatExercises || []).forEach(ex => { if (ex.id > maxId) maxId = ex.id; });
+            });
+        });
+        return maxId + 1;
+    }
     if (session.flatList && session.exerciseSections) {
-        return session.exerciseSections.reduce((total, section) => 
+        return session.exerciseSections.reduce((total, section) =>
             total + (section.flatExercises ? section.flatExercises.length : 0), 0);
     }
     const groups = getExerciseGroupsFromSession(session);
@@ -1636,7 +1683,113 @@ function renderPhysioContent(skipAutoScroll = false) {
     let html = '';
 
     // Render with sections if available, otherwise render flat
-    if (hasExerciseSections && activeSession.flatList) {
+    if (activeSession.hasDayTypes) {
+        // DAY-TYPE SESSIONS (Jun 17+) — toggle between heavy and recovery day
+        const sessionColorClass = getSessionColorClass(activeSession.id);
+        const activeDT = activeSession.dayTypes[currentDayType] || activeSession.dayTypes.heavy;
+
+        // Day-type toggle
+        html += `
+            <div class="day-type-toggle ${sessionColorClass}">
+                <button class="day-type-btn ${currentDayType === 'heavy' ? 'active' : ''}" data-type="heavy">
+                    <span class="day-type-btn-label">Heavy Day</span>
+                    <span class="day-type-btn-sub">Mon · Wed · Fri</span>
+                </button>
+                <button class="day-type-btn ${currentDayType === 'recovery' ? 'active' : ''}" data-type="recovery">
+                    <span class="day-type-btn-label">Recovery Day</span>
+                    <span class="day-type-btn-sub">Tue · Thu · Sat · Sun</span>
+                </button>
+            </div>
+        `;
+
+        // Weekly cadence card
+        const schedOpen = localStorage.getItem('weekly-schedule-open') !== 'false';
+        html += `
+            <div class="info-card ${schedOpen ? 'open' : ''}" id="scheduleCard">
+                <button class="info-card-header" id="scheduleToggle">
+                    <span class="info-card-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Weekly Cadence
+                    </span>
+                    <span class="info-card-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </button>
+                <div class="info-card-body">
+                    ${activeSession.weeklySchedule.map(row => `
+                        <div class="schedule-row schedule-row-${row.type}">
+                            <span class="schedule-days">${row.days}</span>
+                            <span class="schedule-label">${row.label}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Key reminders card
+        const remOpen = localStorage.getItem('key-reminders-open') !== 'false';
+        html += `
+            <div class="info-card ${remOpen ? 'open' : ''}" id="remindersCard">
+                <button class="info-card-header" id="remindersToggle">
+                    <span class="info-card-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        Key Reminders from Sonia
+                    </span>
+                    <span class="info-card-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </button>
+                <div class="info-card-body">
+                    <ul class="reminders-list">
+                        ${activeSession.keyReminders.map(r => `<li>${r}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+        `;
+
+        // Active day type exercises
+        activeDT.exerciseSections.forEach(section => {
+            if (!section.flatExercises) return;
+            const sectionIds = section.flatExercises.map(e => e.id);
+            const sectionCompleted = sectionIds.filter(id => state[id]).length;
+            const sectionTotal = sectionIds.length;
+            const sectionComplete = sectionCompleted === sectionTotal;
+            const sectionProgressClass = sectionComplete ? 'complete' : '';
+            const sectionProgressText = sectionComplete ? '✓' : `${sectionCompleted}/${sectionTotal}`;
+
+            html += `
+                <div class="exercise-section-header">
+                    <span class="section-header-icon">${section.sectionIcon}</span>
+                    <span class="section-header-title">${section.sectionTitle}</span>
+                    <span class="section-header-progress ${sectionProgressClass}">${sectionProgressText}</span>
+                </div>
+            `;
+            if (section.sectionNote) {
+                html += `<div class="section-note">${section.sectionNote}</div>`;
+            }
+            html += `<div class="flat-exercise-list">`;
+            section.flatExercises.forEach(ex => {
+                const isChecked = state[ex.id];
+                const tagHtml = ex.tag ? `<span class="flat-exercise-tag tag-${ex.tag}">${ex.tag}</span>` : '';
+                html += `
+                    <div class="flat-exercise-item ${isChecked ? 'checked-off' : ''}" data-exercise-id="${ex.id}">
+                        <div class="checkbox-wrapper">
+                            <div class="checkbox ${isChecked ? 'checked' : ''}" data-exercise="${ex.id}"></div>
+                        </div>
+                        <div class="flat-exercise-info flat-exercise-info-toggle">
+                            <div class="flat-exercise-top-row">
+                                <span class="flat-exercise-name">${ex.name}</span>
+                                ${tagHtml}
+                            </div>
+                            <div class="flat-exercise-details-row">${ex.details}</div>
+                            <div class="flat-exercise-expand">
+                                <div class="flat-exercise-instructions">${ex.instructions}</div>
+                                <div class="flat-exercise-frequency">📅 ${ex.frequency}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        });
+
+    } else if (hasExerciseSections && activeSession.flatList) {
         // NEW: Flat checklist layout (Feb 9+)
         activeSession.exerciseSections.forEach((section) => {
             if (!section.flatExercises) return;
@@ -1926,6 +2079,39 @@ function renderPhysioContent(skipAutoScroll = false) {
 }
 
 function attachPhysioListeners() {
+    // Day-type toggle (Heavy / Recovery)
+    document.querySelectorAll('.day-type-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentDayType = btn.dataset.type;
+            localStorage.setItem('preferred-day-type', currentDayType);
+            renderPhysioContent(true);
+        });
+    });
+
+    // Weekly cadence card toggle
+    const scheduleToggle = document.getElementById('scheduleToggle');
+    if (scheduleToggle) {
+        scheduleToggle.addEventListener('click', () => {
+            const card = document.getElementById('scheduleCard');
+            if (card) {
+                card.classList.toggle('open');
+                localStorage.setItem('weekly-schedule-open', card.classList.contains('open'));
+            }
+        });
+    }
+
+    // Key reminders card toggle
+    const remindersToggle = document.getElementById('remindersToggle');
+    if (remindersToggle) {
+        remindersToggle.addEventListener('click', () => {
+            const card = document.getElementById('remindersCard');
+            if (card) {
+                card.classList.toggle('open');
+                localStorage.setItem('key-reminders-open', card.classList.contains('open'));
+            }
+        });
+    }
+
     // Accordion toggles for exercise groups
     document.querySelectorAll('.exercise-group-header').forEach(header => {
         header.addEventListener('click', (e) => {
