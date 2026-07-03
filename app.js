@@ -1702,47 +1702,6 @@ function renderPhysioContent(skipAutoScroll = false) {
             </div>
         `;
 
-        // Weekly cadence card
-        const schedOpen = localStorage.getItem('weekly-schedule-open') !== 'false';
-        html += `
-            <div class="info-card ${schedOpen ? 'open' : ''}" id="scheduleCard">
-                <button class="info-card-header" id="scheduleToggle">
-                    <span class="info-card-title">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Weekly Cadence
-                    </span>
-                    <span class="info-card-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-                </button>
-                <div class="info-card-body">
-                    ${activeSession.weeklySchedule.map(row => `
-                        <div class="schedule-row schedule-row-${row.type}">
-                            <span class="schedule-days">${row.days}</span>
-                            <span class="schedule-label">${row.label}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-
-        // Key reminders card
-        const remOpen = localStorage.getItem('key-reminders-open') !== 'false';
-        html += `
-            <div class="info-card ${remOpen ? 'open' : ''}" id="remindersCard">
-                <button class="info-card-header" id="remindersToggle">
-                    <span class="info-card-title">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                        Key Reminders from Sonia
-                    </span>
-                    <span class="info-card-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-                </button>
-                <div class="info-card-body">
-                    <ul class="reminders-list">
-                        ${activeSession.keyReminders.map(r => `<li>${r}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
-        `;
-
         // Active day type exercises
         activeDT.exerciseSections.forEach(section => {
             if (!section.flatExercises) return;
@@ -1788,6 +1747,47 @@ function renderPhysioContent(skipAutoScroll = false) {
             });
             html += `</div>`;
         });
+
+        // Weekly cadence card
+        const schedOpen = localStorage.getItem('weekly-schedule-open') !== 'false';
+        html += `
+            <div class="info-card ${schedOpen ? 'open' : ''}" id="scheduleCard">
+                <button class="info-card-header" id="scheduleToggle">
+                    <span class="info-card-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Weekly Cadence
+                    </span>
+                    <span class="info-card-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </button>
+                <div class="info-card-body">
+                    ${activeSession.weeklySchedule.map(row => `
+                        <div class="schedule-row schedule-row-${row.type}">
+                            <span class="schedule-days">${row.days}</span>
+                            <span class="schedule-label">${row.label}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Key reminders card
+        const remOpen = localStorage.getItem('key-reminders-open') !== 'false';
+        html += `
+            <div class="info-card ${remOpen ? 'open' : ''}" id="remindersCard">
+                <button class="info-card-header" id="remindersToggle">
+                    <span class="info-card-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        Key Reminders from Sonia
+                    </span>
+                    <span class="info-card-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </button>
+                <div class="info-card-body">
+                    <ul class="reminders-list">
+                        ${activeSession.keyReminders.map(r => `<li>${r}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+        `;
 
     } else if (hasExerciseSections && activeSession.flatList) {
         // NEW: Flat checklist layout (Feb 9+)
