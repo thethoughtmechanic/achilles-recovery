@@ -46,6 +46,8 @@
     --session-may27-pale: #E0EEEC;
     --session-jun17: #6B6B9A;      /* Indigo - plyometric power */
     --session-jun17-pale: #EDEDF2;
+    --session-jul18: #C07060;      /* Coral - full power phase */
+    --session-jul18-pale: #F5EDE9;
     
     /* ========== TYPOGRAPHY ========== */
     --font-serif: 'Fraunces', Georgia, serif;
@@ -1669,6 +1671,29 @@ body {
 }
 .date-chip.active.session-jun17 .chip-day,
 .date-chip.active.session-jun17 .chip-date { color: var(--color-white); }
+
+.date-chip.session-jul18 {
+    background: var(--session-jul18-pale);
+    border-color: var(--session-jul18-pale);
+}
+.date-chip.session-jul18 .chip-date { color: var(--session-jul18); }
+
+.date-chip.session-start.session-jul18 { border-color: var(--session-jul18); }
+
+.date-chip.active.session-jul18 {
+    background: var(--session-jul18);
+    border-color: var(--session-jul18);
+}
+.date-chip.active.session-jul18 .chip-day,
+.date-chip.active.session-jul18 .chip-date { color: var(--color-white); }
+
+.day-type-toggle.session-jul18 .day-type-btn.active .day-type-btn-label {
+    color: var(--session-jul18);
+}
+.day-type-toggle.session-jul18 .day-type-btn.active .day-type-btn-sub {
+    color: var(--session-jul18);
+    opacity: 0.7;
+}
 
 .date-chip:active {
     transform: scale(0.95);
