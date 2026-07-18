@@ -474,6 +474,102 @@ const sessions = [
         ]
     },
     {
+        id: "jul18",
+        startDate: "2026-07-18",
+        title: "Jul 18 Session",
+        subtitle: "Phase ~7–8 months · Heavy Resistance + Tendon Extensile Loading",
+        hasDayTypes: true,
+        weeklySchedule: [
+            { days: "Mon / Wed / Fri", label: "Heavy Strength + Plyometrics", type: "heavy" },
+            { days: "Tue / Thu", label: "Recovery / Mobility", type: "recovery" },
+            { days: "Saturday", label: "Active Recovery (Optional)", type: "recovery" },
+            { days: "Sunday", label: "Rest", type: "rest" }
+        ],
+        keyReminders: [
+            "Heavy Achilles loading 3×/week only — at least one recovery day between each session.",
+            "Aim for 2 reps left in reserve (2 RIR) at end of each heavy set.",
+            "Progress load by 5–10% per week — prioritise increasing weight, not adding reps.",
+            "Mild muscle soreness is normal. Significant Achilles pain or swelling → contact Sonia.",
+            "Recovery day plyos are optional — skip entirely if your tendon feels irritated or sore."
+        ],
+        dayTypes: {
+            heavy: {
+                label: "Heavy Day",
+                schedule: "Mon / Wed / Fri",
+                exerciseSections: [
+                    {
+                        sectionTitle: "Warm-Up",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.3-5 7-5 7 5 7 5-2.3 5-7 5-7-5-7-5z"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
+                        flatExercises: [
+                            { id: 0, name: "Dorsiflexion Stretch with Belt", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Loop a belt or yoga strap around your foot. Pull foot toward you and sustain the stretch until you feel it in the gastroc. Hold for a full 10 seconds.", frequency: "Once per day" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Heavy Achilles Strength",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="5" x2="6" y2="19"></line><line x1="18" y1="5" x2="18" y2="19"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
+                        flatExercises: [
+                            { id: 1, name: "Heavy Double Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Use Smith machine, squat rack, or leg press. Weight should feel challenging — fatiguing by end of each set. Aim for 2 reps left in the tank.", frequency: "3x per week" },
+                            { id: 2, name: "Heavy Single Leg Heel Raises", tag: "calf", details: "3 sets × 2RIR", instructions: "Use machine, Smith machine, or free weights. Add a weight plate for eccentric component if appropriate. Aim for 2 reps left in the tank.", frequency: "3x per week" },
+                            { id: 3, name: "Calf Raise in Lunge, Heel off Box", tag: "calf", details: "2 sets × 2RIR", instructions: "Get into a lunge position with your front foot's heel hanging off the edge of a box. Perform a calf raise from this position, working toward fatigue. The lunge position and hanging heel increase the range of motion and load on the tendon.", frequency: "3x per week" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Lower Body Strength",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`,
+                        flatExercises: [
+                            { id: 4, name: "Goblet Squats", tag: "quad", details: "3 × 10 reps, 25–30 lbs", instructions: "Hold a dumbbell or kettlebell at chest height. Squat down keeping chest up and knees tracking over toes. Drive through heels to stand.", frequency: "3x per week" },
+                            { id: 5, name: "Lunges", tag: "quad", details: "3 × 10 reps, 10 lbs each hand", instructions: "Hold a dumbbell in each hand. Step forward into a lunge, lowering back knee toward the floor. Push back to standing.", frequency: "3x per week" },
+                            { id: 6, name: "Hamstring Curl on Roller", tag: "glute", details: "3 × 15 reps", instructions: "Lie on your back with heels on a foam roller. Lift hips off the ground and curl the roller toward you by bending your knees. Lower with control.", frequency: "3x per week" },
+                            { id: 7, name: "Standing Hinge", tag: "glute", details: "2 × 10 reps", instructions: "Stand hip-width apart. Hinge at the hips pushing them back, keeping a flat back. Lower until you feel a stretch in your hamstrings, then drive hips forward to stand.", frequency: "3x per week" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Accessory",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 12 8 7 18"></polyline></svg>`,
+                        flatExercises: [
+                            { id: 8, name: "Soleus Heel Raises", tag: "calf", details: "2 × 12 reps, 3s tempo", instructions: "Stand with knees deeply bent. In this bent-knee position, rise up onto the ball of your foot to target the soleus (lower calf). Lower slowly over 3 seconds.", frequency: "Heavy days" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Plyometrics",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
+                        flatExercises: [
+                            { id: 9, name: "Single-Leg POGOs", tag: "plyo", details: "20s on / 10s off × 3 rounds", instructions: "Small, light hops on one leg — quick and bouncy, not high. Stay on the ball of your foot. 20 seconds hopping, 10 seconds rest, 3 rounds.", frequency: "3x per week" },
+                            { id: 10, name: "Box Drop & Stick Landing", tag: "plyo", details: "3 × 8", instructions: "Step off a low box and absorb the landing by bending knees and ankles softly. Stick the landing — hold the position for 1–2 seconds. Focus on landing mechanics, not height.", frequency: "3x per week" },
+                            { id: 11, name: "Vertical Height Jump", tag: "plyo", details: "3 × 8 reps", instructions: "Jump as high as you can each rep. Focus on maximal height and explosive take-off. Land softly with knees bent to absorb impact. Reset fully between reps.", frequency: "3x per week" },
+                            { id: 12, name: "Skaters", tag: "plyo", details: "3 × 30 sec", instructions: "Lateral bounds from foot to foot, like a speed skater. Focus on the deceleration when landing each bound — control the landing before pushing off the other direction. Keep hops light and controlled.", frequency: "3x per week" }
+                        ]
+                    }
+                ]
+            },
+            recovery: {
+                label: "Recovery Day",
+                schedule: "Tue / Thu / Sat / Sun",
+                exerciseSections: [
+                    {
+                        sectionTitle: "Mobility",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.3-5 7-5 7 5 7 5-2.3 5-7 5-7-5-7-5z"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
+                        flatExercises: [
+                            { id: 20, name: "Dorsiflexion Stretch with Belt", tag: "ankle", details: "1 × 6 reps, hold 10s each", instructions: "Loop a belt or yoga strap around your foot. Pull foot toward you and sustain the stretch until you feel it in the gastroc. Hold for a full 10 seconds.", frequency: "Once per day" }
+                        ]
+                    },
+                    {
+                        sectionTitle: "Optional Light Plyometrics",
+                        sectionNote: "Only if Achilles feels good — keep easy and springy. Skip entirely if sore.",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
+                        flatExercises: [
+                            { id: 21, name: "Double-Leg POGOs", tag: "plyo", details: "Light, springy", instructions: "Small bouncy hops on both feet. Keep it easy and springy — stop if tendon feels irritated.", frequency: "Optional" },
+                            { id: 22, name: "Skipping", tag: "plyo", details: "Light", instructions: "Light skipping at an easy pace. Focus on rhythm and light ground contact.", frequency: "Optional" },
+                            { id: 23, name: "Light Bouncing Drills", tag: "plyo", details: "Light", instructions: "Any gentle bouncing or hopping that feels easy. Should not leave your tendon fatigued.", frequency: "Optional" }
+                        ]
+                    }
+                ]
+            }
+        },
+        tryThis: [],
+        optionalExtras: []
+    },
+    {
         id: "jun17",
         startDate: "2026-06-17",
         title: "Jun 17 Session",
@@ -1453,7 +1549,8 @@ function getSessionColorClass(sessionId) {
     if (sessionId === 'may20') return 'session-may20';
     if (sessionId === 'may27') return 'session-may27';
     if (sessionId === 'jun17') return 'session-jun17';
-    return 'session-jun17'; // Default for future sessions
+    if (sessionId === 'jul18') return 'session-jul18';
+    return 'session-jul18'; // Default for future sessions
 }
 
 // Get the date range to show in carousel (Jan 12 to today + 7 days)
