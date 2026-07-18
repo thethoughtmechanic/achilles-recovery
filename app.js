@@ -505,6 +505,17 @@ const sessions = [
                         ]
                     },
                     {
+                        sectionTitle: "Plyometrics",
+                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
+                        sectionNote: "Do these first while your nervous system is fresh — power and landing quality drop quickly under fatigue.",
+                        flatExercises: [
+                            { id: 10, name: "Box Drop & Stick Landing", tag: "plyo", details: "3 × 8", instructions: "Step off a low box and absorb the landing by bending knees and ankles softly. Stick the landing — hold the position for 1–2 seconds. Focus on landing mechanics, not height.", frequency: "3x per week" },
+                            { id: 9, name: "Single-Leg POGOs", tag: "plyo", details: "20s on / 10s off × 3 rounds", instructions: "Small, light hops on one leg — quick and bouncy, not high. Stay on the ball of your foot. 20 seconds hopping, 10 seconds rest, 3 rounds.", frequency: "3x per week" },
+                            { id: 11, name: "Vertical Height Jump", tag: "plyo", details: "3 × 8 reps", instructions: "Jump as high as you can each rep. Focus on maximal height and explosive take-off. Land softly with knees bent to absorb impact. Reset fully between reps.", frequency: "3x per week" },
+                            { id: 12, name: "Skaters", tag: "plyo", details: "3 × 30 sec", instructions: "Lateral bounds from foot to foot, like a speed skater. Focus on the deceleration when landing each bound — control the landing before pushing off the other direction.", frequency: "3x per week" }
+                        ]
+                    },
+                    {
                         sectionTitle: "Heavy Achilles Strength",
                         sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="5" x2="6" y2="19"></line><line x1="18" y1="5" x2="18" y2="19"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>`,
                         flatExercises: [
@@ -519,8 +530,8 @@ const sessions = [
                         flatExercises: [
                             { id: 4, name: "Goblet Squats", tag: "quad", details: "3 × 10 reps, 25–30 lbs", instructions: "Hold a dumbbell or kettlebell at chest height. Squat down keeping chest up and knees tracking over toes. Drive through heels to stand.", frequency: "3x per week" },
                             { id: 5, name: "Lunges", tag: "quad", details: "3 × 10 reps, 10 lbs each hand", instructions: "Hold a dumbbell in each hand. Step forward into a lunge, lowering back knee toward the floor. Push back to standing.", frequency: "3x per week" },
-                            { id: 6, name: "Hamstring Curl on Roller", tag: "glute", details: "3 × 15 reps", instructions: "Lie on your back with heels on a foam roller. Lift hips off the ground and curl the roller toward you by bending your knees. Lower with control.", frequency: "3x per week" },
-                            { id: 7, name: "Standing Hinge", tag: "glute", details: "2 × 10 reps", instructions: "Stand hip-width apart. Hinge at the hips pushing them back, keeping a flat back. Lower until you feel a stretch in your hamstrings, then drive hips forward to stand.", frequency: "3x per week" }
+                            { id: 7, name: "Standing Hinge", tag: "glute", details: "2 × 10 reps", instructions: "Stand hip-width apart. Hinge at the hips pushing them back, keeping a flat back. Lower until you feel a stretch in your hamstrings, then drive hips forward to stand.", frequency: "3x per week" },
+                            { id: 6, name: "Hamstring Curl on Roller", tag: "glute", details: "3 × 15 reps", instructions: "Lie on your back with heels on a foam roller. Lift hips off the ground and curl the roller toward you by bending your knees. Lower with control.", frequency: "3x per week" }
                         ]
                     },
                     {
@@ -528,16 +539,6 @@ const sessions = [
                         sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 12 8 7 18"></polyline></svg>`,
                         flatExercises: [
                             { id: 8, name: "Soleus Heel Raises", tag: "calf", details: "2 × 12 reps, 3s tempo", instructions: "Stand with knees deeply bent. In this bent-knee position, rise up onto the ball of your foot to target the soleus (lower calf). Lower slowly over 3 seconds.", frequency: "Heavy days" }
-                        ]
-                    },
-                    {
-                        sectionTitle: "Plyometrics",
-                        sectionIcon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
-                        flatExercises: [
-                            { id: 9, name: "Single-Leg POGOs", tag: "plyo", details: "20s on / 10s off × 3 rounds", instructions: "Small, light hops on one leg — quick and bouncy, not high. Stay on the ball of your foot. 20 seconds hopping, 10 seconds rest, 3 rounds.", frequency: "3x per week" },
-                            { id: 10, name: "Box Drop & Stick Landing", tag: "plyo", details: "3 × 8", instructions: "Step off a low box and absorb the landing by bending knees and ankles softly. Stick the landing — hold the position for 1–2 seconds. Focus on landing mechanics, not height.", frequency: "3x per week" },
-                            { id: 11, name: "Vertical Height Jump", tag: "plyo", details: "3 × 8 reps", instructions: "Jump as high as you can each rep. Focus on maximal height and explosive take-off. Land softly with knees bent to absorb impact. Reset fully between reps.", frequency: "3x per week" },
-                            { id: 12, name: "Skaters", tag: "plyo", details: "3 × 30 sec", instructions: "Lateral bounds from foot to foot, like a speed skater. Focus on the deceleration when landing each bound — control the landing before pushing off the other direction. Keep hops light and controlled.", frequency: "3x per week" }
                         ]
                     }
                 ]
